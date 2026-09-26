@@ -104,7 +104,8 @@ enableRobotsTXT = false
         toc           = true
         readingTime   = true
         [params.article.list]
-            showTags = true
+            # 홈 카드에서는 태그를 안 보여준다. 사이드바 태그 클라우드와 글 화면에는 그대로 있다
+            showTags = false
         [params.article.license]
             # TODO(author): 글 라이선스 표시 여부를 정한다
             enabled = false

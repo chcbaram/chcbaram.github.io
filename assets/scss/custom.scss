@@ -227,3 +227,15 @@
     flex: 1 1 0;
     min-width: 0;
 }
+
+/* 홈 카드의 설명을 제목보다 확실히 작게.
+   테마 기본은 1.75rem(넓은 화면 2rem)이라 제목 2.4rem 과 차이가 적어
+   설명이 카드를 지배한다. 글 화면의 부제는 건드리지 않는다. */
+.article-list .article-subtitle {
+    font-size: 1.6rem;
+    line-height: 1.6;
+
+    @media (min-width: 1024px) {
+        font-size: 1.6rem;
+    }
+}
