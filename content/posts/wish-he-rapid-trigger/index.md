@@ -27,8 +27,6 @@ trigger on did not help; the press still would not hold.
 
 One report, two causes — and an awkward way they interact.
 
-<!-- PHOTO: the 61-key HE board on the desk, keycaps off on one row -->
-
 ## How the decision runs
 
 Every scan, each key gets a depth `d` in counts. `keysTrack()` has two branches.
@@ -165,8 +163,6 @@ never been red proves nothing.
 Both fixes went in on 2026-09-18, flashed and checked on wish61-he, and the issue
 is confirmed resolved.
 
-<!-- PHOTO: terminal running tools/he_test.py, with the two rt tests red -->
-
 ## What it cost
 
 Measured on wish61-he, same procedure both times: flash, `qmk reset`, 60 seconds
@@ -186,8 +182,6 @@ Track grew by 0.84 us, which over 64 cells is 13 ns per cell, about five clocks 
 writing the number down anyway. A 3 % drop for one extra branch is a little much —
 the threshold table also grew by 2 bytes per key, and I have not separated the two.
 
-<!-- PHOTO: via-he web configurator showing the per-key rapid trigger settings -->
-
 ## Still unmeasured
 
 - Whether the press really stood for exactly one scan. The test only checks that it
@@ -195,9 +189,10 @@ the threshold table also grew by 2 bytes per key, and I have not separated the t
 - The 1-3 ms figure comes from the reporter's video, not from my own instruments.
 - Whether 0.05 mm of margin is right. Against 40 counts of peak-to-peak noise it
   looks generous, but I never measured it with a finger on the boundary.
-
-TODO(author): what switch and travel did the reporter have? The diagram draws the
-bottom at 3.50 mm, but the board I test on has 3.4 mm GEON RAW HE switches.
+- Which switch the reporter had. The report does not say, so the depth axis in the
+  diagram above is drawn to a round 3.50 mm; the board I test on travels 3.4 mm.
+  Nothing in the analysis turns on the exact number, but the drawing is not their
+  switch.
 
 ## Links
 
