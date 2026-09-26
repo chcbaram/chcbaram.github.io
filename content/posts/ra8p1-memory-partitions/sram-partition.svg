@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 740 400" width="740" height="400" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
+  <style>
+    .m   { font-size: 12px; font-family: ui-monospace, Menlo, Consolas, monospace; fill: #6b7280; }
+    .b   { font-size: 14px; font-weight: 600; }
+    .s   { font-size: 11.5px; fill: #6b7280; }
+    .ttl { font-size: 15px; font-weight: 700; fill: #374151; }
+    .lbl { font-size: 12px; font-weight: 600; fill: #4b5563; }
+  </style>
+  <rect width="740" height="400" fill="#ffffff"/>
+  <text x="20" y="26" class="ttl">Splitting 1872 KB of SRAM, plus the per-core TCMs</text>
+  <text x="20" y="46" class="s">FSP splits it evenly by default. CPU0 gets the larger share because it owns the display, network and filesystem.</text>
+
+  <text x="20" y="84" class="lbl">SRAM  0x2200_0000 ~ 0x221D_3FFF   (0x001D_4000 = 1872 KB)</text>
+
+  <rect x="20" y="96" width="380" height="56" rx="5" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="34" y="120" class="b" fill="#15803d">CPU0 (Cortex-M85)</text>
+  <text x="34" y="139" class="s">FreeRTOS heap · driver buffers · lwIP pools</text>
+
+  <rect x="400" y="96" width="180" height="56" rx="5" fill="#fce7f3" stroke="#db2777" stroke-width="1.5"/>
+  <text x="414" y="120" class="b" fill="#be185d">CPU1 (M33)</text>
+  <text x="414" y="139" class="s">FreeRTOS heap</text>
+
+  <rect x="580" y="96" width="140" height="56" rx="5" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
+  <text x="594" y="118" class="b" fill="#b45309" font-size="12.5">SHARED</text>
+  <text x="594" y="135" class="s">non-cacheable</text>
+  <text x="594" y="149" class="s">inter-core buffers</text>
+
+  <text x="20" y="196" class="lbl">Per-core TCM — each core sees its own at 0x0000_0000 / 0x2000_0000</text>
+
+  <rect x="20" y="208" width="340" height="76" rx="5" fill="#eff6ff" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="34" y="230" class="b" fill="#1d4ed8">CPU0</text>
+  <text x="34" y="250" class="m">ITCM  0x0000_0000   128 KB</text>
+  <text x="34" y="268" class="m">DTCM  0x2000_0000   128 KB</text>
+
+  <rect x="380" y="208" width="340" height="76" rx="5" fill="#eff6ff" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="394" y="230" class="b" fill="#1d4ed8">CPU1</text>
+  <text x="394" y="250" class="m">CTCM  0x0000_0000    64 KB</text>
+  <text x="394" y="268" class="m">STCM  0x2000_0000    64 KB</text>
+
+  <line x1="20" y1="308" x2="720" y2="308" stroke="#e5e7eb"/>
+  <text x="20" y="332" class="s"><tspan font-weight="600" fill="#4b5563">Cache</tspan> — the Cortex-M85 has a D-cache. Put a shared buffer in cacheable memory and the</text>
+  <text x="20" y="352" class="s">first missed clean/invalidate breaks IPC silently. SHARED is marked non-cacheable through the MPU.</text>
+  <text x="20" y="378" class="s"><tspan font-weight="600" fill="#4b5563">Large buffers</tspan> — framebuffer, camera and audio go to the 32 MB SDRAM at 0x6800_0000, not to SRAM.</text>
+</svg>

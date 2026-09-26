@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 560" width="880" height="560" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
+  <style>
+    .m   { font-size: 12px; font-family: ui-monospace, Menlo, Consolas, monospace; fill: #6b7280; }
+    .b   { font-size: 14px; font-weight: 600; }
+    .s   { font-size: 11.5px; fill: #6b7280; }
+    .ttl { font-size: 15px; font-weight: 700; fill: #374151; }
+    .lbl { font-size: 12px; font-weight: 600; fill: #4b5563; }
+  </style>
+  <defs>
+    <marker id="ap" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#db2777"/>
+    </marker>
+    <marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#9ca3af"/>
+    </marker>
+  </defs>
+  <rect width="880" height="560" fill="#ffffff"/>
+
+  <text x="20" y="26" class="ttl">Planning the 1 MB of MRAM</text>
+  <text x="20" y="46" class="s">The layout once a bootloader exists. Today the CPU0 firmware owns the whole 1 MB from 0x0200_0000.</text>
+
+  <text x="20" y="84" class="lbl">Today</text>
+  <rect x="20" y="94" width="300" height="56" rx="5" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="34" y="118" class="b" fill="#15803d">CPU0 firmware</text>
+  <text x="34" y="138" class="s">the whole 1 MB</text>
+  <text x="306" y="118" class="m" text-anchor="end">0x0200_0000</text>
+
+  <line x1="336" y1="122" x2="374" y2="122" stroke="#9ca3af" stroke-width="1.5" marker-end="url(#ag)"/>
+
+  <text x="396" y="84" class="lbl">Once the bootloader lands</text>
+
+  <rect x="396" y="94" width="300" height="56" rx="5" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5"/>
+  <text x="410" y="118" class="b" fill="#b91c1c">BOOT   128 KB</text>
+  <text x="410" y="138" class="s">vectors + startup + load image of the body</text>
+  <text x="682" y="118" class="m" text-anchor="end">0x0200_0000</text>
+
+  <rect x="396" y="158" width="300" height="56" rx="5" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="410" y="182" class="b" fill="#15803d">CPU0_FW   640 KB</text>
+  <text x="410" y="202" class="s">Cortex-M85 · FreeRTOS</text>
+  <text x="682" y="182" class="m" text-anchor="end">0x0202_0000</text>
+
+  <rect x="396" y="222" width="300" height="56" rx="5" fill="#fce7f3" stroke="#db2777" stroke-width="1.5"/>
+  <text x="410" y="246" class="b" fill="#be185d">CPU1_FW   256 KB</text>
+  <text x="410" y="266" class="s">Cortex-M33 · FreeRTOS</text>
+  <text x="682" y="246" class="m" text-anchor="end">0x020C_0000</text>
+
+  <path d="M760,250 L724,250" fill="none" stroke="#db2777" stroke-width="1.5" marker-end="url(#ap)"/>
+  <text x="768" y="240" class="s" fill="#be185d">CPU1INITVTOR</text>
+  <text x="768" y="256" class="s" fill="#be185d">128 B alignment</text>
+  <text x="768" y="272" class="s" fill="#be185d">low 7 bits dropped</text>
+
+  <path d="M420,152 L420,306" fill="none" stroke="#dc2626" stroke-width="1.5" stroke-dasharray="5 3"/>
+  <path d="M420,306 L490,306" fill="none" stroke="#dc2626" stroke-width="1.5" marker-end="url(#ag)"/>
+
+  <rect x="496" y="286" width="360" height="66" rx="5" fill="#eff6ff" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="510" y="308" class="b" fill="#1d4ed8">ITCM  0x0000_0000  128 KB</text>
+  <text x="510" y="328" class="s">the bootloader body runs here</text>
+  <text x="510" y="344" class="m">.itcm_code_from_flash</text>
+
+  <text x="20" y="310" class="lbl" fill="#b91c1c">MRAM is not dual-bank</text>
+  <text x="20" y="332" class="s">Read and program on the same bank are</text>
+  <text x="20" y="350" class="s">arbitrated, never concurrent. You cannot</text>
+  <text x="20" y="368" class="s">write MRAM while executing from it.</text>
+  <text x="20" y="392" class="s">→ the bootloader body moves to ITCM whole.</text>
+  <text x="20" y="410" class="s">   MRAM keeps only the vectors, startup and</text>
+  <text x="20" y="428" class="s">   the copy table; SystemRuntimeInit() does</text>
+  <text x="20" y="446" class="s">   the copy before main().</text>
+
+  <line x1="20" y1="470" x2="860" y2="470" stroke="#e5e7eb"/>
+  <text x="20" y="492" class="lbl">Hardware constraints</text>
+  <text x="20" y="512" class="s">· CPU0's initial vector at 0x0200_0000 is fixed, so the bootloader has to take the front.</text>
+  <text x="20" y="530" class="s">· MRAM forces no partition alignment. The 32-byte programming unit is the practical floor; startup area select uses 8/16/32 KB.</text>
+  <text x="20" y="550" class="s">· The option_setting_* sections (OFS/BPS/SAS/OTP) belong to the bootloader alone — two images would write the same address twice.</text>
+</svg>
