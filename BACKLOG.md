@@ -80,7 +80,7 @@
 | **재료 확인됨** | 자석 위치를 전압으로 읽기 — ADC 스캔 | wish-he | 홀 센서 스캔 구조 | `05-adc-scan.md` (1.9k · 6절) |
 | **재료 확인됨** | 자속에서 거리로 — 스위치 곡선 | wish-he | 데이터시트 두 점으로 거리 곡선을 만드는 모델 | `15-distance-curve.md` (2.3k · 13절) · `he-magnet-model.md` (1.8k) |
 | **재료 확인됨** | 키가 눌렸다고 판정하기 | wish-he | 입력 지점, 데드존, 보정 | `06-key-decision.md` (1.2k · 7절) · 그림 `keys-pipeline.svg` |
-| **초안** | A Ghost Input Above the Actuation Point, and the Two Bugs Under It | wish-he | 되돌린 거리로 떼는 판정. **실제로 겪은 유령 입력 버그가 이슈 문서로 남아 있다** | `13-rapid-trigger.md` (2.1k · 11절) · `issues/002-rapid-trigger-ghost-input.md` · 그림 `issues/images/002-ghost-pulse.svg` `002-rt-window.svg` |
+| **발행됨** | [A Ghost Input Above the Actuation Point, and the Two Bugs Under It](https://chcbaram.github.io/posts/wish-he-rapid-trigger/) | wish-he | 되돌린 거리로 떼는 판정. **실제로 겪은 유령 입력 버그가 이슈 문서로 남아 있다** | `13-rapid-trigger.md` (2.1k · 11절) · `issues/002-rapid-trigger-ghost-input.md` · 그림 `issues/images/002-ghost-pulse.svg` `002-rt-window.svg` |
 | **재료 확인됨** | 지연 시간을 실제로 재기 | wish-he | 스캔 주기, HID 동기화, 측정 결과 | `18-latency.md` (1.8k · 9절) · `12-scan-speed.md` (0.8k) · `16-hid-sync.md` (1.0k) · 그림 `issues/images/001-report-gate.svg` |
 | **재료 확인됨** | LED 전류 한계와 싸우기 | wish-he | RGB 매트릭스 전류 제한 | `14-led-limiter.md` (3.4k · 13절) |
 | **재료 확인됨** | 순정 부트로더 위에 얹기 | wish-he | 보드에 원래 있던 부트로더를 그대로 두고 앱 자리만 쓴다. 언제든 순정 복구 | `01-boot-on-iap.md` (0.5k) · `09-iap-updater.md` (1.1k) |
