@@ -45,6 +45,39 @@
 | **확인 필요** | FreeRTOS 위에서 Bluefruit 의 `delay()` 와 `Scheduler.startLoop()` 맞추기 | 호환을 위해 스케줄러 동작을 어떻게 맞췄는지 | 코어 소스와 커밋 이력 |
 | **확인 필요** | 0.1.0 에서 0.4.0 까지 | 릴리스별로 무엇이 추가됐는지 | `gh release list`, 커밋 이력 |
 
+## WISH HE — wish-he (펌웨어) + via-he (설정 도구)
+
+두 저장소가 한 제품이다. 시리즈는 **`WISH HE`** 하나로 묶고, `projects` 로 어느 저장소
+이야기인지 나눈다. 상용 홀이펙트 키보드(Geonworks VENOM60HE 7U / EverGlide AE61 Pro)에
+올리는 커스텀 펌웨어와, 그것을 브라우저에서 설정하는 VIA 포크다.
+
+핵심 컨셉 한 줄: **QMK 를 바꾸지 않는다.** 키 판정만 홀이펙트로 바꿔 끼워서
+레이어·매크로·탭홀드와 VIA 설정을 하나도 잃지 않는다.
+
+> ⚠ `via-he` 는 이미 `chcbaram.github.io/via-he/` 에 프로젝트 페이지로 떠 있다.
+> 블로그 저장소의 `content/` 최상위나 `static/` 에 `via-he` 라는 이름을 만들지 않는다.
+
+| 상태 | 제목 (가제) | 저장소 | 무엇을 다루나 | 근거 |
+| --- | --- | --- | --- | --- |
+| **재료 확인됨** | QMK 를 바꾸지 않고 그 아래에 홀이펙트를 끼우기 | wish-he | matrix 자리에 HE 판정 결과를 넣어 QMK 위 로직을 그대로 두는 방식. 시리즈의 출발점 | `README.md` (8.2k) · `10-qmk.md` (1.3k) · 다이어그램 `docs/images/qmk-he-stack.svg` |
+| **재료 확인됨** | 자석 위치를 전압으로 읽기 — ADC 스캔 | wish-he | 홀 센서 스캔 구조 | `05-adc-scan.md` (1.9k · 6절) |
+| **재료 확인됨** | 자속에서 거리로 — 스위치 곡선 | wish-he | 데이터시트 두 점으로 거리 곡선을 만드는 모델 | `15-distance-curve.md` (2.3k · 13절) · `he-magnet-model.md` (1.8k) |
+| **재료 확인됨** | 키가 눌렸다고 판정하기 | wish-he | 입력 지점, 데드존, 보정 | `06-key-decision.md` (1.2k · 7절) |
+| **재료 확인됨** | 래피드 트리거와 유령 입력 | wish-he | 되돌린 거리로 떼는 판정. **실제로 겪은 유령 입력 버그가 이슈 문서로 남아 있다** | `13-rapid-trigger.md` (2.1k · 11절) · `issues/002-rapid-trigger-ghost-input.md` |
+| **재료 확인됨** | 지연 시간을 실제로 재기 | wish-he | 스캔 주기, HID 동기화, 측정 결과 | `18-latency.md` (1.8k · 9절) · `12-scan-speed.md` (0.8k) · `16-hid-sync.md` (1.0k) |
+| **재료 확인됨** | LED 전류 한계와 싸우기 | wish-he | RGB 매트릭스 전류 제한 | `14-led-limiter.md` (3.4k · 13절) |
+| **재료 확인됨** | 순정 부트로더 위에 얹기 | wish-he | 보드에 원래 있던 부트로더를 그대로 두고 앱 자리만 쓴다. 언제든 순정 복구 | `01-boot-on-iap.md` (0.5k) · `09-iap-updater.md` (1.1k) |
+| **재료 확인됨** | 설정을 어디에 저장하나 | wish-he | 프로파일 4벌, 저장 구조 | `08-storage.md` (1.3k · 10절) |
+| **재료 확인됨** | 두 번째 보드로 옮기기 | wish-he | WISH60 에서 WISH61(AE61 Pro)로 | `wish61-he.md` (2.6k · 6절) |
+| **재료 확인됨** | 브라우저가 키보드에 직접 붙는다 — WebHID VIA 포크 | via-he | VIA 포크에 HE 전용 기능을 더한 것. 설치 없이 크롬에서 설정하고 펌웨어까지 굽는다 | via-he `README.md` · wish-he `11-via.md` (3.0k · 11절) |
+| **확인 필요** | 무엇을 어떻게 검증했나 | wish-he | 검증 절차 전반. **6.3k 단어라 한 편에 안 들어간다 — 쪼갤 각도를 먼저 정한다** | `17-verification.md` (6.3k) · `checklist.md` (2.1k) |
+
+> 쓰는 순서는 위에서부터가 자연스럽다. 컨셉 → 읽기(ADC) → 거리 → 판정 → 래피드 트리거
+> 순으로 가야 뒤 글이 앞 글을 전제할 수 있다.
+>
+> `00-hardware.md`(1.4k), `02-console.md`, `03-reset-boot.md`, `04-ws2812.md`, `07-keyboard.md` 는
+> 단독으로 쓰기에 얇다. 관련 글의 도입부로 녹인다.
+
 ## baram-term
 
 | 상태 | 제목 (가제) | 무엇을 다루나 | 근거 |
@@ -57,5 +90,6 @@
 
 ## 아직 정하지 않은 것
 
-- qmk-link, wish-he, via-he — 프로젝트 페이지부터 만들지 정한다
+- qmk-link — 프로젝트 페이지부터 만들지 정한다
+- `content/projects/wish-he/_index.md` 와 `via-he/_index.md` — 첫 글 쓸 때 같이 만든다
 - 한국어판을 붙일 글 고르기. 지금은 nRF54L 글만 `index.ko.md` 가 있다
