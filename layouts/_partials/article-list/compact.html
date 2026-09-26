@@ -1,16 +1,29 @@
 {{- /*
-    테마의 같은 이름 partial 을 덮어쓴다.
-    바꾼 것은 한 가지: taxonomy term(프로젝트 · 태그 · 시리즈)이면 제목 옆에 글 수를 붙인다.
-    테마 원본은 description 이 없을 때만 "N pages" 를 보여주는데,
-    우리 프로젝트 term 에는 설명이 있어서 글 수가 영영 안 보인다.
+    테마의 같은 이름 partial 을 덮어쓴다. 바꾼 것은 두 가지.
+
+    1. taxonomy term(프로젝트 · 태그 · 시리즈)이면 제목 옆에 글 수를 붙인다.
+       테마 원본은 description 이 없을 때만 "N pages" 를 보여주는데,
+       우리 프로젝트 term 에는 설명이 있어서 글 수가 영영 안 보인다.
+
+    2. 프로젝트 term 중 최근에 글이 올라온 것에 NEW 배지를 붙인다.
+       term 의 .Date 는 그 안에서 가장 최근 글의 날짜다.
+       기준 일수는 hugo.toml 의 params.recentDays (없으면 14일).
+       정적 사이트라 빌드 시점 기준이다 — 푸시할 때마다 다시 계산된다.
 */ -}}
 {{- $IsTerm := in .Kind "term" -}}
+{{- $isNew := false -}}
+{{- if and $IsTerm (eq .Section "projects") (not .Date.IsZero) -}}
+    {{- $days := site.Params.recentDays | default 14 -}}
+    {{- $age := div (sub now.Unix .Date.Unix) 86400 -}}
+    {{- $isNew = lt $age $days -}}
+{{- end -}}
 <article>
     <a href="{{ .RelPermalink }}">
         <div class="article-details">
             <h2 class="article-title">
                 {{- .Title -}}
                 {{- if $IsTerm }}<span class="term-count" title="{{ T `list.page` (len .Pages) }}">{{ len .Pages }}</span>{{ end -}}
+                {{- if $isNew }}<span class="term-new" title="{{ .Date | time.Format site.Params.dateFormat.published }}">{{ T "recentlyUpdated" }}</span>{{ end -}}
             </h2>
 
             {{- $description := .Params.description -}}

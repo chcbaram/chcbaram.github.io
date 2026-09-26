@@ -121,3 +121,18 @@
     text-align: center;
     vertical-align: middle;
 }
+
+/* 최근 글이 올라온 프로젝트 표시 */
+.article-title .term-new {
+    display: inline-block;
+    margin-inline-start: 8px;
+    padding: 0 8px;
+    border-radius: 11px;
+    background: var(--accent-color);
+    color: var(--accent-color-text);
+    font-size: 1.1rem;
+    font-weight: bold;
+    letter-spacing: 0.06em;
+    line-height: 20px;
+    vertical-align: middle;
+}

@@ -74,6 +74,8 @@ enableRobotsTXT = false
 [params]
     # Stack 기본값은 ["post"](단수). 빠뜨리면 홈에 글이 안 뜬다.
     mainSections   = ["posts"]
+    # 프로젝트 목록에서 NEW 배지를 붙일 기준 일수
+    recentDays     = 14
     rssFullContent = true
     SortBy         = "date"
 
