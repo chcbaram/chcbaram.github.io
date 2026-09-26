@@ -8,7 +8,7 @@ series: ["nRF54L Arduino Core"]
 repo: "https://github.com/chcbaram/baram-nrf54-arduino"
 image: "01-software-stack.png"
 ai_assisted: true
-naver_url: ""
+naver_url: "https://blog.naver.com/chcbaram/224404179335"
 draft: false
 ---
 
