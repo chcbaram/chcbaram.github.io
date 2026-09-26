@@ -69,3 +69,39 @@
         }
     }
 }
+
+/* 시리즈 목록 (테마에 없는 요소) */
+.series-box {
+    margin: 0 var(--card-padding) var(--card-padding);
+    padding: 14px 18px;
+    border-radius: var(--card-border-radius);
+    background: var(--body-background);
+
+    .series-box-title {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin: 0 0 8px;
+        font-size: 1.5rem;
+
+        a { color: var(--card-text-color-main); }
+    }
+
+    .series-box-count {
+        padding: 1px 7px;
+        border-radius: 10px;
+        background: var(--card-background);
+        font-size: 1.2rem;
+        color: var(--card-text-color-tertiary);
+    }
+
+    .series-box-list {
+        margin: 0;
+        padding-inline-start: 20px;
+        font-size: 1.4rem;
+        color: var(--card-text-color-secondary);
+
+        li { margin: 3px 0; }
+        li.current > span { font-weight: bold; color: var(--card-text-color-main); }
+    }
+}

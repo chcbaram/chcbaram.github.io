@@ -4,7 +4,7 @@ date: 2026-09-27T03:33:11+09:00
 description: "How I structure firmware so the application survives a change of MCU, why the compiler cannot enforce that rule, and the script that does — checked against the first milestone on a Renesas RA8P1 board."
 projects: ["titan-mini"]
 tags: ["ra8p1", "renesas", "cortex-m85", "dual-core", "firmware", "cmake"]
-series: []
+series: ["Titan Mini (RA8P1)"]
 repo: "https://github.com/chcbaram/titan-mini"
 image: "01.jpg"
 ai_assisted: true

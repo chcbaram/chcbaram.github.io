@@ -5,4 +5,5 @@
     {{ $wrappedTable := printf "<div class=\"table-wrapper\">${1}</div>" }}
     {{ .Content | replaceRE "(<table>(?:.|\n)+?</table>)" $wrappedTable | safeHTML }}
 </section>
+{{ partial "article/series-box.html" . }}
 {{ partial "article/ai-note.html" . }}

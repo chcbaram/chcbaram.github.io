@@ -1,0 +1,26 @@
+{{- /* series 에 속한 글이면 같은 시리즈의 글 목록을 보여준다.
+       Stack 은 tags 와 categories 만 표시하므로 직접 붙인다.
+       경로를 문자열로 만들지 않고 .GetTerms 로 term 페이지를 직접 받는다. */ -}}
+{{- with .GetTerms "series" -}}
+    {{- $term := index . 0 -}}
+    {{- $pages := $term.Pages -}}
+    {{- if gt (len $pages) 1 -}}
+        <aside class="series-box">
+            <h3 class="series-box-title">
+                <a href="{{ $term.RelPermalink }}">{{ $term.LinkTitle }}</a>
+                <span class="series-box-count">{{ len $pages }}</span>
+            </h3>
+            <ol class="series-box-list">
+                {{- range $pages.ByDate }}
+                    <li{{ if eq .RelPermalink $.RelPermalink }} class="current"{{ end }}>
+                        {{- if eq .RelPermalink $.RelPermalink -}}
+                            <span>{{ .Title }}</span>
+                        {{- else -}}
+                            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+                        {{- end -}}
+                    </li>
+                {{- end }}
+            </ol>
+        </aside>
+    {{- end -}}
+{{- end -}}

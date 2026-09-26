@@ -93,6 +93,7 @@
 ```
 chcbaram.github.io/
 ├── CLAUDE.md
+├── BACKLOG.md                  # 글감 목록 — 여기서 다음 글을 고른다
 ├── hugo.toml
 ├── .claude/commands/
 │   └── write-post.md           # /write-post 커스텀 명령
@@ -309,11 +310,13 @@ draft: true
 
 ## 발행 순서 (운영)
 
+0. `BACKLOG.md` 에서 다음 글을 고른다.
 1. Claude Code 에서 `/write-post <저장소> [주제]` 를 실행한다.
 2. 초안의 `TODO(author)` 를 채우고, 동기나 경험을 한두 문단 보탠다.
 3. `tools/import_photos.py` 로 사진을 넣고 `<!-- PHOTO: -->` 자리를 채운다.
 4. `hugo server` 로 확인하고 `draft: false` 로 바꾼 뒤 push 한다.
 5. 필요하면 네이버에 한국어 소개 글을 올리고, 영어 글의 `naver_url` 을 채운다.
+6. `BACKLOG.md` 의 그 줄을 **발행됨** 으로 바꾸고 주소를 적는다. 줄을 지우지 않는다.
 
 ## 나에게 받아야 할 것
 
