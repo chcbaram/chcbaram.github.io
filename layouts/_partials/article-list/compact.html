@@ -45,9 +45,13 @@
                     {{- if or $IsTerm .Date.IsZero -}}
                         <span class="article-description">{{- $description -}}</span>
                     {{- else if not .Date.IsZero -}}
-                        <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
-                            {{- .Date | time.Format .Site.Params.dateFormat.published -}}
-                        </time>
+                        {{- /* .article-meta 는 flex column 이다. 날짜와 (JS 가 붙이는) 댓글 수를
+                               한 줄에 두려면 테마의 .inline-meta 로 감싸야 한다. */ -}}
+                        <div class="inline-meta">
+                            <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
+                                {{- .Date | time.Format .Site.Params.dateFormat.published -}}
+                            </time>
+                        </div>
                     {{- end }}
                 </footer>
             {{- end -}}
