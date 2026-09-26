@@ -31,7 +31,7 @@
 | 분류 | `projects` (어느 저장소 이야기인지) + `tags` (기술 키워드) |
 | 글 URL | `/posts/<slug>/`. 분류를 바꿔도 주소가 바뀌지 않는다 |
 | 글 형식 | 글마다 폴더(page bundle): `index.md` + 사진 |
-| 외관 | Stack 테마 기본 그대로. 글꼴만 D2Coding 으로 바꾼다 |
+| 외관 | Stack 테마 기본 그대로. 코드 글꼴만 D2Coding 으로 바꾼다 |
 
 ### 카테고리를 두지 않는 이유
 
@@ -53,7 +53,8 @@
 ### 외관
 
 - **테마 기본 모양을 바꾸지 않는다.** 색, 카드, 모서리, 그림자는 Stack 이 주는 그대로 쓴다.
-- 글꼴만 D2Coding (SIL OFL 1.1) 으로 바꾼다. `layouts/_partials/head/custom.html` 에서 jsDelivr 의 subset 판(약 350KB)을 불러오고, `assets/scss/custom.scss` 에서 글꼴 변수만 덮어쓴다.
+- **코드 글꼴만** D2Coding (SIL OFL 1.1) 으로 바꾼다. `layouts/_partials/head/custom.html` 에서 jsDelivr 의 subset 판(약 350KB)을 불러오고, `assets/scss/custom.scss` 에서 `--code-font-family` 만 덮어쓴다.
+- **본문에는 고정폭을 쓰지 않는다.** 산문 가독성이 떨어지고, 굵기 대비가 작아 제목과 본문의 위계가 약해진다.
 - `assets/scss/custom.scss` 에는 글꼴 변수와, 테마에 없는 요소(저장소 상자, AI 표시)의 최소 스타일만 둔다. 터미널 풍이나 PC 통신 풍 꾸밈은 넣지 않는다. 일관성이 깨진다.
 
 ### 글 재료와 공개 범위

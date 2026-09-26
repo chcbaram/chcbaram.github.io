@@ -1,12 +1,11 @@
 /*
-*   테마는 Stack 기본 그대로 쓴다. 여기서는 글꼴만 바꾸고,
+*   테마는 Stack 기본 그대로 쓴다. 코드 글꼴만 D2Coding 으로 바꾸고,
 *   저장소 상자와 AI 표시(테마에 없는 것)의 최소 스타일만 둔다.
+*   본문은 테마 기본 글꼴을 쓴다. 고정폭은 산문 가독성과 제목 위계를 떨어뜨린다.
 */
 
 :root {
-    --base-font-family: "D2Coding", var(--sys-font-family), monospace;
     --code-font-family: "D2Coding", Menlo, Monaco, Consolas, monospace;
-    --article-font-family: var(--base-font-family);
 }
 
 /* 글 상단 저장소 링크 상자 */
