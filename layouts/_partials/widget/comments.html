@@ -1,0 +1,11 @@
+{{- /* 최근 댓글 위젯. 내용은 assets/js/comments.js 가 채운다.
+       댓글이 하나도 없으면 hidden 인 채로 남아 아무것도 안 보인다. */ -}}
+{{- if site.Params.comments.enabled -}}
+<section class="widget archives" id="recent-comments" hidden>
+    <div class="widget-icon">
+        {{ partial "helper/icon" "messages" }}
+    </div>
+    <h2 class="widget-title section-title">{{ T "recentComments" }}</h2>
+    <ol class="recent-comments-list"></ol>
+</section>
+{{- end -}}

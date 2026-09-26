@@ -1,0 +1,19 @@
+{{- /* 댓글 수 스크립트. giscus 가 켜져 있을 때만 넣는다. */ -}}
+{{- if site.Params.comments.enabled -}}
+    {{- with site.Params.comments.giscus.repo -}}
+        <script>
+            window.__commentsCfg = {
+                repo: {{ . }},
+                ttl: {{ site.Params.commentsCacheSeconds | default 300 }},
+                limit: 5,
+                label: {{ T "commentsCount" }},
+                viewOnGitHub: {{ T "viewOnGitHub" }},
+                {{- /* 글 제목은 테마가 이미 만드는 검색 색인에서 가져온다 */ -}}
+                {{- $search := first 1 (where site.Pages "Layout" "==" "search") -}}
+                searchIndex: {{ with $search }}{{ with (index . 0).OutputFormats.Get "json" }}{{ .RelPermalink }}{{ else }}""{{ end }}{{ else }}""{{ end }}
+            };
+        </script>
+        {{- $js := resources.Get "js/comments.js" | minify | fingerprint -}}
+        <script src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}" defer></script>
+    {{- end -}}
+{{- end -}}

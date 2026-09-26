@@ -163,3 +163,52 @@
     border-inline-start: 1px solid var(--card-separator-color);
     color: var(--card-text-color-tertiary);
 }
+
+/* 댓글 수 배지 (assets/js/comments.js 가 붙인다) */
+.comment-count {
+    margin-inline-start: 10px;
+    padding-inline-start: 10px;
+    border-inline-start: 1px solid var(--card-separator-color);
+    color: var(--card-text-color-tertiary);
+    font-size: 1.3rem;
+    white-space: nowrap;
+
+    &:hover {
+        color: var(--accent-color);
+    }
+}
+
+/* 최근 댓글 위젯 */
+#recent-comments .recent-comments-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    li {
+        display: flex;
+        align-items: baseline;
+        gap: 8px;
+        padding: 6px 0;
+        border-bottom: 1px solid var(--card-separator-color);
+        font-size: 1.4rem;
+
+        &:last-child { border-bottom: none; }
+    }
+
+    a {
+        flex: 1;
+        color: var(--card-text-color-secondary);
+        word-break: break-all;
+
+        &:hover { color: var(--accent-color); }
+    }
+}
+
+.recent-comments-count {
+    flex: none;
+    padding: 0 7px;
+    border-radius: 10px;
+    background: var(--body-background);
+    color: var(--card-text-color-tertiary);
+    font-size: 1.2rem;
+}
