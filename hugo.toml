@@ -1,8 +1,22 @@
 baseURL                = "https://chcbaram.github.io/"
 title                  = "Baram"
-locale                 = "en"   # Hugo 0.158 에서 languageCode 는 deprecated
-defaultContentLanguage = "en"
-hasCJKLanguage         = false
+defaultContentLanguage       = "en"
+defaultContentLanguageInSubdir = false   # 영어는 /, 한국어는 /ko/
+hasCJKLanguage               = true      # 한국어 글의 요약·글자수 계산용
+
+[languages]
+    [languages.en]
+        label        = "English"
+        locale       = "en"
+        weight       = 1
+        title        = "Baram"
+    [languages.ko]
+        label        = "한국어"
+        locale       = "ko"
+        weight       = 2
+        title        = "Baram"
+        [languages.ko.params.sidebar]
+            subtitle = "펌웨어와 하드웨어, 그리고 그 주변 도구들."
 
 # robots.txt 는 static/robots.txt 를 쓴다. 둘 다 켜면 충돌한다.
 enableRobotsTXT = false
@@ -136,32 +150,66 @@ enableRobotsTXT = false
     [[params.widgets.page]]
         type = "toc"
 
-[[menu.social]]
+# ── 메뉴 ──────────────────────────────────────────────
+# 언어별로 나눠 둔다. 루트에 [[menu.*]] 로 두면 한국어 쪽도 영어 라벨이 나온다.
+# URL 대신 pageRef 를 쓰면 언어 접두사(/ko/)가 자동으로 붙는다.
+
+[[languages.en.menus.social]]
     identifier = "github"
     name       = "GitHub"
     url        = "https://github.com/chcbaram"
-    [menu.social.params]
+    [languages.en.menus.social.params]
         icon = "brand-github"
 
-[[menu.social]]
+[[languages.en.menus.social]]
     identifier = "naver"
     name       = "Naver Blog"
     url        = "https://blog.naver.com/chcbaram"
-    [menu.social.params]
+    [languages.en.menus.social.params]
         icon = "link"
 
-[[menu.main]]
+[[languages.en.menus.main]]
     identifier = "projects"
     name       = "Projects"
-    url        = "/projects/"
+    pageRef    = "/projects"
     weight     = -80
-    [menu.main.params]
+    [languages.en.menus.main.params]
         icon = "categories"
 
-[[menu.main]]
+[[languages.en.menus.main]]
     identifier = "tags"
     name       = "Tags"
-    url        = "/tags/"
+    pageRef    = "/tags"
     weight     = -75
-    [menu.main.params]
+    [languages.en.menus.main.params]
+        icon = "tag"
+
+[[languages.ko.menus.social]]
+    identifier = "github"
+    name       = "GitHub"
+    url        = "https://github.com/chcbaram"
+    [languages.ko.menus.social.params]
+        icon = "brand-github"
+
+[[languages.ko.menus.social]]
+    identifier = "naver"
+    name       = "네이버 블로그"
+    url        = "https://blog.naver.com/chcbaram"
+    [languages.ko.menus.social.params]
+        icon = "link"
+
+[[languages.ko.menus.main]]
+    identifier = "projects"
+    name       = "프로젝트"
+    pageRef    = "/projects"
+    weight     = -80
+    [languages.ko.menus.main.params]
+        icon = "categories"
+
+[[languages.ko.menus.main]]
+    identifier = "tags"
+    name       = "태그"
+    pageRef    = "/tags"
+    weight     = -75
+    [languages.ko.menus.main.params]
         icon = "tag"

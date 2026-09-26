@@ -47,3 +47,25 @@
         margin: 4px 0;
     }
 }
+
+/*
+*   목록 페이지(/projects/, /tags/, 각 term 페이지)에서
+*   오른쪽 Search 상자를 왼쪽 섹션 카드와 같은 줄, 같은 높이로 맞춘다.
+*   - 섹션 제목(h3) 높이만큼 내려서 위를 맞추고
+*   - 안쪽 여백을 늘려 높이를 맞춘다. 보이는 상자는 form 이 아니라 input 이다.
+*   사이드바가 보이는 lg 이상에서만 적용한다.
+*/
+@media (min-width: 1024px) {
+    body:has(.section-card) .right-sidebar .search-form.widget {
+        margin-top: 28px;
+
+        label {
+            top: calc(var(--spacing-sm) + 19px);
+        }
+
+        input {
+            padding-top: calc(var(--spacing-2xl) + 19px);
+            padding-bottom: calc(var(--spacing-md) + 19px);
+        }
+    }
+}

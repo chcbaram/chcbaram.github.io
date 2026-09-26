@@ -80,7 +80,8 @@ def main():
         return 2
 
     errors, warnings, infos, checked = [], [], [], 0
-    for path in sorted(POSTS.rglob("index.md")):
+    # 다국어: index.md 와 index.<lang>.md 를 모두 본다
+    for path in sorted(POSTS.rglob("index*.md")):
         if path.name.startswith("_"):
             continue
         fm, _ = front_matter(path.read_text(encoding="utf-8"))
