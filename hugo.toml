@@ -109,17 +109,26 @@ enableRobotsTXT = false
         default = "auto"
 
     [params.comments]
-        # 단계 4: giscus 설정값을 받으면 enabled = true 로 바꾼다
+        # 켜기 전에 두 가지가 필요하다 (둘 다 GitHub 웹에서 사람이 해야 한다):
+        #   1. 저장소 Settings → General → Features → Discussions 체크
+        #   2. giscus 앱 설치 — https://github.com/apps/giscus
+        # 그다음 아래 category / categoryID 를 채우고 enabled = true 로 바꾼다.
         enabled  = false
         provider = "giscus"
         [params.comments.giscus]
-            repo             = ""
-            repoID           = ""
-            category         = ""
-            categoryID       = ""
+            repo             = "chcbaram/chcbaram.github.io"
+            repoID           = "R_kgDOUtNr7Q"
+            category         = ""    # 예: "Announcements"
+            categoryID       = ""    # Discussions 를 켠 뒤 채운다
             mapping          = "pathname"
+            strict           = "1"
             reactionsEnabled = "1"
             emitMetadata     = "0"
+            inputPosition    = "bottom"
+            lightTheme       = "light"
+            darkTheme        = "dark"
+            lang             = "en"
+            loading          = "lazy"
 
     [params.opengraph]
         [params.opengraph.twitter]
