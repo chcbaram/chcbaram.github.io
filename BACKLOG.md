@@ -11,8 +11,8 @@
 영문 글에 넣을 때는 SVG 를 글 폴더에 복사하고 `<text>` 의 라벨만 영어로 바꾼다.
 내용은 바꾸지 않는다. 한국어판(`index.ko.md`)은 원본을 그대로 쓴다.
 
-가진 것: **titan-mini 7장 · wish-he SVG 6장 + PNG 1장.** qmk-link 와 via-he 에는
-글에 쓸 다이어그램이 없다 — 필요하면 새로 그리거나 사진으로 대신한다.
+가진 것: **stm32h7-gfx 10장 · titan-mini 7장 · wish-he SVG 6장 + PNG 1장.**
+qmk-link · via-he · HG-T113-S3 에는 글에 쓸 다이어그램이 없다 — 새로 그리거나 사진으로 대신한다.
 
 ## 상태
 
@@ -118,6 +118,52 @@ RP2350A 위에서 PIO USB 호스트로 키보드를 받아 QMK 를 태우고, PC
 
 > `01-led.md`, `02-cli-cdc.md`, `08-finalize.md`, `setup-*.md` 는 단독으로 쓰기에 얇거나
 > 설치 안내라서 글감이 아니다. `roadmap.md` (0.7k) 는 앞으로 할 것이므로 글의 마지막 절 재료다.
+
+## stm32h7-gfx — SWD 오프라인 다운로더
+
+시리즈 **`SWD Downloader`**. PC 도 ST-LINK 도 없이 보드 하나로 다른 MCU 에 펌웨어를
+굽는 장비다. STM32H723(550 MHz, 480×480 터치 LCD, LVGL)이 SD 카드에서 펌웨어를 골라
+타깃에 쓰고 검증한다. 배선은 **SWCLK = PE3, SWDIO = PC10 둘뿐**이다.
+
+저장소의 `firmware/stm32h7-lvgl/docs/` 가 이미 13편짜리 연재로 정리돼 있고 각 편에
+제목까지 붙어 있다. **그림도 SVG 10장**으로 갖춰져 있다 (`docs/images/`).
+아래는 글 길이에 맞춰 묶은 것이다.
+
+| 상태 | 제목 (가제) | 무엇을 다루나 | 근거 |
+| --- | --- | --- | --- |
+| **재료 확인됨** | 선 두 가닥으로 남의 MCU 와 대화하기 | SWD 프로토콜, GPIO 비트뱅잉, turnaround, MODER 캐싱, **내장 로직 애널라이저로 간헐 비트 오류를 잡은 이야기** | `01-swd-transport.md` (1.3k · 4절) · 그림 `swd-layers.svg` `swd-transaction.svg` |
+| **재료 확인됨** | 타깃 메모리를 읽고, 코어를 세우고, 내 코드를 돌리기 | ADIv5 DP/AP, MEM-AP, posted read 와 1 KB TAR 랩 함정, halt/run/step, 함수 호출 규약을 SWD 로 흉내내기 | `02-dap-memory.md` (0.4k) + `03-debug-core.md` (0.3k) + `04-algo-runner.md` (0.5k) — **셋을 묶어야 한 편이 된다** |
+| **재료 확인됨** | 플래시 알고리즘을 어디서 구하나 | CMSIS-Pack `.FLM` 포맷, 검증, SD 카드 배치 | `05-flash-algorithm.md` (1.1k · 6절) · 그림 `flm-layout.svg` `algo-layer.svg` |
+| **재료 확인됨** | ELF 파서를 펌웨어에 넣기 | 스트리밍 ELF32 파서, 재배치, 타깃 RAM 로드 | `06-elf-loader.md` (0.8k · 6절) |
+| **재료 확인됨** | 첫 굽기 — 그리고 타깃을 한 번 죽였다 | `FlashDevice` 바인딩, 파일 굽기, **링크를 잃고 복구한 과정** | `07-first-burn.md` (1.0k · 7절) |
+| **재료 확인됨** | 얼마나 빠른가 | pyOCD · ST 도구와 비교, 이중 버퍼링, 병목 분석 | `08-performance.md` (0.9k · 8절) · 그림 `double-buffer.svg` |
+| **재료 확인됨** | 펌웨어 파일 세 가지 | `.bin` / `.elf` / Intel HEX, 주소는 어디서 오나 | `09-image-format.md` (1.1k · 7절) · 그림 `image-format.svg` |
+| **재료 확인됨** | ST 로더를 빌려 쓰다 | `.stldr` 지원, 알고리즘 계층 분리, **ST 도구보다 빨라진 지점** | `10-stldr.md` (1.1k · 9절) |
+| **재료 확인됨** | 인자 네 개를 하나로 — 디바이스 DB | 자동 판별, `fw.txt` 잡 | `11-device-db.md` (1.2k · 9절) · 그림 `device-db.svg` |
+| **재료 확인됨** | 외부 QSPI 에 굽기 | AP 선택, DPv2 TARGETID, 외부 로더, MPU 사건 | `12-external-loader.md` (1.5k · 9절) · 그림 `external-loader.svg` |
+| **확인 필요** | 화면을 붙이다 | LVGL 앱, 워커 분리, **손으로 만져야만 보이는 버그 11개**. 2.1k 라 쪼갤 각도를 먼저 정한다 | `13-gui.md` (2.1k · 9절) · 그림 `gui-pages.svg` |
+
+> 이 시리즈의 첫 글은 **1편**이 맞다. "ARM 표준이라 벤더가 바뀌어도 같은 코드가 돈다"
+> 는 계층 이야기가 시리즈 전체의 전제라서, 그걸 먼저 세워 두면 뒤 글이 짧아진다.
+>
+> ⚠ 로컬 클론이 origin 보다 뒤처져 있었다(2026-09-27 확인). 쓰기 전에 `git fetch` 하고
+> `git show origin/main:<path>` 로 읽는다.
+
+## HG-T113-S3
+
+Allwinner T113-S3 보드(HiGenis HG-T113-S3-KIT)의 펌웨어 전부. U-Boot · 리눅스 커널 ·
+rootfs 를 빌드해 SPI NOR 에 굽고, 그 위에서 LVGL 앱을 돌린다. 호스트에 필요한 것은
+**docker 하나**이고, 보드와 PC 는 **USB-C 한 가닥**으로 FEL · fastboot · USB 네트워크를
+전부 쓴다.
+
+문서가 README 세 개뿐이라 글감이 굵게 잡힌다. 그림은 스플래시 로고 하나뿐이니
+사진이나 새로 그린 그림이 필요하다.
+
+| 상태 | 제목 (가제) | 무엇을 다루나 | 근거 |
+| --- | --- | --- | --- |
+| **확인 필요** | docker 하나로 리눅스 보드 전체를 빌드하기 | 크로스 컴파일러·커널 의존성을 전부 컨테이너에 넣은 구성. `sudo` 로 돌리면 안 되는 이유까지 | `sdk/README.md` (3.7k) — **분량이 커서 두 편으로 나눌 것** |
+| **확인 필요** | USB-C 한 가닥으로 FEL · fastboot · 네트워크까지 | J10 포트 하나로 굽고 붙는 흐름 | `README.md` (1.0k) · `sdk/README.md` |
+| **확인 필요** | MCU 펌웨어 구조를 리눅스 앱에 그대로 옮기기 | `stm32h7-lvgl` 과 같은 `ap` / `hw` 계층을 쓰고 `hw/driver` 만 갈아끼웠다. **titan-mini 글의 계층 규칙과 이어지는 주제** | `app/README.md` (1.6k) |
 
 ## baram-term
 
