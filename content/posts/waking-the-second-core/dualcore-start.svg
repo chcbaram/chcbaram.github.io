@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 470" width="760" height="470" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
+  <style>
+    .m   { font-size: 12px; font-family: ui-monospace, Menlo, Consolas, monospace; }
+    .b   { font-size: 14px; font-weight: 600; }
+    .s   { font-size: 11.5px; fill: #6b7280; }
+    .ttl { font-size: 15px; font-weight: 700; fill: #374151; }
+    .step{ font-size: 12px; fill: #4b5563; }
+  </style>
+  <defs>
+    <marker id="ac" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#9ca3af"/>
+    </marker>
+  </defs>
+
+  <rect width="760" height="470" fill="#ffffff"/>
+  <text x="20" y="26" class="ttl">CPU1 (Cortex-M33) start sequence</text>
+
+  <rect x="20"  y="46" width="330" height="330" rx="6" fill="#dcfce7" fill-opacity="0.35" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="185" y="70" class="b" text-anchor="middle" fill="#15803d">CPU0 — Cortex-M85</text>
+
+  <rect x="410" y="46" width="330" height="330" rx="6" fill="#fce7f3" fill-opacity="0.35" stroke="#db2777" stroke-width="1.5"/>
+  <text x="575" y="70" class="b" text-anchor="middle" fill="#be185d">CPU1 — Cortex-M33</text>
+
+  <rect x="36" y="86" width="298" height="40" rx="4" fill="#ffffff" stroke="#86efac"/>
+  <text x="50" y="103" class="step">① Reset released → runs from 0x0200_0000</text>
+  <text x="50" y="119" class="s">SystemInit() · clocks · pins · main()</text>
+
+  <rect x="36" y="136" width="298" height="52" rx="4" fill="#ffffff" stroke="#86efac"/>
+  <text x="50" y="153" class="step">② Set the vector address</text>
+  <text x="50" y="170" class="m" fill="#6b7280">CPU1INITVTOR =</text>
+  <text x="50" y="184" class="m" fill="#6b7280">  BSP_PARTITION_FLASH_CPU1_S_START</text>
+
+  <rect x="36" y="198" width="298" height="44" rx="4" fill="#ffffff" stroke="#86efac"/>
+  <text x="50" y="215" class="step">③ Release the wait</text>
+  <text x="50" y="233" class="m" fill="#6b7280">CPU1WAITCR = 0</text>
+
+  <rect x="36" y="252" width="298" height="52" rx="4" fill="#ffffff" stroke="#86efac"/>
+  <text x="50" y="269" class="step">④ Request start</text>
+  <text x="50" y="286" class="m" fill="#6b7280">CPU1ACTCSR =</text>
+  <text x="50" y="300" class="m" fill="#6b7280">  (0xA5 &lt;&lt; KEY) | ACTREQ</text>
+
+  <rect x="36" y="314" width="298" height="46" rx="4" fill="#ffffff" stroke="#86efac"/>
+  <text x="50" y="331" class="step">⑥ Wait for the peer's magic (≤ 100 ms)</text>
+  <text x="50" y="349" class="m" fill="#6b7280">shared.magic == SHARED_MAGIC</text>
+
+  <rect x="426" y="86" width="298" height="40" rx="4" fill="#ffffff" stroke="#f9a8d4"/>
+  <text x="440" y="103" class="step">Held in reset</text>
+  <text x="440" y="119" class="s">Does nothing until CPU0 starts it</text>
+
+  <rect x="426" y="252" width="298" height="52" rx="4" fill="#ffffff" stroke="#f9a8d4"/>
+  <text x="440" y="269" class="step">⑤ Starts executing at CPU1INITVTOR</text>
+  <text x="440" y="286" class="s">SystemInit() — clock init is skipped</text>
+  <text x="440" y="302" class="s">(BSP_SECONDARY_CORE_BUILD)</text>
+
+  <rect x="426" y="314" width="298" height="46" rx="4" fill="#ffffff" stroke="#f9a8d4"/>
+  <text x="440" y="331" class="step">⑦ Own fields first, magic last</text>
+  <text x="440" y="349" class="m" fill="#6b7280">__DMB(); shared.magic = SHARED_MAGIC</text>
+
+  <line x1="336" y1="278" x2="424" y2="278" stroke="#9ca3af" stroke-width="1.5" marker-end="url(#ac)"/>
+  <line x1="424" y1="337" x2="336" y2="337" stroke="#9ca3af" stroke-width="1.5" marker-end="url(#ac)"/>
+
+  <line x1="20" y1="396" x2="740" y2="396" stroke="#e5e7eb"/>
+  <text x="20" y="418" class="s"><tspan font-weight="600" fill="#4b5563">② ③ ④</tspan> are what R_BSP_SecondaryCoreStart() writes. CPU_CTRL = 0x4000_F000, non-secure alias 0x5000_F000.</text>
+  <text x="20" y="438" class="s"><tspan font-weight="600" fill="#4b5563">CPU1WAITCR = 0</tspan> releases the core if a debugger has been holding it.</text>
+  <text x="20" y="460" class="s"><tspan font-weight="600" fill="#4b5563">Before ②</tspan> CPU0 clears shared.magic — the shared block is NOLOAD and survives a CPU0 reset, so a stale magic looks alive.</text>
+</svg>

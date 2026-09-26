@@ -6,7 +6,7 @@ projects: ["titan-mini"]
 tags: ["ra8p1", "renesas", "cortex-m33", "dual-core", "firmware", "debugging"]
 series: ["Titan Mini (RA8P1)"]
 repo: "https://github.com/chcbaram/titan-mini"
-image: ""
+image: "dualcore-start.svg"
 ai_assisted: true
 naver_url: ""
 draft: true
@@ -47,6 +47,12 @@ those are mutual exclusion and notification, not status.
 
 So the answer has to be built. Everything below exists because that one function
 tells you nothing.
+
+![CPU1 start sequence: CPU0 sets the vector address, releases the wait and requests the start; CPU1 begins executing and writes a magic word into shared memory, which CPU0 waits for](dualcore-start.svg)
+
+Steps ② ③ ④ are the three registers that one function writes. Steps ⑥ and ⑦ —
+the part that actually tells you whether it worked — are mine, and the rest of
+this post is about why they look the way they do.
 
 ## The macro that decides whether any of this compiles
 
@@ -211,5 +217,8 @@ job is to prove it is there.
 sources (commit e0b0dcf1cc8f503b62323c9668f18656d4df1211):
 - firmware/docs/23-cm33-boot.md — 파티션, 매크로, 기동, 공유 블록, pyOCD/DFP, 핀
 - firmware/docs/04-dualcore.md, 02-memory-map.md — 코어 구성과 주소 공간
-- firmware/ra8p1-fw/src/cpu/shared/shared.h, src/common/hw/include/ipc.h
+- firmware/ra8p1-fw/src/cpu/shared/shared.h, src/common/hw/include/ipc.h, src/cpu/cm85/hw/driver/ipc.c
+- dualcore-start.svg — 저장소 firmware/docs/images/dualcore-start.svg 를 옮겨 그린 것.
+  라벨을 영어로 바꾸고, ⑥⑦ 단계를 실제 코드(ipc.c)에 맞춰 공유 블록 magic 핸드셰이크로
+  고쳤다. 원본은 R_BSP_IpcSemaphoreTake/Give 로 그려져 있는데 코드는 그것을 쓰지 않는다.
 -->

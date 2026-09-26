@@ -33,7 +33,7 @@
 | 상태 | 제목 (가제) | 무엇을 다루나 | 근거 |
 | --- | --- | --- | --- |
 | **초안** | Laying Out a Dual-Core Firmware Project, and Proving It With One LED | 디렉터리 배치, `ap` 는 벤더 HAL 을 모른다는 계층 규칙, 검사기, 첫 LED | `12-project-skeleton.md` (1.4k) · `20-led.md` |
-| **초안** | Waking the Second Core Is Easy. Knowing It Woke Is Not. | FSP 멀티코어 API 하나, 공유 블록 핸드셰이크, 낡은 magic 함정, pyOCD/DFP 함정 | `23-cm33-boot.md` (2.1k) · `04-dualcore.md` · ⚠ `images/dualcore-start.svg` 는 **낡았다**(아래 메모) |
+| **초안** | Waking the Second Core Is Easy. Knowing It Woke Is Not. | FSP 멀티코어 API 하나, 공유 블록 핸드셰이크, 낡은 magic 함정, pyOCD/DFP 함정 | `23-cm33-boot.md` (2.1k) · `04-dualcore.md` · `images/dualcore-start.svg` (고쳐서 옮겨 그림, 아래 메모) |
 | **재료 확인됨** | 단일 뱅크 MRAM 과 1872 KB SRAM 을 두 코어에 나누기 | 주소 공간, **SRAM 크기가 세 군데서 다르게 보이는 문제**, MRAM 특성, 파티션을 링커에 알리는 법 | `02-memory-map.md` (1.4k · 7절) · 그림 `memory-map.svg` `mram-layout.svg` `sram-partition.svg` |
 | **재료 확인됨** | FreeRTOS, 모듈 자동 등록, 이벤트 버스 | `.module` 섹션으로 모듈을 자동 등록하는 방식과 이벤트 버스 | `22-freertos.md` (2.4k · 13절) — 분량이 커서 두 편으로 나눌 수도 |
 | **재료 확인됨** | UART 와 CLI 를 올리기 | SCI2 콘솔, CLI 구조 | `21-uart-cli.md` (1.4k · 7절) |
@@ -44,7 +44,9 @@
 > `R_BSP_IpcSemaphoreTake/Give` 로 기동을 확인하는 것으로 그려 두었는데, 실제
 > `hw/driver/ipc.c` 는 세마포어를 쓰지 않고 공유 블록 magic 핸드셰이크를 쓴다
 > (`shared.magic = 0` → `R_BSP_SecondaryCoreStart()` → magic 대기).
-> `04-dualcore.md` 가 이 그림을 참조한다. **저장소 쪽을 고친 뒤에 글에 쓴다.**
+> `04-dualcore.md` 가 이 그림을 참조한다. 글에는 ⑥⑦ 을 코드에 맞게 고치고 라벨을
+> 영어로 바꾼 사본을 넣었다(`content/posts/waking-the-second-core/dualcore-start.svg`).
+> **저장소 쪽 원본도 고쳐야 한다.**
 >
 > `01-boot-sequence.md` (0.9k) 는 단독으로 쓰지 않는다. 절반이 다른 글과 겹치므로
 > 메모리 글이나 CM33 글의 도입부로 녹인다.
