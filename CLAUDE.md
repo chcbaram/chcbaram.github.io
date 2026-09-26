@@ -26,7 +26,7 @@
 | 저장소 | `chcbaram/chcbaram.github.io` (사용자 사이트, Public) |
 | 주소 | `https://chcbaram.github.io/` |
 | 배포 | GitHub Actions → GitHub Pages |
-| 언어 | 영어 (`languageCode = "en"`, `defaultContentLanguage = "en"`). 한국어 번역은 나중에 Hugo 다국어로 추가 |
+| 언어 | 영어 (`locale = "en"`, `defaultContentLanguage = "en"`). 한국어 번역은 나중에 Hugo 다국어로 추가 |
 | 글 위치 | 모든 글은 `content/posts/<slug>/` 한 곳. 폴더로 카테고리를 나누지 않는다 |
 | 분류 | `projects` (어느 저장소 이야기인지) + `tags` (기술 키워드) |
 | 글 URL | `/posts/<slug>/`. 분류를 바꿔도 주소가 바뀌지 않는다 |
@@ -135,6 +135,7 @@ draft: true
 ---
 ```
 
+- **`date` 를 미래로 두지 않는다.** Hugo 는 미래 날짜 글을 빌드에서 빼고, 경고도 내지 않는다. 글이 안 보이면 이것부터 본다.
 - Claude Code 가 만든 글은 항상 `draft: true` 로 시작한다. `draft: false` 로 바꾸는 것은 내가 한다.
 - `ai_assisted: true` 이면 글 하단에 "Drafted with Claude from project notes and commit history, reviewed and edited by the author." 를 출력한다.
 
@@ -150,6 +151,8 @@ draft: true
 - `hugo.toml` 기본 설정: `baseURL`, 영어(`languageCode`, `defaultContentLanguage`), 페이지당 글 수, 다크 모드 토글, taxonomy(`tags`, `projects`, `series`, `categories`).
   - **`mainSections = ["posts"]` 를 반드시 넣는다.** Stack 기본값은 `["post"]` (단수)라서 빠뜨리면 홈과 아카이브에 글이 하나도 안 뜬다.
   - **starter 의 `permalinks.toml` 은 복사하지 않는다.** starter 는 `post = "/p/:slug/"` 라서 목표한 `/posts/<slug>/` 가 안 나온다. Hugo 기본값이 이미 `/posts/<slug>/` 다.
+  - **`languageCode` 는 쓰지 않는다.** Hugo 0.158 에서 deprecated 다. `locale` 을 쓴다.
+  - **고정 페이지는 `[permalinks] page = "/:slug/"` 로 루트에 올린다.** 안 그러면 `/page/about/` 가 된다. 루트 slug 는 내 저장소 이름과 겹치면 안 된다 (2026-09-27 기준 `about`, `search`, `archives`, `posts`, `projects`, `tags` 와 겹치는 공개 저장소는 없다).
   - **`categories` 는 쓰지 않아도 taxonomy 정의는 남겨둔다.** taxonomy 를 재정의하면 기본 `categories` 가 사라지고, starter 기본 위젯 목록의 `categories` 위젯이 깨진다. 위젯 목록에서도 빼든지 정의를 남기든지 하나는 해야 한다.
 - GitHub Actions 워크플로를 추가한다. Hugo 공식 문서의 GitHub Pages 워크플로를 기준으로 하고, Hugo 버전을 워크플로 안에 고정한다. module 을 쓰므로 `actions/setup-go` 단계도 넣는다.
 - 워크플로에서 빌드 전에 `tools/check_posts.py` 를 실행한다 (단계 6).
