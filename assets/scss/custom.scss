@@ -136,3 +136,30 @@
     line-height: 20px;
     vertical-align: middle;
 }
+
+/* 목록에서 이 글이 어느 프로젝트 이야기인지 */
+.article-projects {
+    margin-bottom: 6px;
+
+    a {
+        font-size: 1.3rem;
+        color: var(--card-text-color-tertiary);
+        letter-spacing: 0.02em;
+
+        &:not(:last-child)::after {
+            content: " · ";
+        }
+
+        &:hover {
+            color: var(--accent-color);
+        }
+    }
+}
+
+/* 아카이브 목록: 날짜 옆 */
+.article-meta .article-project {
+    margin-inline-start: 10px;
+    padding-inline-start: 10px;
+    border-inline-start: 1px solid var(--card-separator-color);
+    color: var(--card-text-color-tertiary);
+}

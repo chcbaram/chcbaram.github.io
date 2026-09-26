@@ -9,6 +9,8 @@
        term 의 .Date 는 그 안에서 가장 최근 글의 날짜다.
        기준 일수는 hugo.toml 의 params.recentDays (없으면 14일).
        정적 사이트라 빌드 시점 기준이다 — 푸시할 때마다 다시 계산된다.
+
+    3. 아카이브 목록의 글에는 날짜 옆에 프로젝트 이름을 작게 붙인다.
 */ -}}
 {{- $IsTerm := in .Kind "term" -}}
 {{- $isNew := false -}}
@@ -38,6 +40,9 @@
                         <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
                             {{- .Date | time.Format .Site.Params.dateFormat.published -}}
                         </time>
+                        {{- with .GetTerms "projects" -}}
+                            <span class="article-project">{{ (index . 0).LinkTitle }}</span>
+                        {{- end -}}
                     {{- end }}
                 </footer>
             {{- end -}}
