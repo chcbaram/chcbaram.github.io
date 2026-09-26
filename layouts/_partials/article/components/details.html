@@ -76,11 +76,15 @@
         {{ end }}
 
         {{ if $showTags }}
+            {{- /* 태그를 따로 감싼다. 아이콘과 태그가 같은 flex 안에 있으면
+                   줄바꿈된 둘째 줄이 아이콘 자리부터 시작해 어긋난다. */ -}}
             <div class="article-tags inline-meta">
                 {{ partial "helper/icon" "tag" }}
-                {{ range ($Page.GetTerms "tags") }}
-                    <a href="{{ .RelPermalink }}" class="link">{{ .LinkTitle }}</a>
-                {{ end }}
+                <span class="article-tags-list">
+                    {{ range ($Page.GetTerms "tags") }}
+                        <a href="{{ .RelPermalink }}" class="link">{{ .LinkTitle }}</a>
+                    {{ end }}
+                </span>
             </div>
         {{ end }}
     </footer>

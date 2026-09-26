@@ -207,3 +207,23 @@
     color: var(--card-text-color-tertiary);
     font-size: 1.2rem;
 }
+
+/* 태그가 두 줄이 되면 둘째 줄도 첫 태그와 같은 자리에서 시작하게 한다.
+   테마는 아이콘과 태그를 한 flex 에 두어 둘째 줄이 아이콘 자리로 밀려 온다. */
+.article-tags.inline-meta {
+    align-items: flex-start;
+
+    > svg {
+        margin-top: 5px;
+    }
+}
+
+.article-tags-list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--spacing-md);
+    /* 아이콘 옆 남은 폭을 다 쓴다. 안 그러면 통째로 다음 줄로 밀려난다 */
+    flex: 1 1 0;
+    min-width: 0;
+}
