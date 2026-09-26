@@ -1,262 +1,50 @@
 /*
-*   baram-term 풍 터미널 스킨
-*   테마 파일은 건드리지 않는다. 이 파일은 테마 style.scss 맨 끝에서 import 된다.
-*   글꼴: D2Coding (SIL OFL 1.1) — layouts/_partials/head/custom.html 에서 불러온다.
+*   테마는 Stack 기본 그대로 쓴다. 여기서는 글꼴만 바꾸고,
+*   저장소 상자와 AI 표시(테마에 없는 것)의 최소 스타일만 둔다.
 */
 
 :root {
-    --term-font: "D2Coding", "SFMono-Regular", Menlo, Consolas, monospace;
-
-    --base-font-family: var(--term-font);
-    --code-font-family: var(--term-font);
-    --article-font-family: var(--term-font);
-    --article-font-size: 1.5rem;
-    --article-line-height: 1.8;
-
-    --card-border-radius: 0;
-    --tag-border-radius: 0;
-    --shadow-l1: none;
-    --shadow-l2: none;
-
-    /* 밝은 화면 */
-    --term-line: #d5d5d0;
-    --term-dim: #8a8a83;
-    --term-cyan: #0b6e7f;
-    --term-green: #2b7a3d;
-
-    --body-background: #f4f4f1;
-    --card-background: #ffffff;
-    --card-background-selected: #ebebe6;
-    --card-text-color-main: #16161a;
-    --card-text-color-secondary: #4a4a46;
-    --card-text-color-tertiary: #7a7a74;
-    --card-separator-color: #e2e2dc;
-    --accent-color: #0b6e7f;
-    --accent-color-darker: #084f5c;
-    --accent-color-text: #ffffff;
-    --body-text-color: #2b2b28;
-    --blockquote-background-color: #f0f0eb;
-    --code-background-color: rgba(0, 0, 0, 0.06);
-    --code-text-color: #4a4a46;
-    --table-border-color: #d5d5d0;
-    --tr-even-background-color: #f4f4f1;
-
-    /* 어두운 화면 — baram-term 기본 화면 */
-    &[data-scheme="dark"] {
-        --term-line: #333333;
-        --term-dim: #7d7d7d;
-        --term-cyan: #4fd6ff;
-        --term-green: #5bff8a;
-
-        --body-background: #0b0b0b;
-        --card-background: #141414;
-        --card-background-selected: #1f1f1f;
-        --card-text-color-main: #e8e8e8;
-        --card-text-color-secondary: #a8a8a8;
-        --card-text-color-tertiary: #7d7d7d;
-        --card-separator-color: #2a2a2a;
-        --accent-color: #4fd6ff;
-        --accent-color-darker: #8ce6ff;
-        --accent-color-text: #0b0b0b;
-        --body-text-color: #cfcfcf;
-        --blockquote-background-color: #161616;
-        --code-background-color: #1a1a1a;
-        --code-text-color: #b7e9ff;
-        --table-border-color: #333333;
-        --tr-even-background-color: #161616;
-        --pre-background-color: #000000;
-        --pre-text-color: #e8e8e8;
-    }
+    --base-font-family: "D2Coding", var(--sys-font-family), monospace;
+    --code-font-family: "D2Coding", Menlo, Monaco, Consolas, monospace;
+    --article-font-family: var(--base-font-family);
 }
 
-body {
-    font-family: var(--term-font);
-    padding-bottom: 26px; /* 아래 상태줄 자리 */
-}
-
-/* 둥근 모서리와 그림자를 걷어내고, 얇은 실선 테두리로 */
-.card,
-.article-list article,
-.widget,
-.main-article,
-.pagination > *,
-figure,
-img,
-.tagCloud-tags a,
-.article-tags a,
-.search-form input {
-    border-radius: 0 !important;
-    box-shadow: none !important;
-}
-
-.article-list article,
-.widget,
-.main-article,
-.pagination > *,
-.error-page .card {
-    border: 1px solid var(--term-line);
-    background: var(--card-background);
-}
-
-/* 사이드바 */
-
-.site-avatar .site-logo {
-    border-radius: 0;
-    border: 1px solid var(--term-line);
-}
-
-.site-name a {
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-}
-
-.site-description {
-    color: var(--card-text-color-tertiary);
-}
-
-.menu li a,
-.menu-social a {
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-}
-
-.menu li.current a,
-.menu li a:hover {
-    background: var(--card-background-selected);
-    color: var(--accent-color);
-}
-
-/* 제목과 태그 */
-
-.section-title,
-.widget-title {
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    font-size: 1.4rem;
-}
-
-.tagCloud-tags a,
-.article-tags a {
-    border: 1px solid var(--term-line);
-    background: transparent !important;
-    color: var(--card-text-color-secondary) !important;
-    font-size: 1.3rem;
-    padding: 5px 10px;
-
-    &:hover {
-        border-color: var(--accent-color);
-        color: var(--accent-color) !important;
-    }
-}
-
-/* 글 */
-
-.article-content {
-    h1, h2, h3, h4 {
-        border-left: none !important;
-        padding-left: 0 !important;
-        letter-spacing: 0.01em;
-    }
-
-    a {
-        background-image: none !important;
-        color: var(--accent-color);
-        text-decoration: underline;
-        text-underline-offset: 3px;
-
-        &:hover {
-            background: var(--accent-color);
-            color: var(--accent-color-text);
-            text-decoration: none;
-        }
-    }
-
-    blockquote {
-        border-left: 2px solid var(--term-line);
-        border-radius: 0;
-    }
-}
-
-pre {
-    border: 1px solid var(--term-line);
-    border-radius: 0 !important;
-}
-
-/* 저장소 상자와 AI 표시 */
-
+/* 글 상단 저장소 링크 상자 */
 .repo-box {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
     margin: 0 var(--card-padding) var(--card-padding);
-    padding: 10px 14px;
-    border: 1px solid var(--term-line);
-    border-radius: 0;
-    background: transparent;
+    padding: 12px 16px;
+    border-radius: var(--card-border-radius);
+    background: var(--body-background);
 
     .repo-box-head {
         display: flex;
         align-items: center;
         gap: 8px;
-        font-weight: normal;
+        font-weight: bold;
 
-        a { color: var(--accent-color); }
-        svg { width: 16px; height: 16px; }
+        svg {
+            width: 18px;
+            height: 18px;
+        }
     }
 
     .repo-box-desc {
-        margin: 6px 0 0;
-        font-size: 1.3rem;
+        margin: 0;
+        font-size: 1.4rem;
         color: var(--card-text-color-secondary);
     }
 }
 
+/* AI 작성 보조 표시 / 네이버 글 링크 */
 .article-note {
     margin: 0 var(--card-padding) var(--card-padding);
-    padding-top: 10px;
-    border-top: 1px solid var(--card-separator-color);
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     color: var(--card-text-color-tertiary);
 
-    p { margin: 3px 0; }
-    a { color: var(--accent-color); }
-}
-
-/* 아래쪽 상태줄 */
-
-.status-bar {
-    position: fixed;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 10000;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 8px;
-    height: 26px;
-    padding: 0 12px;
-    font-size: 1.15rem;
-    letter-spacing: 0.02em;
-    color: var(--card-text-color-tertiary);
-    background: var(--card-background);
-    border-top: 1px solid var(--term-line);
-    white-space: nowrap;
-    overflow: hidden;
-}
-
-.status-sep {
-    margin: 0 10px;
-    color: var(--term-line);
-}
-
-.status-led {
-    display: inline-block;
-    width: 6px;
-    height: 6px;
-    margin-right: 8px;
-    border-radius: 50%;
-    background: var(--term-green);
-    vertical-align: middle;
-}
-
-@media (max-width: 540px) {
-    .status-right { display: none; }
+    p {
+        margin: 4px 0;
+    }
 }

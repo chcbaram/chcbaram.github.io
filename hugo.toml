@@ -92,7 +92,7 @@ enableRobotsTXT = false
 
     [params.colorScheme]
         toggle  = true
-        default = "dark"
+        default = "auto"
 
     [params.comments]
         # 단계 4: giscus 설정값을 받으면 enabled = true 로 바꾼다

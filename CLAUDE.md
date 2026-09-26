@@ -31,7 +31,7 @@
 | 분류 | `projects` (어느 저장소 이야기인지) + `tags` (기술 키워드) |
 | 글 URL | `/posts/<slug>/`. 분류를 바꿔도 주소가 바뀌지 않는다 |
 | 글 형식 | 글마다 폴더(page bundle): `index.md` + 사진 |
-| 외관 | baram-term 풍 터미널. 검정 바탕, 얇은 실선, 시안 강조, D2Coding 고정폭. 기본은 다크 |
+| 외관 | Stack 테마 기본 그대로. 글꼴만 D2Coding 으로 바꾼다 |
 
 ### 카테고리를 두지 않는 이유
 
@@ -50,12 +50,11 @@
 - **긴 동영상은 저장소에 넣지 않는다.** 30초 안쪽 짧은 영상만 mp4 로 줄여서 넣고, 긴 것은 YouTube 에 올려 `{{< youtube ID >}}` 로 넣는다.
 - 테마 파일을 직접 고치지 않는다. 바꿀 것은 저장소의 `layouts/`, `assets/` 에서 덮어쓴다.
 
-### 외관 (baram-term 풍 터미널)
+### 외관
 
-- 스킨은 전부 `assets/scss/custom.scss` 한 파일에 있다. 테마 `style.scss` 가 이 파일을 맨 끝에서 import 하므로 CSS 변수만 덮어쓰면 된다.
-- 글꼴은 D2Coding (SIL OFL 1.1). `layouts/_partials/head/custom.html` 에서 jsDelivr 의 subset 판(약 350KB)을 불러온다.
-- 화면 아래 상태줄은 `layouts/_partials/footer/custom.html`.
-- 하이텔·PC 통신 풍 장식(파란 바탕, 주사선, 깜빡이는 커서, ▶ ■ 같은 기호 접두사)은 넣지 않는다. 난잡해진다.
+- **테마 기본 모양을 바꾸지 않는다.** 색, 카드, 모서리, 그림자는 Stack 이 주는 그대로 쓴다.
+- 글꼴만 D2Coding (SIL OFL 1.1) 으로 바꾼다. `layouts/_partials/head/custom.html` 에서 jsDelivr 의 subset 판(약 350KB)을 불러오고, `assets/scss/custom.scss` 에서 글꼴 변수만 덮어쓴다.
+- `assets/scss/custom.scss` 에는 글꼴 변수와, 테마에 없는 요소(저장소 상자, AI 표시)의 최소 스타일만 둔다. 터미널 풍이나 PC 통신 풍 꾸밈은 넣지 않는다. 일관성이 깨진다.
 
 ### 글 재료와 공개 범위
 
