@@ -75,8 +75,7 @@ enableRobotsTXT = false
 
     [params.sidebar]
         compact  = false
-        # TODO(author): 프로필 사진을 assets/img/avatar.png 로 넣는다
-        avatar   = ""
+        avatar   = "img/avatar.jpg"
         subtitle = "Firmware, hardware, and the tools around them."
 
     [params.article]
