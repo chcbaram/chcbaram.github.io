@@ -1,5 +1,5 @@
 baseURL                = "https://chcbaram.github.io/"
-title                  = "chcbaram"
+title                  = "Baram"
 locale                 = "en"   # Hugo 0.158 에서 languageCode 는 deprecated
 defaultContentLanguage = "en"
 hasCJKLanguage         = false
@@ -92,7 +92,7 @@ enableRobotsTXT = false
 
     [params.colorScheme]
         toggle  = true
-        default = "auto"
+        default = "dark"
 
     [params.comments]
         # 단계 4: giscus 설정값을 받으면 enabled = true 로 바꾼다

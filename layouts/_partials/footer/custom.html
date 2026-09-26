@@ -1,0 +1,11 @@
+{{- /* baram-term 아래쪽 상태줄 */ -}}
+<div class="status-bar" aria-hidden="true">
+    <span class="status-left">
+        <span class="status-led"></span>{{ replace site.BaseURL "https://" "" | strings.TrimSuffix "/" }}
+        <span class="status-sep">|</span>115200 8N1
+    </span>
+    <span class="status-right">
+        {{ len (where site.RegularPages "Type" "in" site.Params.mainSections) }} POSTS
+        <span class="status-sep">|</span>{{ now.Format "2006-01-02" }}
+    </span>
+</div>
