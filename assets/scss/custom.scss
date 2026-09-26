@@ -105,3 +105,19 @@
         li.current > span { font-weight: bold; color: var(--card-text-color-main); }
     }
 }
+
+/* taxonomy term 목록(프로젝트 · 태그 · 시리즈)에서 제목 옆 글 수 */
+.article-title .term-count {
+    display: inline-block;
+    min-width: 22px;
+    margin-inline-start: 10px;
+    padding: 0 7px;
+    border-radius: 11px;
+    background: var(--body-background);
+    color: var(--card-text-color-tertiary);
+    font-size: 1.3rem;
+    font-weight: normal;
+    line-height: 22px;
+    text-align: center;
+    vertical-align: middle;
+}

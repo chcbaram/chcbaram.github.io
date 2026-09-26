@@ -1,0 +1,52 @@
+{{- /*
+    테마의 같은 이름 partial 을 덮어쓴다.
+    바꾼 것은 한 가지: taxonomy term(프로젝트 · 태그 · 시리즈)이면 제목 옆에 글 수를 붙인다.
+    테마 원본은 description 이 없을 때만 "N pages" 를 보여주는데,
+    우리 프로젝트 term 에는 설명이 있어서 글 수가 영영 안 보인다.
+*/ -}}
+{{- $IsTerm := in .Kind "term" -}}
+<article>
+    <a href="{{ .RelPermalink }}">
+        <div class="article-details">
+            <h2 class="article-title">
+                {{- .Title -}}
+                {{- if $IsTerm }}<span class="term-count" title="{{ T `list.page` (len .Pages) }}">{{ len .Pages }}</span>{{ end -}}
+            </h2>
+
+            {{- $description := .Params.description -}}
+            {{- if $IsTerm -}}
+                {{- $description = $description | default (T "list.page" (len .Pages)) -}}
+            {{- end -}}
+            {{- if or $description (not .Date.IsZero) -}}
+                <footer class="article-meta">
+                    {{- if or $IsTerm .Date.IsZero -}}
+                        <span class="article-description">{{- $description -}}</span>
+                    {{- else if not .Date.IsZero -}}
+                        <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
+                            {{- .Date | time.Format .Site.Params.dateFormat.published -}}
+                        </time>
+                    {{- end }}
+                </footer>
+            {{- end -}}
+        </div>
+
+        {{- $image := partial "helper/image" (dict "Image" .Params.image "Resources" .Resources "Context" .) -}}
+        {{ if $image }}
+        <div class="article-image">
+            {{ partial "helper/thumbnail-image" (dict
+                "Resource" $image.Resource
+                "Width" 60
+                "Height" 60
+                "Resize" .Site.Params.ImageProcessing.Thumbnail.Enabled
+                "Attributes" (dict
+                    "src" $image.Permalink
+                    "alt" .Title
+                    "loading" "lazy"
+                    "width" $image.Width
+                    "height" $image.Height
+                )
+            ) }}
+        </div>
+        {{ end }}
+    </a>
+</article>
