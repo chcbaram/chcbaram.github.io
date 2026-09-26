@@ -1,0 +1,168 @@
+baseURL                = "https://chcbaram.github.io/"
+title                  = "chcbaram"
+locale                 = "en"   # Hugo 0.158 에서 languageCode 는 deprecated
+defaultContentLanguage = "en"
+hasCJKLanguage         = false
+
+# robots.txt 는 static/robots.txt 를 쓴다. 둘 다 켜면 충돌한다.
+enableRobotsTXT = false
+
+# 글 URL 은 Hugo 기본값 그대로 /posts/<slug>/ 다.
+# Stack starter 의 permalinks.toml(post = "/p/:slug/")은 복사하지 않는다.
+[permalinks]
+    # 고정 페이지만 루트로 올린다: /about/, /search/, /archives/
+    # 루트 slug 는 chcbaram 저장소 이름과 겹치면 안 된다 (프로젝트 Pages 와 충돌)
+    page = "/:slug/"
+
+[pagination]
+    pagerSize = 10
+
+[taxonomies]
+    tag = "tags"
+    project = "projects"
+    series = "series"
+    # 안 쓰더라도 정의는 남긴다. 지우면 테마의 categories 위젯이 깨진다.
+    category = "categories"
+
+[module]
+    [[module.imports]]
+        path = "github.com/CaiJimmy/hugo-theme-stack/v4"
+
+[markup]
+    [markup.goldmark.renderer]
+        unsafe = true
+    [markup.highlight]
+        noClasses         = false
+        codeFences        = true
+        guessSyntax       = true
+        lineNoStart       = 1
+        lineNos           = true
+        lineNumbersInTable = true
+        tabWidth          = 4
+    [markup.tableOfContents]
+        endLevel   = 3
+        ordered    = false
+        startLevel = 2
+
+# /llms.txt 를 빌드 때 자동 생성한다. 템플릿은 layouts/home.llms.txt
+[outputFormats]
+    [outputFormats.llms]
+        mediaType      = "text/plain"
+        baseName       = "llms"
+        isPlainText    = true
+        notAlternative = true
+
+[outputs]
+    home = ["HTML", "RSS", "llms"]
+
+[params]
+    # Stack 기본값은 ["post"](단수). 빠뜨리면 홈에 글이 안 뜬다.
+    mainSections   = ["posts"]
+    rssFullContent = true
+    SortBy         = "date"
+
+    # 단계 5: 값 받으면 채운다
+    googleSiteVerification = ""
+    naverSiteVerification  = ""
+
+    [params.footer]
+        since      = 2026
+        customText = ""
+
+    [params.dateFormat]
+        published   = "2006-01-02"
+        lastUpdated = "2006-01-02"
+
+    [params.sidebar]
+        compact  = false
+        # TODO(author): 프로필 사진을 assets/img/avatar.png 로 넣는다
+        avatar   = ""
+        subtitle = "Firmware, hardware, and the tools around them."
+
+    [params.article]
+        headingAnchor = true
+        math          = false
+        toc           = true
+        readingTime   = true
+        [params.article.list]
+            showTags = true
+        [params.article.license]
+            # TODO(author): 글 라이선스 표시 여부를 정한다
+            enabled = false
+            default = "Licensed under CC BY-NC-SA 4.0"
+
+    [params.colorScheme]
+        toggle  = true
+        default = "auto"
+
+    [params.comments]
+        # 단계 4: giscus 설정값을 받으면 enabled = true 로 바꾼다
+        enabled  = false
+        provider = "giscus"
+        [params.comments.giscus]
+            repo             = ""
+            repoID           = ""
+            category         = ""
+            categoryID       = ""
+            mapping          = "pathname"
+            reactionsEnabled = "1"
+            emitMetadata     = "0"
+
+    [params.opengraph]
+        [params.opengraph.twitter]
+            site = ""
+            card = "summary_large_image"
+
+    [[params.widgets.homepage]]
+        type = "search"
+
+    [[params.widgets.homepage]]
+        type = "taxonomy"
+        [params.widgets.homepage.params]
+            taxonomy = "projects"
+            title    = "Projects"
+            icon     = "categories"
+            limit    = 10
+
+    [[params.widgets.homepage]]
+        type = "tag-cloud"
+        [params.widgets.homepage.params]
+            limit = 10
+
+    [[params.widgets.homepage]]
+        type = "archives"
+        [params.widgets.homepage.params]
+            limit = 5
+
+    [[params.widgets.page]]
+        type = "toc"
+
+[[menu.social]]
+    identifier = "github"
+    name       = "GitHub"
+    url        = "https://github.com/chcbaram"
+    [menu.social.params]
+        icon = "brand-github"
+
+[[menu.social]]
+    identifier = "naver"
+    name       = "Naver Blog"
+    url        = "https://blog.naver.com/chcbaram"
+    [menu.social.params]
+        icon = "link"
+
+[[menu.main]]
+    identifier = "projects"
+    name       = "Projects"
+    url        = "/projects/"
+    weight     = -80
+    [menu.main.params]
+        icon = "categories"
+
+[[menu.main]]
+    identifier = "tags"
+    name       = "Tags"
+    url        = "/tags/"
+    weight     = -75
+    [menu.main.params]
+        icon = "tag"

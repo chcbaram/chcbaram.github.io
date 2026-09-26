@@ -1,0 +1,7 @@
+{{- /* canonical 은 테마가 이미 내보낸다. 여기에 또 넣으면 중복된다. */ -}}
+{{- with site.Params.googleSiteVerification -}}
+    <meta name="google-site-verification" content="{{ . }}">
+{{- end -}}
+{{- with site.Params.naverSiteVerification -}}
+    <meta name="naver-site-verification" content="{{ . }}">
+{{- end -}}

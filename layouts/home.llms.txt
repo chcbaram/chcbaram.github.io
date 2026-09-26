@@ -1,0 +1,21 @@
+# {{ site.Title }}
+
+> {{ with site.Params.sidebar.subtitle }}{{ . }}{{ end }}
+
+English write-ups about firmware, hardware and the tools around them.
+Source repositories for most posts are at https://github.com/chcbaram
+
+{{ with site.Taxonomies.projects }}## Projects
+{{ range $name, $taxonomy := . }}
+### {{ $taxonomy.Page.Title }}
+{{ with $taxonomy.Page.Description }}{{ . }}
+{{ end }}{{ with $taxonomy.Page.Params.repo }}Repository: {{ . }}
+{{ end }}
+{{ range $taxonomy.Pages }}- [{{ .Title }}]({{ .Permalink }}): {{ .Description }}
+{{ end }}{{ end }}{{ end }}
+## All posts
+{{ range where site.RegularPages "Section" "posts" }}- [{{ .Title }}]({{ .Permalink }}) — {{ .Date.Format "2006-01-02" }}{{ with .Description }}: {{ . }}{{ end }}
+{{ end }}
+## Pages
+{{ range where site.RegularPages "Section" "page" }}- [{{ .Title }}]({{ .Permalink }}){{ with .Description }}: {{ . }}{{ end }}
+{{ end }}

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://chcbaram.github.io/sitemap.xml

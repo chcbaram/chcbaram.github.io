@@ -1,0 +1,18 @@
+{{- with .Params.repo -}}
+    {{- $url := . -}}
+    {{- $name := path.Base $url -}}
+    {{- $desc := "" -}}
+    {{- with $.Param "projects" -}}
+        {{- $first := index . 0 -}}
+        {{- with site.GetPage (printf "/projects/%s" ($first | urlize)) -}}
+            {{- $desc = .Description -}}
+        {{- end -}}
+    {{- end -}}
+    <aside class="repo-box">
+        <div class="repo-box-head">
+            {{ partial "helper/icon" "brand-github" }}
+            <a href="{{ $url }}" rel="noopener">{{ $name }}</a>
+        </div>
+        {{- with $desc }}<p class="repo-box-desc">{{ . }}</p>{{ end -}}
+    </aside>
+{{- end -}}

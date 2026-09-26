@@ -1,0 +1,37 @@
+.repo-box {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin: 0 var(--card-padding) var(--card-padding);
+    padding: 12px 16px;
+    border-radius: var(--card-border-radius);
+    background: var(--body-background);
+
+    .repo-box-head {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-weight: bold;
+
+        svg {
+            width: 18px;
+            height: 18px;
+        }
+    }
+
+    .repo-box-desc {
+        margin: 0;
+        font-size: 1.4rem;
+        color: var(--card-text-color-secondary);
+    }
+}
+
+.article-note {
+    margin: 0 var(--card-padding) var(--card-padding);
+    font-size: 1.3rem;
+    color: var(--card-text-color-tertiary);
+
+    p {
+        margin: 4px 0;
+    }
+}

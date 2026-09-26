@@ -1,0 +1,12 @@
+{{- $notes := slice -}}
+{{- if .Params.ai_assisted -}}
+    {{- $notes = $notes | append "Drafted with Claude from project notes and commit history, reviewed and edited by the author." -}}
+{{- end -}}
+{{- with .Params.naver_url -}}
+    {{- $notes = $notes | append (printf "A Korean write-up of this project is on my <a href=\"%s\" rel=\"noopener\">Naver blog</a>." .) -}}
+{{- end -}}
+{{- with $notes -}}
+    <aside class="article-note">
+        {{- range . }}<p>{{ . | safeHTML }}</p>{{ end -}}
+    </aside>
+{{- end -}}
