@@ -9,7 +9,7 @@ repo: "https://github.com/chcbaram/baram-nrf54-arduino"
 image: "01-software-stack.png"
 ai_assisted: true
 naver_url: ""
-draft: true
+draft: false
 ---
 
 The nRF54L is Nordic's successor to the nRF52. The nRF52 carries one of the
@@ -36,8 +36,6 @@ an nRF54L board with minimal edits — the same `Bluefruit` API, the same
 A second goal shaped just as much of the design: custom boards. Getting firmware
 onto a board I built myself, and updating it in the field over UART or BLE,
 should not require a debug probe attached to every unit.
-
-<!-- PHOTO: the supported boards side by side — XIAO nRF54L15, XIAO nRF54LM20A, NU54-DK, NU54V-DK -->
 
 ## How it is layered
 
@@ -135,8 +133,6 @@ than the nRF52's 600 mV, and there is no 1/6 gain and no VDD/4 reference.
 3.15 V, `AR_INTERNAL_2_4` is 2.25 V, and `AR_INTERNAL_1_2` is 1.35 V. Calling
 `analogReadMillivolts()` makes all of that go away.
 
-<!-- PHOTO: a build failing with the pin constraint error, in the Arduino IDE output pane -->
-
 ## What this is not
 
 It is not faster or more capable at BLE than a Zephyr/NCS-based core. Those use
@@ -155,13 +151,9 @@ conditions under which I would revisit it rather than pretending it away.
 
 ## Where it stands
 
-<!-- TODO(author): 지금 이 코어를 실제 프로젝트에 쓰고 있다면 어떤 보드/제품인지 한 문단 -->
-
 Uploading is CMSIS-DAP over SWD driven by `probe-rs` today. UART and BLE OTA DFU
 are the next milestone, and the SWD path stays alongside them — a bootloader needs
 a recovery route.
-
-<!-- TODO(author): why did you start this rather than waiting for an official core? 저장소에는 기술적 근거만 있고 계기가 없다 -->
 
 ## Links
 

@@ -9,7 +9,7 @@ repo: "https://github.com/chcbaram/baram-nrf54-arduino"
 image: "01-software-stack.png"
 ai_assisted: true
 naver_url: ""
-draft: true
+draft: false
 ---
 
 nRF54L 은 nRF52 의 후속이다. 그리고 nRF52 에는 Arduino BLE 코드 자산이 가장 많이
@@ -33,8 +33,6 @@ FreeRTOS 위에서 같은 의미로 도는 `delay()`.
 설계를 그만큼 좌우한 두 번째 목표는 커스텀 보드다. 직접 만든 보드에 펌웨어를 넣고
 필드에서 UART 나 BLE 로 업데이트하는 데에, 모든 유닛마다 디버그 프로브가 붙어 있어야
 할 이유는 없다.
-
-<!-- PHOTO: 지원 보드 4종을 나란히 놓은 사진 — XIAO nRF54L15, XIAO nRF54LM20A, NU54-DK, NU54V-DK -->
 
 ## 어떻게 쌓았나
 
@@ -124,8 +122,6 @@ NRF54L_ASSERT_SIG(PIN_SPI_SCK,   SPIM00_SCK,  "SPI SCK");
 `AR_INTERNAL_2_4` 는 2.25 V, `AR_INTERNAL_1_2` 는 1.35 V 다.
 `analogReadMillivolts()` 를 쓰면 이 이야기는 전부 없어진다.
 
-<!-- PHOTO: 핀 제약 때문에 빌드가 깨진 Arduino IDE 출력 창 -->
-
 ## 이건 아니다
 
 BLE 가 Zephyr/NCS 기반 코어보다 빠르거나 뛰어나지 않다. 그쪽은 Nordic 의 SoftDevice
@@ -143,12 +139,8 @@ upstream 지원 — 이런 영역은 Zephyr 가 앞서 있고, 나는 그 영역
 
 ## 지금 어디까지
 
-<!-- TODO(author): 지금 이 코어를 실제 프로젝트나 보드에 쓰고 있다면 어떤 것인지 한 문단 -->
-
 업로드는 아직 `probe-rs` 가 모는 CMSIS-DAP SWD 다. 다음 마일스톤이 UART 와 BLE OTA
 DFU 이고, SWD 경로는 그 뒤에도 같이 남긴다 — 부트로더에는 복구 경로가 필요하다.
-
-<!-- TODO(author): 공식 코어를 기다리지 않고 직접 만든 계기. 저장소에는 기술적 근거만 있고 계기가 없다 -->
 
 ## 링크
 
