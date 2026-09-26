@@ -6,7 +6,7 @@ projects: ["titan-mini"]
 tags: ["ra8p1", "renesas", "cortex-m85", "dual-core", "firmware", "cmake"]
 series: []
 repo: "https://github.com/chcbaram/titan-mini"
-image: ""
+image: "01.jpg"
 ai_assisted: true
 naver_url: ""
 draft: true
@@ -18,7 +18,11 @@ with 1 MB of MRAM and 1872 KB of SRAM. Before any of that gets interesting, the
 project needs a shape. This is the shape I settled on, and the one rule that
 holds it together.
 
-<!-- PHOTO: Titan Mini board, top view with the H1 connector visible -->
+![Titan Mini on the bench: USB-C for power and the virtual serial console, a ribbon cable to the CMSIS-DAP probe, and LED3 lit red](01.jpg)
+
+That is the whole development setup. Power and the console come in over USB-C,
+the ribbon cable goes to the CMSIS-DAP probe that `pyocd` drives, and the red
+channel of LED3 is on.
 
 ## The layout
 
@@ -136,8 +140,6 @@ void ledOn(uint8_t ch)
 Carrying both `on_state` and `off_state` in the table means an active-high board
 needs a different table, not a different driver.
 
-<!-- PHOTO: LED3 blinking red on the board, 500 ms period -->
-
 ## Where it stands
 
 CPU0 runs at 1000 MHz with FreeRTOS 11.1.0, a CLI over SCI2, and module
@@ -162,4 +164,5 @@ sources (commit e0b0dcf1cc8f503b62323c9668f18656d4df1211):
 - firmware/docs/12-project-skeleton.md — 디렉터리, 계층 규칙, 검사기
 - firmware/docs/20-led.md — LED 하드웨어, 핀 설정, 드라이버
 - firmware/ra8p1-fw/tools/check_layers.py, src/cpu/cm85/hw/driver/led.c
+- 01.jpg — 저자가 제공한 디버깅 셋업 사진
 -->
