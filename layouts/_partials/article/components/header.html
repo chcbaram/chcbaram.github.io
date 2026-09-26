@@ -1,0 +1,31 @@
+{{- /*
+    테마의 같은 이름 partial 을 덮어쓴다.
+    바꾼 것은 한 가지: 대표 이미지를 목록 카드에서만 보여준다.
+    글 화면 맨 위(제목 앞)에 큰 그림이 먼저 나오는 게 어색해서다.
+    front matter 의 image 는 그대로 두므로 목록 썸네일과 og:image 는 유지된다.
+*/ -}}
+{{- $IsList := .IsList -}}
+{{- $Page := .Page -}}
+<header class="article-header">
+    {{- $image := partial "helper/image" (dict "Image" $Page.Params.image "Resources" $Page.Resources "Context" $Page) -}}
+    {{ if and $image $IsList }}
+    <div class="article-image">
+        <a href="{{ $Page.RelPermalink }}">
+            {{ partial "helper/responsive-image" (dict
+                "Resource" $image.Resource
+                "Widths" (cond $Page.Site.Params.ImageProcessing.Content.Enabled $Page.Site.Params.ImageProcessing.Content.Widths nil)
+                "Attributes" (dict
+                    "src" $image.Permalink
+                    "width" $image.Width
+                    "height" $image.Height
+                    "alt" (printf "Featured image of post %s" $Page.Title)
+                    "loading" "lazy"
+                    "sizes" "(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px"
+                )
+            ) }}
+        </a>
+    </div>
+    {{ end }}
+
+    {{ partial "article/components/details" (dict "Page" $Page "IsList" $IsList) }}
+</header>

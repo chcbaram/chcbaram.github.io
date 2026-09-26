@@ -41,8 +41,9 @@ should not require a debug probe attached to every unit.
 
 ## How it is layered
 
-The diagram at the top of this post is the whole stack, from the sketch down to
-the chip. Three things about it are deliberate.
+![The BARAM nRF54L Arduino core software stack, from the sketch down to the chip](01-software-stack.png)
+
+Three things about that stack are deliberate.
 
 **The base is bare metal, not Zephyr.** It sits on
 [nrfconnect/sdk-nrf-bm](https://github.com/nrfconnect/sdk-nrf-bm) v2.0.1, the
