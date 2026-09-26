@@ -167,12 +167,30 @@ rootfs 를 빌드해 SPI NOR 에 굽고, 그 위에서 LVGL 앱을 돌린다. �
 
 ## baram-term
 
+저장소에 `docs/` 가 갖춰져 있다 — `decisions.md` (3.8k) 가 설계 결정의 정본이고
+`architecture.md` (0.8k), `roadmap.md` (2.1k) 가 있다. 그림은 `docs/images/architecture.png`
+하나이고 생성 스크립트(`make_architecture.py`)가 같이 있다.
+
 | 상태 | 제목 (가제) | 무엇을 다루나 | 근거 |
 | --- | --- | --- | --- |
-| **확인 필요** | 시리얼 터미널 안에 진짜 픽셀 그래프 그리기 | 글자 격자 TUI 처럼 보이지만 실제로는 GUI 창. Teleplot / Arduino 플로터 형식 자동 인식 | README, `retro-ui/` |
+| **재료 확인됨** | 선을 뽑고 BLE 로 갈아타기 — 터미널 하나도 안 고치고 | Nordic UART Service 를 `ble://이름` 포트로 붙인 이야기. **터미널·그래프·HEX·로그·자동완성·외부 제어가 하나도 안 바뀐 이유**는 장치 객체가 pyserial 의 최소 면(`read`/`write`/`in_waiting`/`close`/`is_open`)만 요구하도록 seam 을 잡아 뒀기 때문이다 (`fake_device.py` 와 같은 면) | `docs/ble.md` (0.7k · 6절) · `src/baram_term/ble.py` (285줄, 머리말 주석이 설계 근거를 담고 있다) · README 의 "BLE 보드에 붙기" |
+| **확인 필요** | 시리얼 터미널 안에 진짜 픽셀 그래프 그리기 | 글자 격자 TUI 처럼 보이지만 실제로는 GUI 창. Teleplot / Arduino 플로터 형식 자동 인식 | README, `retro-ui/`, `docs/architecture.md` |
 | **확인 필요** | 보드를 뽑았다 꽂아도 부팅 로그를 놓치지 않기 | 자동 재연결 | README |
-| **확인 필요** | `help` 출력에서 명령을 배우는 Tab 자동완성 | 포트별로 명령 목록을 기억하는 방식 | README |
+| **확인 필요** | `help` 출력에서 명령을 배우는 Tab 자동완성 | 포트별로 명령 목록을 기억하는 방식 | README, `completion.py` |
+| **확인 필요** | Claude Code 가 보드 CLI 를 두드리게 하기 | `baram-term ctl` 외부 제어. 포트를 넘겨주지 않고 오간 내용이 화면에 그대로 보인다 | `docs/external-control.md` (0.8k · 6절) |
 
+> ### BLE 글에 꼭 넣을 것 — 저장소에 근거가 있는 판단 세 가지
+>
+> 1. **주소가 아니라 이름을 저장한다.** macOS 는 장치 주소 대신 PC 마다 다른
+>    CoreBluetooth UUID 를 주기 때문에, 주소로 저장하면 다른 PC 에서 같은 보드를
+>    못 찾는다. 같은 이름이 여럿이면 광고의 제조사 데이터 끝 4바이트를 꼬리표로
+>    붙인다 (`ble://이름#1a2b3c4d`).
+> 2. **bleak 을 함수 안에서 늦게 불러온다.** 선택 설치라 없는 PC 에서도 baram-term 이
+>    떠야 하고, BLE 를 안 쓰는 사람이 macOS 블루투스 권한 대화상자를 볼 이유가 없다.
+> 3. **asyncio 를 앱까지 끌고 오지 않는다.** bleak 은 asyncio 전용이라 장치마다
+>    백그라운드 스레드에서 이벤트 루프를 돌리고, 앱의 수신·송신 스레드는 평소처럼
+>    블로킹 호출만 한다.
+>
 > 비공개 규칙 문서 `docs/device-testing.md` 를 먼저 읽고 따른다.
 
 ## 아직 정하지 않은 것
