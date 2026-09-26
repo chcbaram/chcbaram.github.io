@@ -139,9 +139,11 @@
 
 /* 목록에서 이 글이 어느 프로젝트 이야기인지 */
 .article-projects {
+    display: block;
     margin-bottom: 6px;
 
-    a {
+    a,
+    > span {
         font-size: 1.3rem;
         color: var(--card-text-color-tertiary);
         letter-spacing: 0.02em;
@@ -156,13 +158,6 @@
     }
 }
 
-/* 아카이브 목록: 날짜 옆 */
-.article-meta .article-project {
-    margin-inline-start: 10px;
-    padding-inline-start: 10px;
-    border-inline-start: 1px solid var(--card-separator-color);
-    color: var(--card-text-color-tertiary);
-}
 
 /* 댓글 수 배지 (assets/js/comments.js 가 붙인다) */
 .comment-count {
