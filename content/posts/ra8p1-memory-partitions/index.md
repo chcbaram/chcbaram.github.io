@@ -9,7 +9,7 @@ repo: "https://github.com/chcbaram/titan-mini"
 image: "mram-layout.svg"
 ai_assisted: true
 naver_url: ""
-draft: true
+draft: false
 ---
 
 Before splitting memory between two cores on the Titan Mini board, two questions

@@ -34,7 +34,7 @@
 | --- | --- | --- | --- |
 | **발행됨** | [Laying Out a Dual-Core Firmware Project, and Proving It With One LED](https://chcbaram.github.io/posts/titan-mini-firmware-skeleton/) | 디렉터리 배치, `ap` 는 벤더 HAL 을 모른다는 계층 규칙, 검사기, 첫 LED | `12-project-skeleton.md` (1.4k) · `20-led.md` |
 | **발행됨** | [Waking the Second Core Is Easy. Knowing It Woke Is Not.](https://chcbaram.github.io/posts/waking-the-second-core/) | FSP 멀티코어 API 하나, 공유 블록 핸드셰이크, 낡은 magic 함정, pyOCD/DFP 함정 | `23-cm33-boot.md` (2.1k) · `04-dualcore.md` · `images/dualcore-start.svg` (고쳐서 옮겨 그림, 아래 메모) |
-| **초안** | [Three Sources, Three Different SRAM Sizes](../content/posts/ra8p1-memory-partitions/) | 주소 공간, **SRAM 크기가 세 군데서 다르게 보이는 문제**, MRAM 특성, 파티션을 링커에 알리는 법 | `02-memory-map.md` (1.4k · 7절) · 그림 `memory-map.svg` `mram-layout.svg` `sram-partition.svg` |
+| **발행됨** | [Three Sources, Three Different SRAM Sizes](https://chcbaram.github.io/posts/ra8p1-memory-partitions/) | 주소 공간, **SRAM 크기가 세 군데서 다르게 보이는 문제**, MRAM 특성, 파티션을 링커에 알리는 법 | `02-memory-map.md` (1.4k · 7절) · 그림 `memory-map.svg` `mram-layout.svg` `sram-partition.svg` |
 | **재료 확인됨** | FreeRTOS, 모듈 자동 등록, 이벤트 버스 | `.module` 섹션으로 모듈을 자동 등록하는 방식과 이벤트 버스 | `22-freertos.md` (2.4k · 13절) — 분량이 커서 두 편으로 나눌 수도 |
 | **재료 확인됨** | UART 와 CLI 를 올리기 | SCI2 콘솔, CLI 구조 | `21-uart-cli.md` (1.4k · 7절) |
 | **확인 필요** | 세 OS 에서 같은 빌드 유지하기 | 툴체인, CMake, pyOCD 를 Windows/Linux/macOS 에서 굴리기 | `13-os-setup.md` (1.6k) · `11-fsp-config.md` (0.9k) |
