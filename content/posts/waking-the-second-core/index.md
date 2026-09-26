@@ -9,7 +9,7 @@ repo: "https://github.com/chcbaram/titan-mini"
 image: "dualcore-start.svg"
 ai_assisted: true
 naver_url: ""
-draft: true
+draft: false
 ---
 
 The RA8P1 on the Titan Mini board has two cores: a Cortex-M85 at 1 GHz as CPU0

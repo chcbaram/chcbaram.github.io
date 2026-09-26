@@ -9,7 +9,7 @@ repo: "https://github.com/chcbaram/titan-mini"
 image: "01.jpg"
 ai_assisted: true
 naver_url: ""
-draft: true
+draft: false
 ---
 
 Titan Mini is a board built around the Renesas `R7KA8P1KFLCAC`: a Cortex-M85 at
