@@ -213,7 +213,7 @@ draft: true
 - `{{< video "clip.mp4" >}}` shortcode: 테마에 이미 `_shortcodes/video.html` 이 있지만 `controls` 만 있고 `playsinline` 과 `preload="metadata"` 가 없다. **`layouts/_shortcodes/video.html`** 에 같은 이름으로 두어 덮어쓴다. 위치 인자(`.Get 0`)를 그대로 받도록 유지한다.
 - `repo` 가 있으면 글 상단에 저장소 링크 상자(이름, 설명, 링크)를 출력한다.
 - `ai_assisted` 표시 partial.
-- **대표 이미지(`image`)는 목록 카드에서만 보여준다.** 글 화면 맨 위, 제목보다 앞에 큰 그림이 먼저 나오면 어색하다. `layouts/_partials/article/components/header.html` 에서 테마 것을 덮어쓰고 `IsList` 일 때만 출력한다. front matter 의 `image` 는 그대로 두므로 목록 썸네일과 `og:image` 는 유지된다. 본문에 그림이 필요하면 마크다운으로 설명하는 자리에 넣는다.
+- **대표 이미지(`image`)를 화면에 얹지 않는다.** 테마는 글 화면에서는 제목 위에, 목록에서는 카드 맨 위에 고정 높이로 잘라 넣는데, 글자가 든 다이어그램은 잘리면 못 읽는다. `layouts/_partials/article/components/header.html` 에서 테마 것을 덮어써서 출력을 막았다. front matter 의 `image` 는 그대로 두며 `og:image` 로만 쓰인다. 본문에 그림이 필요하면 마크다운으로 설명하는 자리에 직접 넣는다.
 - `naver_url` 이 있으면 "A Korean write-up of this project is on my Naver blog." 링크를 출력한다.
 - 댓글은 giscus. Discussions 활성화와 giscus 앱 설치는 내가 하고, 설정값을 받아 `hugo.toml` 에 넣는다.
 - 코드 블록 하이라이트와 복사 버튼이 동작하는지 확인한다.
