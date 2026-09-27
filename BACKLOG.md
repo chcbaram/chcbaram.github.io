@@ -80,10 +80,11 @@ qmk-link · via-he · HG-T113-S3 에는 글에 쓸 다이어그램이 없다 —
 | **초안** | Reading Magnet Depth With an ADC | wish-he | 홀 센서 스캔 구조. 카운트를 얻는 데까지. `content/posts/reading-magnet-depth-with-adc/` (TODO 3, 사진 자리 4, 그림 없음) | `05-adc-scan.md` (1.9k · 6절) · `00-hardware.md` · `12-scan-speed.md` |
 | **재료 확인됨** | 자속에서 거리로 — 스위치 곡선 | wish-he | 데이터시트 두 점으로 거리 곡선을 만드는 모델 | `15-distance-curve.md` (2.3k · 13절) · `he-magnet-model.md` (1.8k) |
 | **재료 확인됨** | 키가 눌렸다고 판정하기 | wish-he | 입력 지점, 데드존, 보정 | `06-key-decision.md` (1.2k · 7절) · 그림 `keys-pipeline.svg` |
+| **재료 확인됨** | 보정하는 동안 누른 키가 PC 에 그대로 타이핑된다 | wish-he | 보정 중 키보드를 막는 장치가 **CLI 경로에만** 달려 있었고 웹(HID) 경로는 보정을 켜기만 했다. 고치는 건 리포트 문지기(`keysIsReportEnabled()`)에 한 줄인데, **탈출구를 같이 넣지 않으면 키보드가 영영 안 먹는 상태로 자기를 가둘 수 있다.** 이슈 #1, 발행된 유령 입력 글과 짝이 되는 편 | `issues/001-calibration-key-leak.md` (1.3k · 13절) · 그림 `issues/images/001-report-gate.svg` · `08-storage.md` §겪은 함정 ①·①-b · `he_test.py` 의 `host` 무리 |
 | **발행됨** | [A Ghost Input Above the Actuation Point, and the Two Bugs Under It](https://chcbaram.github.io/posts/wish-he-rapid-trigger/) | wish-he | 되돌린 거리로 떼는 판정. **실제로 겪은 유령 입력 버그가 이슈 문서로 남아 있다.** ⚠ `13-rapid-trigger.md` 는 **버그에 걸리는 절만 썼다**(590 단어). 구현 쪽 1.1k 는 아래 줄로 남아 있다 | `13-rapid-trigger.md` 중 ④·절대 입력지점·연속 RT·RT 가 사는 구간·나가는 쪽 · `issues/002-rapid-trigger-ghost-input.md` · 그림 `issues/images/002-ghost-pulse.svg` |
 | **재료 확인됨** | 래피드 트리거를 실제로 구현하기 | wish-he | 처리를 ADC 변환 대기 안으로 옮긴 것, 3개 이동합을 **왜 평균이 아니라 합으로, 블록이 아니라 이동으로** 했는지(ADC 글이 쓴 1.31배 결과 말고 그 구현 쪽), 고치지 않기로 한 드리프트, "이동량은 위치가 아니다" 로 뒤집은 판단 | `13-rapid-trigger.md` 중 안 쓴 절 (①②③ · 바닥 보호와 데드존 · 설정을 전부 키별로 · 뒤에 고친 것 · 배운 것 · 남은 것, 1.1k) · 그림 `issues/images/002-rt-window.svg` |
 | **재료 확인됨** | 지연 시간을 실제로 재기 | wish-he | 스캔 주기, HID 동기화, 측정 결과 | `18-latency.md` (1.8k · 9절) · `12-scan-speed.md` (0.8k) · `16-hid-sync.md` (1.0k) · 그림 `issues/images/001-report-gate.svg` |
-| **재료 확인됨** | LED 전류 한계와 싸우기 | wish-he | RGB 매트릭스 전류 제한 | `14-led-limiter.md` (3.4k · 13절) |
+| **재료 확인됨** | LED 83개를 CPU 없이 흘리고, 전류 한계와 싸우기 | wish-he | **SPI 1바이트 = 1비트**로 WS2812 를 만들고 HDMA 로 논블로킹으로 흘리는 방법, 그 위에 얹은 프레임 합산 전류 제한. 전역 배율의 고유한 결함, **전류계로 재니 짐작한 셋이 전부 틀렸다** | `04-ws2812.md` (0.5k) · `14-led-limiter.md` (3.4k · 13절) · 그림 `images/ws2812-dma.svg` |
 | **재료 확인됨** | 순정 부트로더 위에 얹기 | wish-he | 보드에 원래 있던 부트로더를 그대로 두고 앱 자리만 쓴다. 언제든 순정 복구 | `01-boot-on-iap.md` (0.5k) · `09-iap-updater.md` (1.1k) |
 | **재료 확인됨** | 설정을 어디에 저장하나 | wish-he | 프로파일 4벌, 저장 구조 | `08-storage.md` (1.3k · 10절) |
 | **재료 확인됨** | QMK 는 EEPROM 을 원하는데 칩에는 없다 | wish-he | 바이트 단위로 아무 때나 쓸 수 있어야 하는 QMK EEPROM API 를 NOR 플래시 위에 올린 방법. **16KB 를 통째로 RAM 에 들고(그림자), 더러워진 섹터를 200ms 조용할 때 하나씩 굽는다.** SDK 의 `eeprom_emulation` 컴포넌트를 **안 쓴 이유**가 같이 있다. XIP 라 지우는 동안 인터럽트를 막아야 해서 **한 번에 한 섹터만** 굽는다 — 네 섹터를 같이 지우면 USB 리포트가 빠진다(12편 실측) | `11-via.md` §EEPROM 백엔드(225) · §기록은 셋이고 버전도 셋(182) · §프로파일은 둘이 나란히(133) · `08-storage.md` §e2p 컴포넌트를 쓸지(98) · §자리 — 기존 데이터 영역을 피해서(109) · 합 750 |
@@ -101,8 +102,14 @@ qmk-link · via-he · HG-T113-S3 에는 글에 쓸 다이어그램이 없다 —
 > `13-rapid-trigger.md` 의 "실측은 1.31배였다", "잔여분은 우리 탓인가" 두 절(197 단어)과
 > 1/f 상관 0.45 의 뒷이야기다.
 >
-> `00-hardware.md`(1.4k), `02-console.md`, `03-reset-boot.md`, `04-ws2812.md`, `07-keyboard.md` 는
-> 단독으로 쓰기에 얇다. 관련 글의 도입부로 녹인다.
+> `00-hardware.md`(1.4k), `02-console.md`(0.2k), `03-reset-boot.md`(0.3k), `07-keyboard.md`(0.9k) 는
+> 단독으로 쓰기에 얇다. 관련 글의 도입부로 녹인다. (`04-ws2812.md` 는 LED 글 재료로 옮겼다.)
+>
+> 다만 **`02-console.md` + `03-reset-boot.md` 는 묶으면 한 편이 된다** — "JTAG 없이 디버깅하기".
+> 배선 없이 USB CDC 로 콘솔을 띄우는 것, **죽은 뒤에도 읽히는 `.noinit` RAM 링버퍼**,
+> ROM API 로 스스로 부트로더로 돌아가는 것, 그리고 **D-캐시가 거짓말한 사건**.
+> 0.55k 라 저장소 `docs/README.md` §3 기록 · §4 디버그 · §6 복구 를 같이 써야 분량이 찬다.
+> 쓸지 말지 정하지 않았다.
 >
 > ⚠ **EEPROM 글의 경계.** QMK 글 초안이 RAM 그림자와 200ms 미룬 굽기를 **한 문단으로
 > 요약해** 두었다(`hall-effect-under-qmk/index.md`). EEPROM 글은 그 문단을 되풀이하지

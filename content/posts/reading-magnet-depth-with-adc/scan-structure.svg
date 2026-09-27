@@ -1,0 +1,163 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 470" width="880" height="470" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
+  <style>
+    .m   { font-size: 12px; font-family: ui-monospace, Menlo, Consolas, monospace; fill: #6b7280; }
+    .b   { font-size: 14px; font-weight: 600; }
+    .s   { font-size: 11.5px; fill: #6b7280; }
+    .ttl { font-size: 15px; font-weight: 700; fill: #374151; }
+    .lbl { font-size: 12px; font-weight: 600; fill: #4b5563; }
+  </style>
+  <defs>
+    <marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#9ca3af"/>
+    </marker>
+    <marker id="ap" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#db2777"/>
+    </marker>
+  </defs>
+  <rect width="880" height="470" fill="#ffffff"/>
+  <text x="20" y="26" class="ttl">One scan: 64 sensors through 8 ADC channels</text>
+  <text x="20" y="46" class="s">Eight multiplexer steps, eight channels each. The ADC never sees more than eight sensors at a time.</text>
+  <rect x="20" y="78" width="176" height="150" rx="5" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.5"/>
+  <text x="34" y="100" class="b" fill="#1d4ed8">Hall sensors</text>
+  <text x="34" y="118" class="s">one per key, always powered</text>
+  <rect x="36" y="132" width="9" height="9" rx="1.5" fill="#bfdbfe"/>
+  <rect x="54" y="132" width="9" height="9" rx="1.5" fill="#bfdbfe"/>
+  <rect x="72" y="132" width="9" height="9" rx="1.5" fill="#bfdbfe"/>
+  <rect x="90" y="132" width="9" height="9" rx="1.5" fill="#bfdbfe"/>
+  <rect x="108" y="132" width="9" height="9" rx="1.5" fill="#bfdbfe"/>
+  <rect x="126" y="132" width="9" height="9" rx="1.5" fill="#bfdbfe"/>
+  <rect x="144" y="132" width="9" height="9" rx="1.5" fill="#bfdbfe"/>
+  <rect x="162" y="132" width="9" height="9" rx="1.5" fill="#bfdbfe"/>
+  <rect x="36" y="143" width="9" height="9" rx="1.5" fill="#bfdbfe"/>
+  <rect x="54" y="143" width="9" height="9" rx="1.5" fill="#bfdbfe"/>
+  <rect x="72" y="143" width="9" height="9" rx="1.5" fill="#bfdbfe"/>
+  <rect x="90" y="143" width="9" height="9" rx="1.5" fill="#bfdbfe"/>
+  <rect x="108" y="143" width="9" height="9" rx="1.5" fill="#bfdbfe"/>
+  <rect x="126" y="143" width="9" height="9" rx="1.5" fill="#bfdbfe"/>
+  <rect x="144" y="143" width="9" height="9" rx="1.5" fill="#bfdbfe"/>
+  <rect x="162" y="143" width="9" height="9" rx="1.5" fill="#bfdbfe"/>
+  <rect x="36" y="154" width="9" height="9" rx="1.5" fill="#1d4ed8"/>
+  <rect x="54" y="154" width="9" height="9" rx="1.5" fill="#1d4ed8"/>
+  <rect x="72" y="154" width="9" height="9" rx="1.5" fill="#1d4ed8"/>
+  <rect x="90" y="154" width="9" height="9" rx="1.5" fill="#1d4ed8"/>
+  <rect x="108" y="154" width="9" height="9" rx="1.5" fill="#1d4ed8"/>
+  <rect x="126" y="154" width="9" height="9" rx="1.5" fill="#1d4ed8"/>
+  <rect x="144" y="154" width="9" height="9" rx="1.5" fill="#1d4ed8"/>
+  <rect x="162" y="154" width="9" height="9" rx="1.5" fill="#1d4ed8"/>
+  <rect x="36" y="165" width="9" height="9" rx="1.5" fill="#bfdbfe"/>
+  <rect x="54" y="165" width="9" height="9" rx="1.5" fill="#bfdbfe"/>
+  <rect x="72" y="165" width="9" height="9" rx="1.5" fill="#bfdbfe"/>
+  <rect x="90" y="165" width="9" height="9" rx="1.5" fill="#bfdbfe"/>
+  <rect x="108" y="165" width="9" height="9" rx="1.5" fill="#bfdbfe"/>
+  <rect x="126" y="165" width="9" height="9" rx="1.5" fill="#bfdbfe"/>
+  <rect x="144" y="165" width="9" height="9" rx="1.5" fill="#bfdbfe"/>
+  <rect x="162" y="165" width="9" height="9" rx="1.5" fill="#bfdbfe"/>
+  <rect x="36" y="176" width="9" height="9" rx="1.5" fill="#bfdbfe"/>
+  <rect x="54" y="176" width="9" height="9" rx="1.5" fill="#bfdbfe"/>
+  <rect x="72" y="176" width="9" height="9" rx="1.5" fill="#bfdbfe"/>
+  <rect x="90" y="176" width="9" height="9" rx="1.5" fill="#bfdbfe"/>
+  <rect x="108" y="176" width="9" height="9" rx="1.5" fill="#bfdbfe"/>
+  <rect x="126" y="176" width="9" height="9" rx="1.5" fill="#bfdbfe"/>
+  <rect x="144" y="176" width="9" height="9" rx="1.5" fill="#bfdbfe"/>
+  <rect x="162" y="176" width="9" height="9" rx="1.5" fill="#bfdbfe"/>
+  <rect x="36" y="187" width="9" height="9" rx="1.5" fill="#bfdbfe"/>
+  <rect x="54" y="187" width="9" height="9" rx="1.5" fill="#bfdbfe"/>
+  <rect x="72" y="187" width="9" height="9" rx="1.5" fill="#bfdbfe"/>
+  <rect x="90" y="187" width="9" height="9" rx="1.5" fill="#bfdbfe"/>
+  <rect x="108" y="187" width="9" height="9" rx="1.5" fill="#bfdbfe"/>
+  <rect x="126" y="187" width="9" height="9" rx="1.5" fill="#bfdbfe"/>
+  <rect x="144" y="187" width="9" height="9" rx="1.5" fill="#bfdbfe"/>
+  <rect x="162" y="187" width="9" height="9" rx="1.5" fill="#bfdbfe"/>
+  <rect x="36" y="198" width="9" height="9" rx="1.5" fill="#bfdbfe"/>
+  <rect x="54" y="198" width="9" height="9" rx="1.5" fill="#bfdbfe"/>
+  <rect x="72" y="198" width="9" height="9" rx="1.5" fill="#bfdbfe"/>
+  <rect x="90" y="198" width="9" height="9" rx="1.5" fill="#bfdbfe"/>
+  <rect x="108" y="198" width="9" height="9" rx="1.5" fill="#bfdbfe"/>
+  <rect x="126" y="198" width="9" height="9" rx="1.5" fill="#bfdbfe"/>
+  <rect x="144" y="198" width="9" height="9" rx="1.5" fill="#bfdbfe"/>
+  <rect x="162" y="198" width="9" height="9" rx="1.5" fill="#bfdbfe"/>
+  <rect x="36" y="209" width="9" height="9" rx="1.5" fill="#bfdbfe"/>
+  <rect x="54" y="209" width="9" height="9" rx="1.5" fill="#bfdbfe"/>
+  <rect x="72" y="209" width="9" height="9" rx="1.5" fill="#bfdbfe"/>
+  <rect x="90" y="209" width="9" height="9" rx="1.5" fill="#bfdbfe"/>
+  <rect x="108" y="209" width="9" height="9" rx="1.5" fill="#bfdbfe"/>
+  <rect x="126" y="209" width="9" height="9" rx="1.5" fill="#bfdbfe"/>
+  <rect x="144" y="209" width="9" height="9" rx="1.5" fill="#bfdbfe"/>
+  <rect x="162" y="209" width="9" height="9" rx="1.5" fill="#bfdbfe"/>
+  <text x="20" y="246" class="s">64 cells &#183; WISH60 HE uses 63, WISH61 HE uses 61</text>
+  <path d="M200,150 L240,150" stroke="#9ca3af" stroke-width="1.5" marker-end="url(#ag)" fill="none"/>
+  <rect x="246" y="78" width="150" height="150" rx="5" fill="#fce7f3" stroke="#db2777" stroke-width="1.5"/>
+  <text x="260" y="100" class="b" fill="#be185d">Analog MUX</text>
+  <text x="260" y="120" class="s">connects one group of 8</text>
+  <text x="260" y="136" class="s">to the pads at a time</text>
+  <rect x="260" y="148" width="122" height="28" rx="4" fill="#ffffff" stroke="#f9a8d4"/>
+  <text x="270" y="167" class="m" fill="#be185d">3-bit address</text>
+  <text x="260" y="196" class="s">on PY pads &#8212; needs PIOC</text>
+  <text x="260" y="212" class="s">set to ALT3, not just IOC</text>
+  <path d="M400,150 L440,150" stroke="#9ca3af" stroke-width="1.5" marker-end="url(#ag)" fill="none"/>
+  <rect x="446" y="78" width="176" height="150" rx="5" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="460" y="100" class="b" fill="#15803d">ADC0 + ADC1</text>
+  <text x="460" y="118" class="s">four channels each</text>
+  <rect x="458" y="128" width="156" height="38" rx="4" fill="#ffffff" stroke="#86efac"/>
+  <text x="466" y="144" class="m" font-size="11" fill="#15803d">PB00~PB07 &#8594; ch8~ch15</text>
+  <text x="466" y="160" class="m" font-size="11" fill="#15803d">PB08~PB15 &#8594; ch0~ch7</text>
+  <text x="460" y="184" class="s">the pad number is not the</text>
+  <text x="460" y="200" class="s">channel number &#8212; rotated by 8,</text>
+  <text x="460" y="216" class="s">so the tables look unsorted</text>
+  <path d="M626,150 L666,150" stroke="#9ca3af" stroke-width="1.5" marker-end="url(#ag)" fill="none"/>
+  <rect x="672" y="78" width="188" height="150" rx="5" fill="#f3f4f6" stroke="#9ca3af" stroke-width="1.5"/>
+  <text x="686" y="100" class="b" fill="#374151">DMA buffers</text>
+  <text x="686" y="118" class="s">one sequence per trigger</text>
+  <text x="686" y="140" class="m" fill="#374151">adc0_buf[4]</text>
+  <rect x="686" y="146" width="38" height="18" rx="3" fill="#ffffff" stroke="#d1d5db"/>
+  <rect x="730" y="146" width="38" height="18" rx="3" fill="#ffffff" stroke="#d1d5db"/>
+  <rect x="774" y="146" width="38" height="18" rx="3" fill="#ffffff" stroke="#d1d5db"/>
+  <rect x="818" y="146" width="38" height="18" rx="3" fill="#ffffff" stroke="#d1d5db"/>
+  <text x="686" y="182" class="m" fill="#374151">adc1_buf[4]</text>
+  <rect x="686" y="188" width="38" height="18" rx="3" fill="#ffffff" stroke="#d1d5db"/>
+  <rect x="730" y="188" width="38" height="18" rx="3" fill="#ffffff" stroke="#d1d5db"/>
+  <rect x="774" y="188" width="38" height="18" rx="3" fill="#ffffff" stroke="#d1d5db"/>
+  <rect x="818" y="188" width="38" height="18" rx="3" fill="#ffffff" stroke="#d1d5db"/>
+  <text x="686" y="222" class="s">copied into snap[8] first</text>
+  <text x="20" y="288" class="lbl">Step order is a gray code &#8212; only one address bit changes at a time</text>
+  <rect x="20" y="300" width="60" height="40" rx="5" fill="#fce7f3" stroke="#f9a8d4" stroke-width="1.5"/>
+  <text x="50" y="318" class="m" text-anchor="middle" fill="#9ca3af">step 0</text>
+  <text x="50" y="334" class="b" text-anchor="middle" fill="#be185d">6</text>
+  <path d="M80,320 L92,320" stroke="#e5e7eb" stroke-width="1.5"/>
+  <rect x="94" y="300" width="60" height="40" rx="5" fill="#fce7f3" stroke="#f9a8d4" stroke-width="1.5"/>
+  <text x="124" y="318" class="m" text-anchor="middle" fill="#9ca3af">step 1</text>
+  <text x="124" y="334" class="b" text-anchor="middle" fill="#be185d">7</text>
+  <path d="M154,320 L166,320" stroke="#e5e7eb" stroke-width="1.5"/>
+  <rect x="168" y="300" width="60" height="40" rx="5" fill="#fce7f3" stroke="#f9a8d4" stroke-width="1.5"/>
+  <text x="198" y="318" class="m" text-anchor="middle" fill="#9ca3af">step 2</text>
+  <text x="198" y="334" class="b" text-anchor="middle" fill="#be185d">5</text>
+  <path d="M228,320 L240,320" stroke="#e5e7eb" stroke-width="1.5"/>
+  <rect x="242" y="300" width="60" height="40" rx="5" fill="#fce7f3" stroke="#f9a8d4" stroke-width="1.5"/>
+  <text x="272" y="318" class="m" text-anchor="middle" fill="#9ca3af">step 3</text>
+  <text x="272" y="334" class="b" text-anchor="middle" fill="#be185d">4</text>
+  <path d="M302,320 L314,320" stroke="#e5e7eb" stroke-width="1.5"/>
+  <rect x="316" y="300" width="60" height="40" rx="5" fill="#fce7f3" stroke="#f9a8d4" stroke-width="1.5"/>
+  <text x="346" y="318" class="m" text-anchor="middle" fill="#9ca3af">step 4</text>
+  <text x="346" y="334" class="b" text-anchor="middle" fill="#be185d">0</text>
+  <path d="M376,320 L388,320" stroke="#e5e7eb" stroke-width="1.5"/>
+  <rect x="390" y="300" width="60" height="40" rx="5" fill="#fce7f3" stroke="#f9a8d4" stroke-width="1.5"/>
+  <text x="420" y="318" class="m" text-anchor="middle" fill="#9ca3af">step 5</text>
+  <text x="420" y="334" class="b" text-anchor="middle" fill="#be185d">1</text>
+  <path d="M450,320 L462,320" stroke="#e5e7eb" stroke-width="1.5"/>
+  <rect x="464" y="300" width="60" height="40" rx="5" fill="#fce7f3" stroke="#f9a8d4" stroke-width="1.5"/>
+  <text x="494" y="318" class="m" text-anchor="middle" fill="#9ca3af">step 6</text>
+  <text x="494" y="334" class="b" text-anchor="middle" fill="#be185d">3</text>
+  <path d="M524,320 L536,320" stroke="#e5e7eb" stroke-width="1.5"/>
+  <rect x="538" y="300" width="60" height="40" rx="5" fill="#fce7f3" stroke="#f9a8d4" stroke-width="1.5"/>
+  <text x="568" y="318" class="m" text-anchor="middle" fill="#9ca3af">step 7</text>
+  <text x="568" y="334" class="b" text-anchor="middle" fill="#be185d">2</text>
+  <path d="M598,320 L610,320" stroke="#e5e7eb" stroke-width="1.5"/>
+  <rect x="612" y="300" width="60" height="40" rx="5" fill="#f3f4f6" stroke="#d1d5db" stroke-width="1.5"/>
+  <text x="642" y="318" class="m" text-anchor="middle" fill="#9ca3af">repeat</text>
+  <text x="642" y="334" class="b" text-anchor="middle" fill="#9ca3af">6</text>
+  <text x="20" y="364" class="s">The ninth entry repeats the first: the loop writes the next address before copying this step out, so the</text>
+  <text x="20" y="382" class="s">16-cycle settle (about 40 ns at 400 MHz) happens underneath work that was going to run anyway.</text>
+  <rect x="20" y="404" width="840" height="46" rx="5" fill="#fffbeb" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="36" y="424" class="b" fill="#b45309">8 steps &#215; 8 channels = 64 counts, once per scan</text>
+  <text x="36" y="441" class="s">No timer drives any of this. The scan free-runs in the main loop.</text>
+</svg>

@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 440" width="880" height="440" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
+  <style>
+    .m   { font-size: 12px; font-family: ui-monospace, Menlo, Consolas, monospace; fill: #6b7280; }
+    .b   { font-size: 14px; font-weight: 600; }
+    .s   { font-size: 11.5px; fill: #6b7280; }
+    .ttl { font-size: 15px; font-weight: 700; fill: #374151; }
+    .lbl { font-size: 12px; font-weight: 600; fill: #4b5563; }
+  </style>
+  <rect width="880" height="440" fill="#ffffff"/>
+  <text x="20" y="26" class="ttl">Why the averaging fell short: the noise is not white</text>
+  <text x="20" y="46" class="s">Correlation between two samples against the gap between them. Model: e^(-dt / 10.6 us), from the sensor datasheet.</text>
+  <rect x="90" y="90" width="586" height="240" fill="#fafafa" stroke="#e5e7eb"/>
+  <path d="M90,330.0 L676,330.0" stroke="#e5e7eb"/>
+  <text x="82" y="334.0" class="s" text-anchor="end">0.00</text>
+  <path d="M90,270.0 L676,270.0" stroke="#e5e7eb"/>
+  <text x="82" y="274.0" class="s" text-anchor="end">0.25</text>
+  <path d="M90,210.0 L676,210.0" stroke="#e5e7eb"/>
+  <text x="82" y="214.0" class="s" text-anchor="end">0.50</text>
+  <path d="M90,150.0 L676,150.0" stroke="#e5e7eb"/>
+  <text x="82" y="154.0" class="s" text-anchor="end">0.75</text>
+  <path d="M90,90.0 L676,90.0" stroke="#e5e7eb"/>
+  <text x="82" y="94.0" class="s" text-anchor="end">1.00</text>
+  <path d="M90.0,90 L90.0,330" stroke="#e5e7eb"/>
+  <text x="90.0" y="348" class="s" text-anchor="middle">0 us</text>
+  <path d="M262.4,90 L262.4,330" stroke="#e5e7eb"/>
+  <text x="262.4" y="348" class="s" text-anchor="middle">10 us</text>
+  <path d="M434.7,90 L434.7,330" stroke="#e5e7eb"/>
+  <text x="434.7" y="348" class="s" text-anchor="middle">20 us</text>
+  <path d="M607.1,90 L607.1,330" stroke="#e5e7eb"/>
+  <text x="607.1" y="348" class="s" text-anchor="middle">30 us</text>
+  <text x="383" y="370" class="lbl" text-anchor="middle">gap between samples</text>
+  <text x="26" y="210" class="lbl" transform="rotate(-90 26 210)" text-anchor="middle">correlation</text>
+  <polyline points="90.0,90.0 92.4,93.2 94.9,96.3 97.3,99.4 99.8,102.5 102.2,105.5 104.7,108.5 107.1,111.4 109.5,114.3 112.0,117.2 114.4,120.0 116.9,122.8 119.3,125.6 121.7,128.3 124.2,131.0 126.6,133.6 129.1,136.2 131.5,138.8 133.9,141.3 136.4,143.8 138.8,146.3 141.3,148.7 143.7,151.1 146.2,153.5 148.6,155.9 151.0,158.2 153.5,160.4 155.9,162.7 158.4,164.9 160.8,167.1 163.2,169.3 165.7,171.4 168.1,173.5 170.6,175.6 173.0,177.6 175.5,179.7 177.9,181.7 180.3,183.6 182.8,185.6 185.2,187.5 187.7,189.4 190.1,191.2 192.6,193.1 195.0,194.9 197.4,196.7 199.9,198.5 202.3,200.2 204.8,201.9 207.2,203.6 209.6,205.3 212.1,207.0 214.5,208.6 217.0,210.2 219.4,211.8 221.8,213.4 224.3,214.9 226.7,216.5 229.2,218.0 231.6,219.4 234.1,220.9 236.5,222.4 238.9,223.8 241.4,225.2 243.8,226.6 246.3,228.0 248.7,229.3 251.1,230.7 253.6,232.0 256.0,233.3 258.5,234.6 260.9,235.8 263.4,237.1 265.8,238.3 268.2,239.5 270.7,240.7 273.1,241.9 275.6,243.1 278.0,244.2 280.5,245.4 282.9,246.5 285.3,247.6 287.8,248.7 290.2,249.8 292.7,250.8 295.1,251.9 297.5,252.9 300.0,254.0 302.4,255.0 304.9,256.0 307.3,256.9 309.8,257.9 312.2,258.9 314.6,259.8 317.1,260.8 319.5,261.7 322.0,262.6 324.4,263.5 326.8,264.4 329.3,265.2 331.7,266.1 334.2,266.9 336.6,267.8 339.0,268.6 341.5,269.4 343.9,270.2 346.4,271.0 348.8,271.8 351.3,272.6 353.7,273.3 356.1,274.1 358.6,274.8 361.0,275.6 363.5,276.3 365.9,277.0 368.3,277.7 370.8,278.4 373.2,279.1 375.7,279.8 378.1,280.4 380.6,281.1 383.0,281.7 385.4,282.4 387.9,283.0 390.3,283.6 392.8,284.2 395.2,284.8 397.7,285.4 400.1,286.0 402.5,286.6 405.0,287.2 407.4,287.8 409.9,288.3 412.3,288.9 414.7,289.4 417.2,290.0 419.6,290.5 422.1,291.0 424.5,291.5 427.0,292.0 429.4,292.6 431.8,293.0 434.3,293.5 436.7,294.0 439.2,294.5 441.6,295.0 444.0,295.4 446.5,295.9 448.9,296.3 451.4,296.8 453.8,297.2 456.2,297.7 458.7,298.1 461.1,298.5 463.6,298.9 466.0,299.4 468.5,299.8 470.9,300.2 473.3,300.6 475.8,301.0 478.2,301.3 480.7,301.7 483.1,302.1 485.5,302.5 488.0,302.8 490.4,303.2 492.9,303.5 495.3,303.9 497.8,304.2 500.2,304.6 502.6,304.9 505.1,305.3 507.5,305.6 510.0,305.9 512.4,306.2 514.8,306.5 517.3,306.9 519.7,307.2 522.2,307.5 524.6,307.8 527.1,308.1 529.5,308.4 531.9,308.6 534.4,308.9 536.8,309.2 539.3,309.5 541.7,309.8 544.2,310.0 546.6,310.3 549.0,310.5 551.5,310.8 553.9,311.1 556.4,311.3 558.8,311.6 561.2,311.8 563.7,312.0 566.1,312.3 568.6,312.5 571.0,312.8 573.5,313.0 575.9,313.2 578.3,313.4 580.8,313.6 583.2,313.9 585.7,314.1 588.1,314.3 590.5,314.5 593.0,314.7 595.4,314.9 597.9,315.1 600.3,315.3 602.8,315.5 605.2,315.7 607.6,315.9 610.1,316.1 612.5,316.3 615.0,316.4 617.4,316.6 619.8,316.8 622.3,317.0 624.7,317.1 627.2,317.3 629.6,317.5 632.0,317.6 634.5,317.8 636.9,318.0 639.4,318.1 641.8,318.3 644.3,318.4 646.7,318.6 649.1,318.8 651.6,318.9 654.0,319.0 656.5,319.2 658.9,319.3 661.4,319.5 663.8,319.6 666.2,319.8 668.7,319.9 671.1,320.0 673.6,320.2 676.0,320.3" fill="none" stroke="#1d4ed8" stroke-width="2"/>
+  <circle cx="95.5" cy="97.1" r="5" fill="#1d4ed8"/>
+  <circle cx="520.9" cy="307.3" r="5" fill="#1d4ed8"/>
+  <circle cx="572.6" cy="312.9" r="5" fill="#1d4ed8"/>
+  <text x="357.1" y="112" class="lbl" fill="#1d4ed8">Three points on the model</text>
+  <text x="357.1" y="130" class="s">0.32 us apart &#8594; 0.97   a burst oversample: nothing to average</text>
+  <text x="357.1" y="146" class="s">25 us apart &#8594; 0.09   three accumulated samples, independent</text>
+  <text x="357.1" y="162" class="s">28 us apart &#8594; 0.07   what one scan period should give</text>
+  <path d="M572.6,222.0 L572.6,312.9" stroke="#db2777" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <circle cx="572.6" cy="222.0" r="6" fill="#db2777"/>
+  <text x="560.6" y="227.0" class="b" fill="#be185d" text-anchor="end">measured 0.45</text>
+  <text x="586.6" y="265.4" class="b" fill="#be185d">the gap</text>
+  <text x="586.6" y="281.4" class="s" fill="#be185d">is 1/f flicker</text>
+  <rect x="700" y="90" width="160" height="240" rx="5" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.5"/>
+  <text x="714" y="112" class="b" fill="#1d4ed8">Why it matters</text>
+  <text x="714" y="134" class="s">Adding N samples only buys</text>
+  <text x="714" y="147" class="s">sqrt(N) if they really are</text>
+  <text x="714" y="160" class="s">independent.</text>
+  <text x="714" y="186" class="s">Three samples 25 us apart</text>
+  <text x="714" y="199" class="s">should have given 1.73x.</text>
+  <text x="714" y="212" class="s">Measured: 1.31x.</text>
+  <text x="714" y="238" class="s">White noise averages away.</text>
+  <text x="714" y="251" class="s">1/f does not &#8212; an 84 us</text>
+  <text x="714" y="264" class="s">window is far too short</text>
+  <text x="714" y="277" class="s">to touch it.</text>
+  <text x="714" y="303" class="s">Peak-to-peak 39 counts is</text>
+  <text x="714" y="316" class="s">this hardware's floor.</text>
+  <rect x="20" y="362" width="840" height="58" rx="5" fill="#fffbeb" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="36" y="384" class="b" fill="#b45309">The LED test ruled out the other suspect</text>
+  <text x="36" y="403" class="s">Peak-to-peak stayed at 39 counts with the LEDs off, at 3 % white and at 6 % white. So it is not power coupling.</text>
+</svg>

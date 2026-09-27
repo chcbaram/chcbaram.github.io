@@ -38,6 +38,8 @@ None of that came with documentation. The board is somebody else's product, so t
 sensor rotation and the multiplexer wiring were worked out from the board itself
 before any of this code existed.
 
+![One scan: 64 sensors reach the ADC eight at a time, through a 3-bit multiplexer address stepped in gray-code order](scan-structure.svg)
+
 ![The WISH60 HE board with most switches out. Every cell has its own Hall sensor on the pad, and the analog multiplexers sit under the centre strip](01.jpg)
 
 ## The scan loop
@@ -152,6 +154,8 @@ spend 0.93 us processing. Triggering step N and processing step N-1 inside that
 wait hides the processing entirely. The next trigger overwrites the DMA buffer, so
 the eight words are copied out first — far cheaper than what they hide.
 
+![The conversion takes the same 2.96 us either way. Moving the processing inside that wait saves 0.93 us on every one of the eight steps](dead-time.svg)
+
 `firmware/wish-he/src/hw/driver/keys.c`
 ([permalink](https://github.com/chcbaram/wish-he/blob/2d5083019c522b35f0fe0d7c4f6d8df51b99d22f/firmware/wish-he/src/hw/driver/keys.c#L2862-L2893))
 
@@ -236,6 +240,8 @@ correlation time and an 84 us window does not touch it. That matches the measure
 correlation of 0.45 between consecutive scans, where white noise alone would
 predict 0.07.
 
+![Correlation against sample spacing. Three points sit on the model; the measured 0.45 sits far above it, and that gap is the 1/f component](noise-correlation.svg)
+
 Averaging shows the same thing from the other side. Summing the last three samples
 should improve noise by √3 = 1.73x; measured, it improved by 1.31x. I keep a sum
 rather than a mean: dividing by three puts the scale back at 12 bits and quantises
@@ -281,7 +287,7 @@ a switch nobody has listed yet.
   board, not from my own instruments. It carries weight: the whole 1/f argument is a
   comparison against what that figure predicts.
 
-![A USB power meter inline with the board. Everything in the current budget — the MCU, 64 Hall sensors that are never switched off, and whatever the LEDs are drawing — arrives through this one cable](02.jpg)
+![A USB power meter inline with the board. Everything in the current budget — the MCU, 64 Hall sensors that are never switched off, and whatever the LEDs are drawing — arrives through this one cable](usb-meter-w600.jpg)
 
 ## Links
 
