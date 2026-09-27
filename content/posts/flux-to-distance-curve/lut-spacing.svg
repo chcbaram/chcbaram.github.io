@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 384" width="880" height="384" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
+  <style>
+    .m   { font-size: 12px; font-family: ui-monospace, Menlo, Consolas, monospace; fill: #6b7280; }
+    .b   { font-size: 14px; font-weight: 600; }
+    .s   { font-size: 11.5px; fill: #6b7280; }
+    .ttl { font-size: 15px; font-weight: 700; fill: #374151; }
+    .lbl { font-size: 12px; font-weight: 600; fill: #4b5563; }
+  </style>
+  <rect width="880" height="384" fill="#ffffff"/>
+  <text x="20" y="26" class="ttl">Split the table by distance, not by the reading</text>
+  <text x="20" y="46" class="s">Where the 33 table entries land on the stroke. Gateron Jade, 3.5 mm of travel.</text>
+  <text x="20" y="145" class="lbl" fill="#db2777">uniform in u</text>
+  <text x="145" y="100" class="b" fill="#db2777">the first sixteenth of u is 0.64 mm of travel</text>
+  <text x="145" y="116" class="s" fill="#db2777">two entries out of 33 swallow the whole top of the stroke</text>
+  <rect x="145.0" y="129" width="128.9" height="22" fill="#fce7f3" stroke="#db2777" stroke-dasharray="4 3"/>
+  <path d="M145,140 L845,140" stroke="#9ca3af" stroke-width="1.5"/>
+  <path d="M145.0,129 L145.0,151" stroke="#db2777" stroke-width="1.4"/>
+  <path d="M214.9,129 L214.9,151" stroke="#db2777" stroke-width="1.4"/>
+  <path d="M273.9,129 L273.9,151" stroke="#db2777" stroke-width="1.4"/>
+  <path d="M324.5,129 L324.5,151" stroke="#db2777" stroke-width="1.4"/>
+  <path d="M368.7,129 L368.7,151" stroke="#db2777" stroke-width="1.4"/>
+  <path d="M407.9,129 L407.9,151" stroke="#db2777" stroke-width="1.4"/>
+  <path d="M442.7,129 L442.7,151" stroke="#db2777" stroke-width="1.4"/>
+  <path d="M474.3,129 L474.3,151" stroke="#db2777" stroke-width="1.4"/>
+  <path d="M502.9,129 L502.9,151" stroke="#db2777" stroke-width="1.4"/>
+  <path d="M529.1,129 L529.1,151" stroke="#db2777" stroke-width="1.4"/>
+  <path d="M553.3,129 L553.3,151" stroke="#db2777" stroke-width="1.4"/>
+  <path d="M575.7,129 L575.7,151" stroke="#db2777" stroke-width="1.4"/>
+  <path d="M596.5,129 L596.5,151" stroke="#db2777" stroke-width="1.4"/>
+  <path d="M615.9,129 L615.9,151" stroke="#db2777" stroke-width="1.4"/>
+  <path d="M634.1,129 L634.1,151" stroke="#db2777" stroke-width="1.4"/>
+  <path d="M651.4,129 L651.4,151" stroke="#db2777" stroke-width="1.4"/>
+  <path d="M667.5,129 L667.5,151" stroke="#db2777" stroke-width="1.4"/>
+  <path d="M682.6,129 L682.6,151" stroke="#db2777" stroke-width="1.4"/>
+  <path d="M697.2,129 L697.2,151" stroke="#db2777" stroke-width="1.4"/>
+  <path d="M711.0,129 L711.0,151" stroke="#db2777" stroke-width="1.4"/>
+  <path d="M723.9,129 L723.9,151" stroke="#db2777" stroke-width="1.4"/>
+  <path d="M736.6,129 L736.6,151" stroke="#db2777" stroke-width="1.4"/>
+  <path d="M748.3,129 L748.3,151" stroke="#db2777" stroke-width="1.4"/>
+  <path d="M759.9,129 L759.9,151" stroke="#db2777" stroke-width="1.4"/>
+  <path d="M770.7,129 L770.7,151" stroke="#db2777" stroke-width="1.4"/>
+  <path d="M781.3,129 L781.3,151" stroke="#db2777" stroke-width="1.4"/>
+  <path d="M791.3,129 L791.3,151" stroke="#db2777" stroke-width="1.4"/>
+  <path d="M801.2,129 L801.2,151" stroke="#db2777" stroke-width="1.4"/>
+  <path d="M810.4,129 L810.4,151" stroke="#db2777" stroke-width="1.4"/>
+  <path d="M819.5,129 L819.5,151" stroke="#db2777" stroke-width="1.4"/>
+  <path d="M828.2,129 L828.2,151" stroke="#db2777" stroke-width="1.4"/>
+  <path d="M836.6,129 L836.6,151" stroke="#db2777" stroke-width="1.4"/>
+  <path d="M845.0,129 L845.0,151" stroke="#db2777" stroke-width="1.4"/>
+  <text x="145.0" y="170" class="s" text-anchor="middle">0.0</text>
+  <text x="245.0" y="170" class="s" text-anchor="middle">0.5</text>
+  <text x="345.0" y="170" class="s" text-anchor="middle">1.0</text>
+  <text x="445.0" y="170" class="s" text-anchor="middle">1.5</text>
+  <text x="545.0" y="170" class="s" text-anchor="middle">2.0</text>
+  <text x="645.0" y="170" class="s" text-anchor="middle">2.5</text>
+  <text x="745.0" y="170" class="s" text-anchor="middle">3.0</text>
+  <text x="845.0" y="170" class="s" text-anchor="middle">3.5 mm</text>
+  <text x="20" y="263" class="lbl" fill="#1d4ed8">uniform in distance</text>
+  <text x="145" y="218" class="b" fill="#1d4ed8">the same two entries cover 0.22 mm</text>
+  <text x="145" y="234" class="s" fill="#1d4ed8">every step is 0.109375 mm, so the resolution is the same everywhere</text>
+  <rect x="145.0" y="247" width="43.8" height="22" fill="#dbeafe" stroke="#1d4ed8" stroke-dasharray="4 3"/>
+  <path d="M145,258 L845,258" stroke="#9ca3af" stroke-width="1.5"/>
+  <path d="M145.0,247 L145.0,269" stroke="#1d4ed8" stroke-width="1.4"/>
+  <path d="M166.9,247 L166.9,269" stroke="#1d4ed8" stroke-width="1.4"/>
+  <path d="M188.8,247 L188.8,269" stroke="#1d4ed8" stroke-width="1.4"/>
+  <path d="M210.6,247 L210.6,269" stroke="#1d4ed8" stroke-width="1.4"/>
+  <path d="M232.5,247 L232.5,269" stroke="#1d4ed8" stroke-width="1.4"/>
+  <path d="M254.4,247 L254.4,269" stroke="#1d4ed8" stroke-width="1.4"/>
+  <path d="M276.2,247 L276.2,269" stroke="#1d4ed8" stroke-width="1.4"/>
+  <path d="M298.1,247 L298.1,269" stroke="#1d4ed8" stroke-width="1.4"/>
+  <path d="M320.0,247 L320.0,269" stroke="#1d4ed8" stroke-width="1.4"/>
+  <path d="M341.9,247 L341.9,269" stroke="#1d4ed8" stroke-width="1.4"/>
+  <path d="M363.8,247 L363.8,269" stroke="#1d4ed8" stroke-width="1.4"/>
+  <path d="M385.6,247 L385.6,269" stroke="#1d4ed8" stroke-width="1.4"/>
+  <path d="M407.5,247 L407.5,269" stroke="#1d4ed8" stroke-width="1.4"/>
+  <path d="M429.4,247 L429.4,269" stroke="#1d4ed8" stroke-width="1.4"/>
+  <path d="M451.2,247 L451.2,269" stroke="#1d4ed8" stroke-width="1.4"/>
+  <path d="M473.1,247 L473.1,269" stroke="#1d4ed8" stroke-width="1.4"/>
+  <path d="M495.0,247 L495.0,269" stroke="#1d4ed8" stroke-width="1.4"/>
+  <path d="M516.9,247 L516.9,269" stroke="#1d4ed8" stroke-width="1.4"/>
+  <path d="M538.8,247 L538.8,269" stroke="#1d4ed8" stroke-width="1.4"/>
+  <path d="M560.6,247 L560.6,269" stroke="#1d4ed8" stroke-width="1.4"/>
+  <path d="M582.5,247 L582.5,269" stroke="#1d4ed8" stroke-width="1.4"/>
+  <path d="M604.4,247 L604.4,269" stroke="#1d4ed8" stroke-width="1.4"/>
+  <path d="M626.2,247 L626.2,269" stroke="#1d4ed8" stroke-width="1.4"/>
+  <path d="M648.1,247 L648.1,269" stroke="#1d4ed8" stroke-width="1.4"/>
+  <path d="M670.0,247 L670.0,269" stroke="#1d4ed8" stroke-width="1.4"/>
+  <path d="M691.9,247 L691.9,269" stroke="#1d4ed8" stroke-width="1.4"/>
+  <path d="M713.8,247 L713.8,269" stroke="#1d4ed8" stroke-width="1.4"/>
+  <path d="M735.6,247 L735.6,269" stroke="#1d4ed8" stroke-width="1.4"/>
+  <path d="M757.5,247 L757.5,269" stroke="#1d4ed8" stroke-width="1.4"/>
+  <path d="M779.4,247 L779.4,269" stroke="#1d4ed8" stroke-width="1.4"/>
+  <path d="M801.2,247 L801.2,269" stroke="#1d4ed8" stroke-width="1.4"/>
+  <path d="M823.1,247 L823.1,269" stroke="#1d4ed8" stroke-width="1.4"/>
+  <path d="M845.0,247 L845.0,269" stroke="#1d4ed8" stroke-width="1.4"/>
+  <text x="145.0" y="288" class="s" text-anchor="middle">0.0</text>
+  <text x="245.0" y="288" class="s" text-anchor="middle">0.5</text>
+  <text x="345.0" y="288" class="s" text-anchor="middle">1.0</text>
+  <text x="445.0" y="288" class="s" text-anchor="middle">1.5</text>
+  <text x="545.0" y="288" class="s" text-anchor="middle">2.0</text>
+  <text x="645.0" y="288" class="s" text-anchor="middle">2.5</text>
+  <text x="745.0" y="288" class="s" text-anchor="middle">3.0</text>
+  <text x="845.0" y="288" class="s" text-anchor="middle">3.5 mm</text>
+  <rect x="20" y="312" width="840" height="56" rx="5" fill="#f9fafb" stroke="#e5e7eb" stroke-width="1.5"/>
+  <text x="36" y="334" class="b" fill="#374151">The table stores u and is indexed by distance</text>
+  <text x="36" y="353" class="s">Distance to u is then one multiply. The other direction needs a binary search and an interpolation, and only the display path walks it.</text>
+</svg>

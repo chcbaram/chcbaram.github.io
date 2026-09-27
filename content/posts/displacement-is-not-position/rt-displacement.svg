@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 450" width="880" height="450" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
+  <style>
+    .m   { font-size: 12px; font-family: ui-monospace, Menlo, Consolas, monospace; fill: #4b5563; }
+    .b   { font-size: 14px; font-weight: 600; }
+    .s   { font-size: 11.5px; fill: #6b7280; }
+    .ttl { font-size: 15px; font-weight: 700; fill: #374151; }
+    .lbl { font-size: 12px; font-weight: 600; fill: #4b5563; }
+  </style>
+  <rect width="880" height="450" fill="#ffffff"/>
+  <text x="20" y="26" class="ttl">One setting, three different distances</text>
+  <text x="20" y="46" class="s">Rapid-trigger re-press set to 0.50 mm. The bar is how far the key actually had to move back before it fired again.</text>
+
+  <path d="M150,66 L176,66" stroke="#6b7280" stroke-width="1.2" stroke-dasharray="4 3"/>
+  <text x="182" y="71" class="s">setting: 0.50 mm</text>
+  <rect x="320" y="60" width="12" height="12" fill="#fbcfe8" stroke="#db2777"/>
+  <text x="338" y="71" class="s">before: one count threshold</text>
+  <rect x="530" y="60" width="12" height="12" fill="#dbeafe" stroke="#1d4ed8"/>
+  <text x="548" y="71" class="s">after: one threshold per depth zone</text>
+
+  <rect x="90" y="90" width="500" height="230" fill="#fafafa" stroke="#e5e7eb"/>
+  <path d="M90,320 L590,320" stroke="#e5e7eb"/>
+  <text x="82" y="324" class="s" text-anchor="end">0.00</text>
+  <path d="M90,262.5 L590,262.5" stroke="#e5e7eb"/>
+  <text x="82" y="266.5" class="s" text-anchor="end">0.25</text>
+  <path d="M90,205 L590,205" stroke="#e5e7eb"/>
+  <text x="82" y="209" class="s" text-anchor="end">0.50</text>
+  <path d="M90,147.5 L590,147.5" stroke="#e5e7eb"/>
+  <text x="82" y="151.5" class="s" text-anchor="end">0.75</text>
+  <path d="M90,90 L590,90" stroke="#e5e7eb"/>
+  <text x="82" y="94" class="s" text-anchor="end">1.00</text>
+
+  <rect x="122" y="101.5" width="48" height="218.5" fill="#fbcfe8" stroke="#db2777"/>
+  <text x="146" y="95" class="lbl" fill="#be185d" text-anchor="middle">0.95</text>
+  <rect x="176" y="205" width="48" height="115" fill="#dbeafe" stroke="#1d4ed8"/>
+  <text x="200" y="199" class="lbl" fill="#1d4ed8" text-anchor="middle">0.50</text>
+
+  <rect x="289" y="205" width="48" height="115" fill="#fbcfe8" stroke="#db2777"/>
+  <text x="313" y="199" class="lbl" fill="#be185d" text-anchor="middle">0.50</text>
+  <rect x="343" y="205" width="48" height="115" fill="#dbeafe" stroke="#1d4ed8"/>
+  <text x="367" y="199" class="lbl" fill="#1d4ed8" text-anchor="middle">0.50</text>
+
+  <rect x="456" y="264.8" width="48" height="55.2" fill="#fbcfe8" stroke="#db2777"/>
+  <text x="480" y="258.8" class="lbl" fill="#be185d" text-anchor="middle">0.24</text>
+  <rect x="510" y="205" width="48" height="115" fill="#dbeafe" stroke="#1d4ed8"/>
+  <text x="534" y="199" class="lbl" fill="#1d4ed8" text-anchor="middle">0.50</text>
+
+  <path d="M90,205 L590,205" stroke="#6b7280" stroke-width="1.2" stroke-dasharray="4 3"/>
+
+  <text x="146" y="338" class="s" text-anchor="middle">peak at 1.31 mm</text>
+  <text x="313" y="338" class="s" text-anchor="middle">peak at 2.27 mm</text>
+  <text x="480" y="338" class="s" text-anchor="middle">peak at 3.31 mm</text>
+  <text x="340" y="360" class="lbl" text-anchor="middle">where the finger reversed, measured from rest</text>
+  <text x="26" y="205" class="lbl" transform="rotate(-90 26 205)" text-anchor="middle">distance moved back (mm)</text>
+
+  <rect x="620" y="90" width="240" height="230" rx="5" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.5"/>
+  <text x="634" y="112" class="b" fill="#1d4ed8">Eight thresholds, baked</text>
+  <text x="634" y="134" class="s">The zone is chosen from the peak,</text>
+  <text x="634" y="147" class="s">where the reversal starts, not from</text>
+  <text x="634" y="160" class="s">the current depth.</text>
+  <text x="634" y="186" class="m">zone  peak       counts</text>
+  <text x="634" y="204" class="m">  0   0.54 mm       147</text>
+  <text x="634" y="220" class="m">  3   2.27 mm       371</text>
+  <text x="634" y="236" class="m">  7   3.31 mm       710</text>
+  <text x="634" y="262" class="s">All three give 0.50 mm back.</text>
+  <text x="634" y="283" class="s">The hot loop does one multiply</text>
+  <text x="634" y="296" class="s">and one shift. 32 bytes per key.</text>
+
+  <rect x="20" y="372" width="840" height="66" rx="5" fill="#fffbeb" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="36" y="392" class="b" fill="#b45309">The bottom zone has to be measured backwards</text>
+  <text x="36" y="412" class="s">Adding the distance downward runs past the end of the stroke and clips, so the threshold comes out smaller (481 &#8594; 160), not larger.</text>
+  <text x="36" y="428" class="s">Re-press would then fire most easily at the bottom — the opposite of the fix.</text>
+</svg>

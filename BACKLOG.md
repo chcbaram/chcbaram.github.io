@@ -78,12 +78,13 @@ qmk-link · via-he · HG-T113-S3 에는 글에 쓸 다이어그램이 없다 —
 | --- | --- | --- | --- | --- |
 | **발행됨** | [Putting Hall Effect Under QMK Instead of Forking It](https://chcbaram.github.io/posts/hall-effect-under-qmk/) | wish-he | matrix 자리에 HE 판정 결과를 넣어 QMK 위 로직을 그대로 두는 방식. 시리즈의 출발점 | `README.md` (8.2k) · `10-qmk.md` (1.3k) · 그림 `qmk-he-stack.svg` |
 | **발행됨** | [Reading Magnet Depth With an ADC](https://chcbaram.github.io/posts/reading-magnet-depth-with-adc/) | wish-he | 홀 센서 스캔 구조. 카운트를 얻는 데까지. 그림 3장은 직접 그렸다 | `05-adc-scan.md` (1.9k · 6절) · `00-hardware.md` · `12-scan-speed.md` |
-| **재료 확인됨** | 자속에서 거리로 — 스위치 곡선 | wish-he | 데이터시트 두 점으로 거리 곡선을 만드는 모델 | `15-distance-curve.md` (2.3k · 13절) · `he-magnet-model.md` (1.8k) |
-| **재료 확인됨** | 키가 눌렸다고 판정하기 | wish-he | 입력 지점, 데드존, 보정 | `06-key-decision.md` (1.2k · 7절) · 그림 `keys-pipeline.svg` |
+| **초안** | Two Datasheet Points Are Enough for the Whole Curve | wish-he | 데이터시트 두 점만으로 곡선 전체를 계산한다 — 측정 지그가 필요 없다. 정규화로 개체차를 지우고, LUT 를 거리 균일로 잡고, 곡선을 장치가 정수로 만든다. `content/posts/flux-to-distance-curve/` (TODO 3, 사진 자리 2, 그림 3장 직접 그림) | `15-distance-curve.md` 앞부분 · `ref/he-magnet-model.md` (1.8k) |
+| **초안** | Deciding a Key Is Pressed | wish-he | 거리를 받아 눌림을 정하는 계층. IIR 을 버리고 데드밴드로, 기준값은 고정값이 아니다, 드리프트 함정 셋, 데드존과 표시 스퀄치는 다른 일. `content/posts/deciding-a-key-is-pressed/` (TODO 2, 사진 자리 1) | `06-key-decision.md` (1.2k · 7절) · `15-distance-curve.md` 의 데드존 4개 절 · 그림 `keys-pipeline.svg` — **코드와 8곳 어긋나 있어 고쳐서 실었다. 저장소 원본도 고쳐야 한다** |
 | **재료 확인됨** | 보정하는 동안 누른 키가 PC 에 그대로 타이핑된다 | wish-he | 보정 중 키보드를 막는 장치가 **CLI 경로에만** 달려 있었고 웹(HID) 경로는 보정을 켜기만 했다. 고치는 건 리포트 문지기(`keysIsReportEnabled()`)에 한 줄인데, **탈출구를 같이 넣지 않으면 키보드가 영영 안 먹는 상태로 자기를 가둘 수 있다.** 이슈 #1, 발행된 유령 입력 글과 짝이 되는 편 | `issues/001-calibration-key-leak.md` (1.3k · 13절) · 그림 `issues/images/001-report-gate.svg` · `08-storage.md` §겪은 함정 ①·①-b · `he_test.py` 의 `host` 무리 |
 | **발행됨** | [A Ghost Input Above the Actuation Point, and the Two Bugs Under It](https://chcbaram.github.io/posts/wish-he-rapid-trigger/) | wish-he | 되돌린 거리로 떼는 판정. **실제로 겪은 유령 입력 버그가 이슈 문서로 남아 있다.** ⚠ `13-rapid-trigger.md` 는 **버그에 걸리는 절만 썼다**(590 단어). 구현 쪽 1.1k 는 아래 줄로 남아 있다 | `13-rapid-trigger.md` 중 ④·절대 입력지점·연속 RT·RT 가 사는 구간·나가는 쪽 · `issues/002-rapid-trigger-ghost-input.md` · 그림 `issues/images/002-ghost-pulse.svg` |
-| **재료 확인됨** | 래피드 트리거를 실제로 구현하기 | wish-he | 처리를 ADC 변환 대기 안으로 옮긴 것, 3개 이동합을 **왜 평균이 아니라 합으로, 블록이 아니라 이동으로** 했는지(ADC 글이 쓴 1.31배 결과 말고 그 구현 쪽), 고치지 않기로 한 드리프트, "이동량은 위치가 아니다" 로 뒤집은 판단 | `13-rapid-trigger.md` 중 안 쓴 절 (①②③ · 바닥 보호와 데드존 · 설정을 전부 키별로 · 뒤에 고친 것 · 배운 것 · 남은 것, 1.1k) · 그림 `issues/images/002-rt-window.svg` |
-| **재료 확인됨** | 지연 시간을 실제로 재기 | wish-he | 스캔 주기, HID 동기화, 측정 결과 | `18-latency.md` (1.8k · 9절) · `12-scan-speed.md` (0.8k) · `16-hid-sync.md` (1.0k) · 그림 `issues/images/001-report-gate.svg` |
+| **초안** | A Re-press Distance Is a Displacement, Not a Position | wish-he | 래피드 트리거를 구현하며 뒤집은 판단들. 같은 0.50 mm 설정이 깊이에 따라 0.95 / 0.50 / 0.24 mm 로 갈렸다. 설정을 전부 키별로, 전 행정 4.0 mm 가 틀렸던 것, 바닥 보호와 데드존, 고치지 않기로 한 드리프트. `content/posts/displacement-is-not-position/` (TODO 2, 사진 자리 2) | `13-rapid-trigger.md` 안 쓴 절 · `15-distance-curve.md` §이동량은 위치가 아니다 · 그림은 직접 그렸다(`rt-displacement.svg`) |
+| **재료 확인됨** | 코드를 RAM(ILM) 에서 돌려 지연을 줄이기 | wish-he | **구조 탓인 줄 알았는데 `-O0` 과 명령어 캐시 축출이었다.** 키처리 108 us 가 전부 명령어를 가져오는 시간이었고, 오브젝트 단위로 ILM 에 올려 **판정→ACK 260 us → 97 us**. FLASH 159,604 → 81,084 B, ILM 3,288 → 86,608 B(66 % 참). 규율이 같이 있다 — 함수마다 `ATTR_RAMFUNC` 을 붙이지 않고 `.text` 쪽에서 거른다, 부팅 코드는 넣으면 안 된다, 빌드 로그의 ILM 줄을 봐야 한다. 덤으로 USB 드라이버가 ILM 에 올라가 플래시 쓰는 동안에도 인터럽트를 열 수 있게 됐다 | `18-latency.md` §키처리 108us · §가려낸 방법 · §"캐시 아니다"로 기각 · §오브젝트 단위로 ILM · §ATTR_RAMFUNC · §.text 에서 거르기 · §부팅 코드 · §결과 (349) · `12-scan-speed.md` §총량만 보면 못 고른다 · §원인 ① `-O0` · §원인 ② 명령어 캐시 축출 · §경고를 오류로 (358). 합 0.7k |
+| **재료 확인됨** | 지연 시간을 실제로 재기 | wish-he | 다섯 시점 도장, 400 표본 무작위 간격, **폴링 대기는 우리가 느린 게 아니다**, 재는 도구가 세 번 거짓말한 이야기, RGB 를 켜도 안 느려진다, 군지연 28 us | `18-latency.md` 의 나머지 절 (1.1k) · `16-hid-sync.md` (1.0k) · 그림 `issues/images/001-report-gate.svg` |
 | **재료 확인됨** | LED 83개를 CPU 없이 흘리고, 전류 한계와 싸우기 | wish-he | **SPI 1바이트 = 1비트**로 WS2812 를 만들고 HDMA 로 논블로킹으로 흘리는 방법, 그 위에 얹은 프레임 합산 전류 제한. 전역 배율의 고유한 결함, **전류계로 재니 짐작한 셋이 전부 틀렸다** | `04-ws2812.md` (0.5k) · `14-led-limiter.md` (3.4k · 13절) · 그림 `images/ws2812-dma.svg` |
 | **재료 확인됨** | 순정 부트로더 위에 얹기 | wish-he | 보드에 원래 있던 부트로더를 그대로 두고 앱 자리만 쓴다. 언제든 순정 복구 | `01-boot-on-iap.md` (0.5k) · `09-iap-updater.md` (1.1k) |
 | **재료 확인됨** | 설정을 어디에 저장하나 | wish-he | 프로파일 4벌, 저장 구조 | `08-storage.md` (1.3k · 10절) |
@@ -95,6 +96,15 @@ qmk-link · via-he · HG-T113-S3 에는 글에 쓸 다이어그램이 없다 —
 
 > 쓰는 순서는 위에서부터가 자연스럽다. 컨셉 → 읽기(ADC) → 거리 → 판정 → 래피드 트리거
 > 순으로 가야 뒤 글이 앞 글을 전제할 수 있다.
+>
+> ⚠ **`issues/images/002-rt-window.svg` 는 아직 아무 글도 안 썼다.** RT 유효 구간의 위 경계를
+> 무엇에 묶느냐(이슈 #2 원인 B) 그림인데, 원인 B 는 발행된 유령 입력 글이 통째로 다뤘다.
+> 그래서 `displacement-is-not-position` 에서도 안 썼다. 쓸 자리가 없으면 안 써도 된다.
+>
+> ⚠ **ILM 글의 경계.** 발행된 `reading-magnet-depth-with-adc` 와 `hall-effect-under-qmk` 가
+> 이미 한 줄씩 써 버렸다 — "구조가 아니라 `-O0` 과 캐시 축출이었고, `-O2` + ILM 으로 26 us".
+> ILM 글은 그 한 줄을 되풀이하지 말고 **어떻게 가려냈는지와 어떻게 올렸는지** 를 판다.
+> `12-scan-speed.md` 의 잠복 버그 둘(변환 끝 vs 버퍼에 앉음, `volatile`)도 ADC 글이 이미 썼다.
 >
 > ⚠ **이동합(3개 표본 합)은 두 글에 걸쳐 있다.** ADC 초안이 잡음 바닥을 설명하며
 > "이론 √3 = 1.73배, 실측 1.31배" 와 합/평균 이야기를 한 문단 썼다 (2026-09-27, 그냥 두기로 정함).

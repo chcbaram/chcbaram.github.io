@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 500" width="880" height="500" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
+  <style>
+    .m   { font-size: 12px; font-family: ui-monospace, Menlo, Consolas, monospace; fill: #6b7280; }
+    .b   { font-size: 14px; font-weight: 600; }
+    .s   { font-size: 11.5px; fill: #6b7280; }
+    .ttl { font-size: 15px; font-weight: 700; fill: #374151; }
+    .lbl { font-size: 12px; font-weight: 600; fill: #4b5563; }
+  </style>
+  <rect width="880" height="500" fill="#ffffff"/>
+  <text x="20" y="26" class="ttl">The straight line is wrong in the middle, which is where the actuation point lives</text>
+  <text x="20" y="46" class="s">Gateron Magnetic Jade: 120 Gs at rest, 700 Gs at the bottom, 3.5 mm of travel. Normalised reading u against how far the key is pressed.</text>
+  <rect x="92" y="92" width="508" height="264" fill="#fafafa" stroke="#e5e7eb"/>
+  <path d="M92,356.0 L600,356.0" stroke="#e5e7eb"/>
+  <text x="84" y="360.0" class="s" text-anchor="end">0.00</text>
+  <path d="M92,290.0 L600,290.0" stroke="#e5e7eb"/>
+  <text x="84" y="294.0" class="s" text-anchor="end">0.25</text>
+  <path d="M92,224.0 L600,224.0" stroke="#e5e7eb"/>
+  <text x="84" y="228.0" class="s" text-anchor="end">0.50</text>
+  <path d="M92,158.0 L600,158.0" stroke="#e5e7eb"/>
+  <text x="84" y="162.0" class="s" text-anchor="end">0.75</text>
+  <path d="M92,92.0 L600,92.0" stroke="#e5e7eb"/>
+  <text x="84" y="96.0" class="s" text-anchor="end">1.00</text>
+  <path d="M92.0,92 L92.0,356" stroke="#e5e7eb"/>
+  <text x="92.0" y="374" class="s" text-anchor="middle">0.0</text>
+  <path d="M164.6,92 L164.6,356" stroke="#e5e7eb"/>
+  <text x="164.6" y="374" class="s" text-anchor="middle">0.5</text>
+  <path d="M237.1,92 L237.1,356" stroke="#e5e7eb"/>
+  <text x="237.1" y="374" class="s" text-anchor="middle">1.0</text>
+  <path d="M309.7,92 L309.7,356" stroke="#e5e7eb"/>
+  <text x="309.7" y="374" class="s" text-anchor="middle">1.5</text>
+  <path d="M382.3,92 L382.3,356" stroke="#e5e7eb"/>
+  <text x="382.3" y="374" class="s" text-anchor="middle">2.0</text>
+  <path d="M454.9,92 L454.9,356" stroke="#e5e7eb"/>
+  <text x="454.9" y="374" class="s" text-anchor="middle">2.5</text>
+  <path d="M527.4,92 L527.4,356" stroke="#e5e7eb"/>
+  <text x="527.4" y="374" class="s" text-anchor="middle">3.0</text>
+  <path d="M600.0,92 L600.0,356" stroke="#e5e7eb"/>
+  <text x="600.0" y="374" class="s" text-anchor="middle">3.5</text>
+  <text x="346.0" y="396" class="lbl" text-anchor="middle">how far the key is pressed (mm)</text>
+  <text x="26" y="224" class="lbl" transform="rotate(-90 26 224)" text-anchor="middle">normalised reading u</text>
+  <path d="M92.0,356.0 L600.0,92.0" stroke="#9ca3af" stroke-width="2" stroke-dasharray="6 4" fill="none"/>
+  <polyline points="92.0,356.0 107.9,353.6 123.8,351.0 139.6,348.3 155.5,345.4 171.4,342.4 187.2,339.2 203.1,335.7 219.0,332.0 234.9,328.1 250.8,324.0 266.6,319.6 282.5,314.8 298.4,309.8 314.2,304.4 330.1,298.6 346.0,292.4 361.9,285.8 377.8,278.6 393.6,270.9 409.5,262.7 425.4,253.8 441.2,244.2 457.1,233.9 473.0,222.7 488.9,210.7 504.8,197.6 520.6,183.4 536.5,168.0 552.4,151.4 568.2,133.2 584.1,113.5 600.0,92.0" fill="none" stroke="#1d4ed8" stroke-width="2.5"/>
+  <path d="M271.5,262.7 L409.5,262.7" stroke="#db2777" stroke-width="2"/>
+  <path d="M271.5,257.7 L271.5,267.7" stroke="#db2777" stroke-width="2"/>
+  <path d="M409.5,257.7 L409.5,267.7" stroke="#db2777" stroke-width="2"/>
+  <text x="370" y="252" class="b" fill="#be185d" text-anchor="middle">0.95 mm</text>
+  <path d="M250,198 L250,274" stroke="#9ca3af" stroke-width="1"/>
+  <text x="172" y="192" class="lbl" fill="#6b7280">what I was reading</text>
+  <path d="M506,262 L506,201" stroke="#1d4ed8" stroke-width="1"/>
+  <text x="571" y="276" class="lbl" fill="#1d4ed8" text-anchor="end">what the magnet does</text>
+  <rect x="620" y="92" width="240" height="264" rx="5" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.5"/>
+  <text x="632" y="114" class="b" fill="#1d4ed8">Same reading, two answers</text>
+  <text x="632" y="136" class="s">At u = 0.35 the straight line</text>
+  <text x="632" y="151" class="s">says the key is 1.24 mm down.</text>
+  <text x="632" y="166" class="s">The magnet says 2.19 mm.</text>
+  <text x="632" y="181" class="s">0.95 mm apart, and the worst</text>
+  <text x="632" y="196" class="s">gap sits where people actuate.</text>
+  <text x="632" y="220" class="lbl">switch</text>
+  <text x="766" y="220" class="lbl" text-anchor="end">ratio</text>
+  <text x="808" y="220" class="lbl" text-anchor="end">mm</text>
+  <text x="848" y="220" class="lbl" text-anchor="end">err</text>
+  <path d="M632,226 L848,226" stroke="#bfdbfe"/>
+  <text x="632" y="247" class="s">GEON RAW HE</text>
+  <text x="766" y="247" class="s" text-anchor="end">4.50</text>
+  <text x="808" y="247" class="s" text-anchor="end">3.40</text>
+  <text x="848" y="247" class="s" text-anchor="end">0.80</text>
+  <text x="632" y="266" class="s">Gateron Jade</text>
+  <text x="766" y="266" class="s" text-anchor="end">5.83</text>
+  <text x="808" y="266" class="s" text-anchor="end">3.50</text>
+  <text x="848" y="266" class="s" text-anchor="end">0.95</text>
+  <text x="632" y="285" class="s">Gateron Fox</text>
+  <text x="766" y="285" class="s" text-anchor="end">6.67</text>
+  <text x="808" y="285" class="s" text-anchor="end">4.00</text>
+  <text x="848" y="285" class="s" text-anchor="end">1.18</text>
+  <text x="632" y="304" class="s">Gateron KS-20</text>
+  <text x="766" y="304" class="s" text-anchor="end">8.87</text>
+  <text x="808" y="304" class="s" text-anchor="end">4.10</text>
+  <text x="848" y="304" class="s" text-anchor="end">1.37</text>
+  <text x="632" y="329" class="s">Flux ratio sets the curvature; err is</text>
+  <text x="632" y="344" class="s">the worst a straight line gets wrong.</text>
+  <rect x="20" y="418" width="840" height="56" rx="5" fill="#fffbeb" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="36" y="440" class="b" fill="#b45309">What that cost me before the curve went in</text>
+  <text x="36" y="459" class="s">An actuation point typed in as 1.00 mm was firing at 1.78 mm. Typed as 0.50 mm it fired at 1.09 mm, and 2.00 mm fired at 2.66 mm.</text>
+</svg>
