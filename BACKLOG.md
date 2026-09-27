@@ -81,7 +81,7 @@ qmk-link · via-he · HG-T113-S3 에는 글에 쓸 다이어그램이 없다 —
 | **재료 확인됨** | 자속에서 거리로 — 스위치 곡선 | wish-he | 데이터시트 두 점으로 거리 곡선을 만드는 모델 | `15-distance-curve.md` (2.3k · 13절) · `he-magnet-model.md` (1.8k) |
 | **재료 확인됨** | 키가 눌렸다고 판정하기 | wish-he | 입력 지점, 데드존, 보정 | `06-key-decision.md` (1.2k · 7절) · 그림 `keys-pipeline.svg` |
 | **발행됨** | [A Ghost Input Above the Actuation Point, and the Two Bugs Under It](https://chcbaram.github.io/posts/wish-he-rapid-trigger/) | wish-he | 되돌린 거리로 떼는 판정. **실제로 겪은 유령 입력 버그가 이슈 문서로 남아 있다.** ⚠ `13-rapid-trigger.md` 는 **버그에 걸리는 절만 썼다**(590 단어). 구현 쪽 1.1k 는 아래 줄로 남아 있다 | `13-rapid-trigger.md` 중 ④·절대 입력지점·연속 RT·RT 가 사는 구간·나가는 쪽 · `issues/002-rapid-trigger-ghost-input.md` · 그림 `issues/images/002-ghost-pulse.svg` |
-| **재료 확인됨** | 래피드 트리거를 실제로 구현하기 — 이론 1.73배, 실측 1.31배 | wish-he | 처리를 ADC 변환 대기 안으로 옮긴 것, 3개 이동합과 **이론에 못 미친 잡음 개선을 그대로 기록한 것**, 고치지 않기로 한 드리프트, "이동량은 위치가 아니다" 로 뒤집은 판단 | `13-rapid-trigger.md` 중 안 쓴 절 (①②③ · 바닥 보호와 데드존 · 설정을 전부 키별로 · 뒤에 고친 것 · 배운 것 · 남은 것, 1.1k) · 그림 `issues/images/002-rt-window.svg` |
+| **재료 확인됨** | 래피드 트리거를 실제로 구현하기 | wish-he | 처리를 ADC 변환 대기 안으로 옮긴 것, 3개 이동합을 **왜 평균이 아니라 합으로, 블록이 아니라 이동으로** 했는지(ADC 글이 쓴 1.31배 결과 말고 그 구현 쪽), 고치지 않기로 한 드리프트, "이동량은 위치가 아니다" 로 뒤집은 판단 | `13-rapid-trigger.md` 중 안 쓴 절 (①②③ · 바닥 보호와 데드존 · 설정을 전부 키별로 · 뒤에 고친 것 · 배운 것 · 남은 것, 1.1k) · 그림 `issues/images/002-rt-window.svg` |
 | **재료 확인됨** | 지연 시간을 실제로 재기 | wish-he | 스캔 주기, HID 동기화, 측정 결과 | `18-latency.md` (1.8k · 9절) · `12-scan-speed.md` (0.8k) · `16-hid-sync.md` (1.0k) · 그림 `issues/images/001-report-gate.svg` |
 | **재료 확인됨** | LED 전류 한계와 싸우기 | wish-he | RGB 매트릭스 전류 제한 | `14-led-limiter.md` (3.4k · 13절) |
 | **재료 확인됨** | 순정 부트로더 위에 얹기 | wish-he | 보드에 원래 있던 부트로더를 그대로 두고 앱 자리만 쓴다. 언제든 순정 복구 | `01-boot-on-iap.md` (0.5k) · `09-iap-updater.md` (1.1k) |
@@ -95,8 +95,11 @@ qmk-link · via-he · HG-T113-S3 에는 글에 쓸 다이어그램이 없다 —
 > 쓰는 순서는 위에서부터가 자연스럽다. 컨셉 → 읽기(ADC) → 거리 → 판정 → 래피드 트리거
 > 순으로 가야 뒤 글이 앞 글을 전제할 수 있다.
 >
-> ⚠ **이동합(3개 표본 합)은 RT 구현 글 몫이다.** `05-adc-scan.md` 도 그 이야기를
-> 직접 하지 않고 "13편에서 3개 이동합을 넣었다" 로 넘긴다. ADC 글에서 끌어다 쓰지 않는다.
+> ⚠ **이동합(3개 표본 합)은 두 글에 걸쳐 있다.** ADC 초안이 잡음 바닥을 설명하며
+> "이론 √3 = 1.73배, 실측 1.31배" 와 합/평균 이야기를 한 문단 썼다 (2026-09-27, 그냥 두기로 정함).
+> RT 구현 글은 그 결론을 되풀이하지 말고 **왜 그 차이가 났는지** 를 판다 —
+> `13-rapid-trigger.md` 의 "실측은 1.31배였다", "잔여분은 우리 탓인가" 두 절(197 단어)과
+> 1/f 상관 0.45 의 뒷이야기다.
 >
 > `00-hardware.md`(1.4k), `02-console.md`, `03-reset-boot.md`, `04-ws2812.md`, `07-keyboard.md` 는
 > 단독으로 쓰기에 얇다. 관련 글의 도입부로 녹인다.

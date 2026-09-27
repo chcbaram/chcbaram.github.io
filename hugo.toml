@@ -29,6 +29,11 @@ enableRobotsTXT = false
     # 고정 페이지만 루트로 올린다: /about/, /search/, /archives/
     # 루트 slug 는 chcbaram 저장소 이름과 겹치면 안 된다 (프로젝트 Pages 와 충돌)
     page = "/:slug/"
+    # 글 주소를 글 폴더 이름에 못박는다. 지금은 평평한 구조라 효과가 없지만,
+    # 나중에 content/posts/<프로젝트>/<slug>/ 로 나눠도 주소가 안 바뀐다.
+    # ★ :slug 를 쓰면 안 된다. 폴더 이름이 아니라 제목에서 주소를 만들어서
+    #   /posts/waking-the-second-core-is-easy.-knowing-it-woke-is-not./ 같은 게 나온다.
+    posts = "/posts/:contentbasename/"
 
 [pagination]
     pagerSize = 10

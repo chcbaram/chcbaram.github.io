@@ -27,7 +27,7 @@
 | 주소 | `https://chcbaram.github.io/` |
 | 배포 | GitHub Actions → GitHub Pages |
 | 언어 | 영어 (`locale = "en"`, `defaultContentLanguage = "en"`). 한국어 번역은 나중에 Hugo 다국어로 추가 |
-| 글 위치 | 모든 글은 `content/posts/<slug>/` 한 곳. 폴더로 카테고리를 나누지 않는다 |
+| 글 위치 | 지금은 모든 글이 `content/posts/<slug>/` 한 곳. 글이 많아지면 `content/posts/<프로젝트>/<slug>/` 로 나눌 수 있다 — 주소는 안 바뀐다 (아래) |
 | 분류 | `projects` (어느 저장소 이야기인지) + `tags` (기술 키워드) |
 | 글 URL | `/posts/<slug>/`. 분류를 바꿔도 주소가 바뀌지 않는다 |
 | 글 형식 | 글마다 폴더(page bundle): `index.md` + 사진 |
@@ -36,7 +36,11 @@
 ### 카테고리를 두지 않는 이유
 
 - 글이 모두 기술 글이고 대부분 특정 저장소 이야기라서, "어느 프로젝트인가"가 가장 쓸모 있는 분류다.
-- 폴더 기반 카테고리는 나중에 분류를 바꾸면 URL 이 바뀐다. 검색 노출에 불리하다.
+- 폴더 기반 **카테고리**는 분류를 바꾸면 URL 이 바뀐다. 검색 노출에 불리하다. 그래서 분류는 `projects` / `tags` 로만 한다.
+- 다만 **폴더로 나누는 것과 URL 이 바뀌는 것은 별개다.** `[permalinks] posts = "/posts/:contentbasename/"` 을 넣어 두었으므로, 글이 많아져 `content/posts/<프로젝트>/<slug>/` 로 나누더라도 주소는 `/posts/<slug>/` 그대로다 (2026-09-27 에 실제로 옮겨서 확인했다 — 한국어판, 글 사이 상대 링크, 이미지, 홈·아카이브 목록 모두 정상).
+  - ★ **`:slug` 를 쓰면 안 된다.** 폴더 이름이 아니라 **제목**에서 주소를 만든다. 실제로 `/posts/a-ghost-input-above-the-actuation-point-and-the-two-bugs-under-it/` 가 나왔다.
+  - ★ 나눌 때 하위 폴더에 **`_index.md` 를 두지 않는다.** 섹션이 되면서 `/posts/<프로젝트>/` 가 생기는데, 이미 있는 `/projects/<프로젝트>/` 와 역할이 겹친다.
+  - 옮기는 비용은 `git mv` 뿐이라 서두를 이유가 없다. 한 폴더가 손에 부칠 때 옮긴다.
 - 글 수가 많아져서 큰 묶음이 필요해지면, 그때 `categories` 를 3~5개 평면으로 추가한다 (예: Firmware, Hardware, Tools). 트리 구조는 만들지 않는다.
 
 ## 지켜야 할 규칙
@@ -159,7 +163,7 @@ draft: true
 - Stack 테마를 Hugo module 로 추가한다. (공식 starter 저장소 `hugo-theme-stack-starter` 구성을 참고한다.)
 - `hugo.toml` 기본 설정: `baseURL`, 영어(`languageCode`, `defaultContentLanguage`), 페이지당 글 수, 다크 모드 토글, taxonomy(`tags`, `projects`, `series`, `categories`).
   - **`mainSections = ["posts"]` 를 반드시 넣는다.** Stack 기본값은 `["post"]` (단수)라서 빠뜨리면 홈과 아카이브에 글이 하나도 안 뜬다.
-  - **starter 의 `permalinks.toml` 은 복사하지 않는다.** starter 는 `post = "/p/:slug/"` 라서 목표한 `/posts/<slug>/` 가 안 나온다. Hugo 기본값이 이미 `/posts/<slug>/` 다.
+  - **starter 의 `permalinks.toml` 은 복사하지 않는다.** starter 는 `post = "/p/:slug/"` 라서 목표한 `/posts/<slug>/` 가 안 나온다. Hugo 기본값이 이미 `/posts/<slug>/` 이고, 여기에 `posts = "/posts/:contentbasename/"` 만 더해 글 폴더를 나눠도 주소가 안 바뀌게 해 두었다.
   - **`languageCode` 는 쓰지 않는다.** Hugo 0.158 에서 deprecated 다. `locale` 을 쓴다.
   - **고정 페이지는 `[permalinks] page = "/:slug/"` 로 루트에 올린다.** 안 그러면 `/page/about/` 가 된다. 루트 slug 는 내 저장소 이름과 겹치면 안 된다 (2026-09-27 기준 `about`, `search`, `archives`, `posts`, `projects`, `tags` 와 겹치는 공개 저장소는 없다).
   - **`categories` 는 쓰지 않아도 taxonomy 정의는 남겨둔다.** taxonomy 를 재정의하면 기본 `categories` 가 사라지고, starter 기본 위젯 목록의 `categories` 위젯이 깨진다. 위젯 목록에서도 빼든지 정의를 남기든지 하나는 해야 한다.
