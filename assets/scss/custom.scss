@@ -239,3 +239,13 @@
         font-size: 1.6rem;
     }
 }
+
+/* 본문 그림을 원본보다 크게 늘리지 않는다.
+   Stack 은 래스터 그림을 figure 로 감싸 inline flex-grow 로 본문 폭(최대 1232px)까지
+   늘린다. 773px 짜리 UI 화면이 1232px 로 늘어나면 안의 글자가 흐려진다.
+   max-content = figure 안 img 의 원본 폭이라, 그보다 크게는 안 늘어난다.
+   좁은 화면에서는 flex-shrink 가 그대로 살아 있어 화면 폭에 맞춰 줄어든다.
+   SVG 다이어그램은 gallery 를 안 타므로(테마가 래스터만 감싼다) 영향이 없다. */
+.article-content .gallery figure {
+    max-width: max-content;
+}

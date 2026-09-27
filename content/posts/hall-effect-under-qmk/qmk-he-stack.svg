@@ -1,0 +1,147 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 700" width="1000" height="700"
+     role="img" aria-label="Layer diagram: the Hall-effect key decision slotted in underneath the QMK core">
+  <style>
+    text    { font-family:-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Malgun Gothic','Noto Sans KR',sans-serif }
+    .h      { fill:#1f2328; font-size:17px; font-weight:700 }
+    .sub    { fill:#6a737d; font-size:12px }
+    .band   { fill:#1f2328; font-size:13.5px; font-weight:700 }
+    .chip   { fill:#1f2328; font-size:12px; font-weight:600 }
+    .chips  { fill:#6a737d; font-size:11px }
+    .if     { fill:#57606a; font-size:11.5px }
+    .ifk    { fill:#d97706; font-size:11.5px; font-weight:600 }
+    .flow   { fill:#8c959f; font-size:10.5px }
+    .mono   { font-family:ui-monospace,'SF Mono',Menlo,Consolas,'Liberation Mono',monospace }
+
+    .bHost  { fill:#f6f8fa; stroke:#d0d7de; stroke-width:1.4 }
+    .bQmk   { fill:#eff6ff; stroke:#3b82f6; stroke-width:1.8 }
+    .bPort  { fill:#f6f8fa; stroke:#3b82f6; stroke-width:1.4; stroke-dasharray:5 4 }
+    .bHe    { fill:#f0fdf4; stroke:#16a34a; stroke-width:1.8 }
+    .bHw    { fill:#f6f8fa; stroke:#d0d7de; stroke-width:1.4 }
+
+    .cHost  { fill:#ffffff; stroke:#d0d7de; stroke-width:1 }
+    .cQmk   { fill:#dbeafe; stroke:#93c5fd; stroke-width:1 }
+    .cPort  { fill:#ffffff; stroke:#93c5fd; stroke-width:1 }
+    .cHe    { fill:#dcfce7; stroke:#86efac; stroke-width:1 }
+    .cHw    { fill:#ffffff; stroke:#d0d7de; stroke-width:1 }
+
+    .up     { stroke:#16a34a; stroke-width:1.8 }
+    .dn     { stroke:#3b82f6; stroke-width:1.8 }
+    .cut    { stroke:#d97706; stroke-width:1.4; stroke-dasharray:6 5 }
+  </style>
+
+  <defs>
+    <marker id="up" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#16a34a"/>
+    </marker>
+    <marker id="dn" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#3b82f6"/>
+    </marker>
+  </defs>
+
+  <rect width="1000" height="700" fill="#ffffff"/>
+
+  <text class="h"   x="40" y="40">Only the key decision is swapped — everything above it is QMK</text>
+  <text class="sub" x="40" y="62">The Hall-effect decision fills QMK's matrix slot. To QMK it looks like an ordinary key going down.</text>
+
+  <g>
+    <rect x="726" y="30" width="12" height="12" rx="2" class="cQmk"/>
+    <text class="chips" x="744" y="40">reused as is</text>
+    <rect x="836" y="30" width="12" height="12" rx="2" class="cHe"/>
+    <text class="chips" x="854" y="40">written for this board</text>
+  </g>
+
+  <!-- ── Host ───────────────────────────────────────────── -->
+  <rect class="bHost" x="40" y="86" width="920" height="62" rx="8"/>
+  <text class="band" x="56" y="104">Host (PC)</text>
+  <rect class="cHost" x="330" y="106" width="300" height="32" rx="5"/>
+  <text class="chip"  x="480" y="127" text-anchor="middle">Key input — HID reports the OS reads</text>
+  <rect class="cHost" x="644" y="106" width="300" height="32" rx="5"/>
+  <text class="chip"  x="794" y="127" text-anchor="middle">VIA web configurator — keymap · Hall effect</text>
+
+  <line class="up" x1="180" y1="192" x2="180" y2="154" marker-end="url(#up)"/>
+  <line class="dn" x1="820" y1="154" x2="820" y2="192" marker-end="url(#dn)"/>
+  <text class="flow" x="192" y="168">key reports</text>
+  <text class="flow" x="808" y="168" text-anchor="end">config commands</text>
+  <text class="if"   x="500" y="186" text-anchor="middle">USB HID — keyboard reports · VIA commands · HE extension <tspan class="mono">0xC0~</tspan></text>
+
+  <!-- ── QMK ──────────────────────────────────────────────── -->
+  <rect class="bQmk" x="40" y="198" width="920" height="104" rx="8"/>
+  <text class="band" x="56" y="220">QMK core — upstream <tspan class="mono">quantum</tspan>, 80 lines changed</text>
+
+  <rect class="cQmk" x="56" y="232" width="211" height="56" rx="5"/>
+  <text class="chip"  x="161" y="256" text-anchor="middle">Keymap · layers</text>
+  <text class="chips" x="161" y="273" text-anchor="middle">layer switching</text>
+
+  <rect class="cQmk" x="281" y="232" width="211" height="56" rx="5"/>
+  <text class="chip"  x="386" y="256" text-anchor="middle">Macros · tap-hold</text>
+  <text class="chips" x="386" y="273" text-anchor="middle">mouse keys · Grave Esc</text>
+
+  <rect class="cQmk" x="506" y="232" width="211" height="56" rx="5"/>
+  <text class="chip mono" x="611" y="256" text-anchor="middle">via.c</text>
+  <text class="chips mono" x="611" y="273" text-anchor="middle">dynamic_keymap</text>
+
+  <rect class="cQmk" x="731" y="232" width="211" height="56" rx="5"/>
+  <text class="chip mono" x="836" y="256" text-anchor="middle">rgb_matrix</text>
+  <text class="chips" x="836" y="273" text-anchor="middle">lighting effects</text>
+
+  <line class="up" x1="180" y1="340" x2="180" y2="308" marker-end="url(#up)"/>
+  <line class="dn" x1="820" y1="308" x2="820" y2="340" marker-end="url(#dn)"/>
+  <text class="if"  x="500" y="328" text-anchor="middle">QMK API — <tspan class="mono">matrix_scan()</tspan> · <tspan class="mono">host_keyboard_send()</tspan> · <tspan class="mono">raw_hid_receive()</tspan></text>
+
+  <!-- ── port/ ────────────────────────────────────────────── -->
+  <rect class="bPort" x="40" y="346" width="920" height="76" rx="8"/>
+  <text class="band"  x="56" y="368"><tspan class="mono">port/</tspan> — the thin adapters I had to write</text>
+
+  <rect class="cPort" x="56"  y="378" width="211" height="32" rx="5"/>
+  <text class="chip mono" x="161" y="399" text-anchor="middle">matrix.c</text>
+  <rect class="cPort" x="281" y="378" width="211" height="32" rx="5"/>
+  <text class="chip mono" x="386" y="399" text-anchor="middle">driver_usb.c</text>
+  <rect class="cPort" x="506" y="378" width="211" height="32" rx="5"/>
+  <text class="chip mono" x="611" y="399" text-anchor="middle">via_hid.c</text>
+  <rect class="cPort" x="731" y="378" width="211" height="32" rx="5"/>
+  <text class="chip mono" x="836" y="399" text-anchor="middle">eeprom.c</text>
+
+  <line class="cut" x1="40" y1="440" x2="960" y2="440"/>
+  <line class="up"  x1="180" y1="462" x2="180" y2="428" marker-end="url(#up)"/>
+  <line class="dn"  x1="820" y1="428" x2="820" y2="462" marker-end="url(#dn)"/>
+  <rect x="286" y="423" width="428" height="17" fill="#ffffff"/>
+  <text class="ifk" x="500" y="436" text-anchor="middle"><tspan class="mono">matrix_row_t</tspan> — same bit order, so there is no conversion</text>
+  <text class="flow" x="500" y="456" text-anchor="middle">This is the seam. Above it the board looks exactly like a contact keyboard</text>
+
+  <!-- ── Hall effect ─────────────────────────────────────────── -->
+  <rect class="bHe" x="40" y="468" width="920" height="104" rx="8"/>
+  <text class="band" x="56" y="490">Hall-effect core — <tspan class="mono">keys.c</tspan> (no debounce)</text>
+
+  <rect class="cHe" x="56" y="502" width="211" height="56" rx="5"/>
+  <text class="chip"  x="161" y="526" text-anchor="middle">Scan · filter</text>
+  <text class="chips" x="161" y="543" text-anchor="middle">deadband · baseline tracking</text>
+
+  <rect class="cHe" x="281" y="502" width="211" height="56" rx="5"/>
+  <text class="chip"  x="386" y="526" text-anchor="middle">Distance curve</text>
+  <text class="chips" x="386" y="543" text-anchor="middle">depth in 0.01 mm steps</text>
+
+  <rect class="cHe" x="506" y="502" width="211" height="56" rx="5"/>
+  <text class="chip"  x="611" y="526" text-anchor="middle">Decision · rapid trigger</text>
+  <text class="chips" x="611" y="543" text-anchor="middle">SOCD · repeat-on-hold</text>
+
+  <rect class="cHe" x="731" y="502" width="211" height="56" rx="5"/>
+  <text class="chip"  x="836" y="526" text-anchor="middle">Calibration · profiles</text>
+  <text class="chips" x="836" y="543" text-anchor="middle">4 profiles</text>
+
+  <line class="up" x1="180" y1="610" x2="180" y2="578" marker-end="url(#up)"/>
+  <line class="dn" x1="820" y1="578" x2="820" y2="610" marker-end="url(#dn)"/>
+  <text class="if" x="500" y="598" text-anchor="middle">Free-running DMA — 64 cells per 26 us pass · calibration and settings live in flash</text>
+
+  <!-- ── Hardware ─────────────────────────────────────────── -->
+  <rect class="bHw" x="40" y="616" width="920" height="76" rx="8"/>
+  <text class="band" x="56" y="638">Hardware · drivers — HPM5361 (RISC-V, 400 MHz)</text>
+
+  <rect class="cHw" x="56"  y="648" width="211" height="32" rx="5"/>
+  <text class="chip" x="161" y="669" text-anchor="middle">ADC0 · ADC1 + MUX</text>
+  <rect class="cHw" x="281" y="648" width="211" height="32" rx="5"/>
+  <text class="chip" x="386" y="669" text-anchor="middle">64 Hall sensors + magnets</text>
+  <rect class="cHw" x="506" y="648" width="211" height="32" rx="5"/>
+  <text class="chip" x="611" y="669" text-anchor="middle">Internal flash</text>
+  <rect class="cHw" x="731" y="648" width="211" height="32" rx="5"/>
+  <text class="chip" x="836" y="669" text-anchor="middle">WS2812 LED</text>
+</svg>
