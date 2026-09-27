@@ -195,5 +195,8 @@ rootfs 를 빌드해 SPI NOR 에 굽고, 그 위에서 LVGL 앱을 돌린다. �
 
 ## 아직 정하지 않은 것
 
-- `content/projects/wish-he/_index.md` 와 `via-he/_index.md` — 첫 글 쓸 때 같이 만든다
-- 한국어판을 붙일 글 고르기. 지금은 nRF54L 글만 `index.ko.md` 가 있다
+- `content/projects/via-he/_index.md` — via-he 첫 글 쓸 때 같이 만든다
+  (`wish-he` 는 2026-09-27 에 만들었다)
+- 한국어판은 **발행하는 글마다 같이 만든다** (2026-09-27 결정). 발행된 글 5편과
+  프로젝트 페이지 4개는 `index.ko.md` / `_index.ko.md` 가 다 있다. 새 글을 쓸 때
+  한국어판을 같이 만들지 않으면 `/ko/` 쪽이 빈다
