@@ -76,8 +76,8 @@ qmk-link · via-he · HG-T113-S3 에는 글에 쓸 다이어그램이 없다 —
 
 | 상태 | 제목 (가제) | 저장소 | 무엇을 다루나 | 근거 |
 | --- | --- | --- | --- | --- |
-| **초안** | Putting Hall Effect Under QMK Instead of Forking It | wish-he | matrix 자리에 HE 판정 결과를 넣어 QMK 위 로직을 그대로 두는 방식. 시리즈의 출발점. `content/posts/hall-effect-under-qmk/` (TODO 3, 사진 자리 4) | `README.md` (8.2k) · `10-qmk.md` (1.3k) · 그림 `qmk-he-stack.svg` |
-| **초안** | Reading Magnet Depth With an ADC | wish-he | 홀 센서 스캔 구조. 카운트를 얻는 데까지. `content/posts/reading-magnet-depth-with-adc/` (TODO 3, 사진 자리 4, 그림 없음) | `05-adc-scan.md` (1.9k · 6절) · `00-hardware.md` · `12-scan-speed.md` |
+| **발행됨** | [Putting Hall Effect Under QMK Instead of Forking It](https://chcbaram.github.io/posts/hall-effect-under-qmk/) | wish-he | matrix 자리에 HE 판정 결과를 넣어 QMK 위 로직을 그대로 두는 방식. 시리즈의 출발점 | `README.md` (8.2k) · `10-qmk.md` (1.3k) · 그림 `qmk-he-stack.svg` |
+| **발행됨** | [Reading Magnet Depth With an ADC](https://chcbaram.github.io/posts/reading-magnet-depth-with-adc/) | wish-he | 홀 센서 스캔 구조. 카운트를 얻는 데까지. 그림 3장은 직접 그렸다 | `05-adc-scan.md` (1.9k · 6절) · `00-hardware.md` · `12-scan-speed.md` |
 | **재료 확인됨** | 자속에서 거리로 — 스위치 곡선 | wish-he | 데이터시트 두 점으로 거리 곡선을 만드는 모델 | `15-distance-curve.md` (2.3k · 13절) · `he-magnet-model.md` (1.8k) |
 | **재료 확인됨** | 키가 눌렸다고 판정하기 | wish-he | 입력 지점, 데드존, 보정 | `06-key-decision.md` (1.2k · 7절) · 그림 `keys-pipeline.svg` |
 | **재료 확인됨** | 보정하는 동안 누른 키가 PC 에 그대로 타이핑된다 | wish-he | 보정 중 키보드를 막는 장치가 **CLI 경로에만** 달려 있었고 웹(HID) 경로는 보정을 켜기만 했다. 고치는 건 리포트 문지기(`keysIsReportEnabled()`)에 한 줄인데, **탈출구를 같이 넣지 않으면 키보드가 영영 안 먹는 상태로 자기를 가둘 수 있다.** 이슈 #1, 발행된 유령 입력 글과 짝이 되는 편 | `issues/001-calibration-key-leak.md` (1.3k · 13절) · 그림 `issues/images/001-report-gate.svg` · `08-storage.md` §겪은 함정 ①·①-b · `he_test.py` 의 `host` 무리 |
