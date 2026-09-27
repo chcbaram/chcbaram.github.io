@@ -240,12 +240,17 @@
     }
 }
 
-/* 본문 그림을 원본보다 크게 늘리지 않는다.
+/* 잘라낸 화면(크롭)만 원본 크기를 넘지 않게 한다. 파일 이름 끝에 -crop 을 붙인다.
+
    Stack 은 래스터 그림을 figure 로 감싸 inline flex-grow 로 본문 폭(최대 1232px)까지
-   늘린다. 773px 짜리 UI 화면이 1232px 로 늘어나면 안의 글자가 흐려진다.
-   max-content = figure 안 img 의 원본 폭이라, 그보다 크게는 안 늘어난다.
-   좁은 화면에서는 flex-shrink 가 그대로 살아 있어 화면 폭에 맞춰 줄어든다.
+   늘린다. 화면 전체를 찍은 것과 사진은 이미 축소돼 있으니 그렇게 꽉 채우는 게 맞다.
+   반대로 창의 일부만 잘라낸 그림은 늘리면 안의 글자만 커져서 본문과 위계가 깨진다.
+   본문 글자가 17px(1.7rem, html 이 62.5%)인데 크롭 안 UI 글자는 13~14px 이라,
+   원본 크기로 두면 본문보다 살짝 작게, 흐려지지 않고 나온다.
+
+   max-content = figure 안 img 의 원본 폭이다. 좁은 화면에서는 flex-shrink 가 그대로
+   살아 있어 화면 폭에 맞춰 줄어든다.
    SVG 다이어그램은 gallery 를 안 타므로(테마가 래스터만 감싼다) 영향이 없다. */
-.article-content .gallery figure {
+.article-content .gallery figure:has(img[src*="-crop."]) {
     max-width: max-content;
 }

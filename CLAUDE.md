@@ -215,6 +215,11 @@ draft: true
 ### 단계 4: 글 화면
 
 - 본문 사진은 가로폭에 맞춰 크게 보이고, 누르면 확대된다. Stack 의 이미지 처리(리사이즈, lazy load)가 page bundle 사진에 적용되는지 확인한다.
+- **잘라낸 화면(크롭)은 파일 이름 끝에 `-crop` 을 붙인다.** (2026-09-27 정함)
+  - Stack 은 래스터 그림을 `figure` 로 감싸 인라인 `flex-grow` 로 본문 폭(최대 1232px)까지 늘린다.
+  - 사진과 **창 전체를 찍은 화면**은 원본이 이미 축소돼 있으니 그렇게 꽉 채우는 게 맞다. 이름을 그냥 둔다.
+  - 창의 **일부만 잘라낸 그림**은 늘리면 안의 글자만 커져 본문과 위계가 깨진다. `-crop` 이 붙으면 `assets/scss/custom.scss` 의 `figure:has(img[src*="-crop."])` 규칙이 원본 폭에서 멈춘다. 본문 글자가 17px(`1.7rem`, `html` 이 62.5%)이라 크롭 안 UI 글자 13~14px 과 위계가 맞는다.
+  - 좁은 화면에서는 `flex-shrink` 가 살아 있어 화면 폭에 맞춰 줄어든다. SVG 다이어그램은 테마가 `gallery` 로 안 감싸므로 영향이 없다.
 - `{{< video "clip.mp4" >}}` shortcode: 테마에 이미 `_shortcodes/video.html` 이 있지만 `controls` 만 있고 `playsinline` 과 `preload="metadata"` 가 없다. **`layouts/_shortcodes/video.html`** 에 같은 이름으로 두어 덮어쓴다. 위치 인자(`.Get 0`)를 그대로 받도록 유지한다.
 - `repo` 가 있으면 글 상단에 저장소 링크 상자(이름, 설명, 링크)를 출력한다.
 - `ai_assisted` 표시 partial.

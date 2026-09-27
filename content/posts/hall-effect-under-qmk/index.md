@@ -177,14 +177,14 @@ two passes, because VIA reads and writes keymaps through a buffer as well as
 per key), `via.c`, and `keyboard.c` (suspend handling, which upstream does in a
 protocol layer this port does not have).
 
-Not everything survived. Key overrides and combos are not compiled in, so the
-"nothing is missing" line in my README is an overstatement I should fix.
+Not everything is in. Key overrides and combos are not compiled in — nobody has
+needed them yet, and they go in when somebody does. That does mean the "nothing is
+missing" line in my README is an overstatement, and the README is what needs
+fixing, not the build.
 
-TODO(author): are key overrides and combos left out on purpose, or just not needed
-yet?
-
-TODO(author): which upstream QMK revision is the `quantum` tree imported from?
-`port/version.h` only carries `QMK_BUILDDATE "2024-04-23-11:29:54"`.
+The `quantum` tree was upstream's latest when I did this work. The only marker the
+port carries is `port/version.h` with `QMK_BUILDDATE "2024-04-23-11:29:54"`, so
+that date is the practical reference point rather than a commit hash.
 
 ## What it costs
 

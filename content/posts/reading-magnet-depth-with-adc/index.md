@@ -34,6 +34,10 @@ map to `ch0~ch7`, rotated by eight, so the sequence tables are neither sorted no
 contiguous. And the `PY` pads carrying the MUX address need `PIOC` set to ALT3 as
 well as `IOC`, or the pad is simply not wired to the SoC.
 
+None of that came with documentation. The board is somebody else's product, so the
+sensor rotation and the multiplexer wiring were worked out from the board itself
+before any of this code existed.
+
 ![The WISH60 HE board with most switches out. Every cell has its own Hall sensor on the pad, and the analog multiplexers sit under the centre strip](01.jpg)
 
 ## The scan loop
@@ -224,7 +228,9 @@ The next suspect was the LEDs, since 83 of them share the board's power:
 | white 3 % (~156 mA) | 39 |
 | white 6 % (~312 mA) | 39 |
 
-It does not move, so it is not power coupling. What is left is the sensor's own 1/f
+It does not move, so it is not power coupling. There was no timed run behind those
+three rows, unlike the 60 s aperture test — the peak-to-peak figure is live, so
+switching the LEDs on either moves it or it does not, and it did not. What is left is the sensor's own 1/f
 flicker noise: the white component averages away across scans, but 1/f has a long
 correlation time and an 84 us window does not touch it. That matches the measured
 correlation of 0.45 between consecutive scans, where white noise alone would
@@ -258,9 +264,9 @@ comes after it. The configurator already carries the far end of it — a switch
 table with a total travel and two flux figures per entry, and a slot for typing in
 a switch nobody has listed yet.
 
-![A listed switch: total travel and the two flux figures the curve is built from](via-switch-type.png)
+![A listed switch: total travel and the two flux figures the curve is built from](via-switch-type-crop.png)
 
-![The same fields, empty, for a switch that is not in the table](via-custom-switch.png)
+![The same fields, empty, for a switch that is not in the table](via-custom-switch-crop.png)
 
 <!-- PHOTO: `keys dump` and `keys time` output in a terminal -->
 
@@ -271,12 +277,8 @@ a switch nobody has listed yet.
   still do not know what the resolution setting actually changes.
 - The 4 MSPS margin above is back-calculated from published throughput; I could not
   get the original datasheet's maximum ADC input clock.
-- TODO(author): the board is commercial — did you have to work out the sensor / MUX
-  wiring yourself, or was there documentation to go on?
 - TODO(author): where does the 10.6 us sensor correlation time come from — a sensor
   datasheet, or your own measurement?
-- TODO(author): what were the conditions for the LED noise test — how long, which
-  board, hands off? The aperture test has 60 s recorded, this one does not.
 
 <!-- PHOTO: USB ammeter reading while the LEDs are driven at 6 % white -->
 
