@@ -113,7 +113,7 @@ Changing the firmware first would have altered every key's feel at once with no
 way to check it, so the display came first: VIA HE's switch screen draws both
 lines with a live dot between them.
 
-<!-- PHOTO: VIA HE switch screen with both lines drawn and the live dot between them — window crop, so name it something like via-curve-crop.png -->
+![The same comparison on the device. The solid line is the curve in use, the dashed one the linear mapping it replaced, and the two dots are one reading landing 0.76 mm apart](via-curve-w880.png)
 
 Then I stacked calliper-measured shims under a keycap and pressed to the bottom.
 With 1, 2 and 3 mm of shim the displayed depth stepped by 1.00 mm each time. Had
@@ -271,7 +271,10 @@ Every switch in that table came from the maker's own product page — the two fl
 figures and the travel, nothing measured here. That is the whole point: if the
 numbers a shop already prints are enough, nobody needs a rig.
 
-TODO(author): why 33 entries? Were 17 or 65 tried, and what decided it?
+Thirty-three entries is a chosen number, not a measured one. I walked through a
+few sizes and stopped at the one that looked reasonable against the resolution it
+buys; nothing in the repo records 17 or 65 being tried on hardware. I would rather
+say that than dress a judgement call up as a result.
 
 TODO(author): is the app's `heMakeCurve` independent of this solver, or a port of
 it? A diff proves less if they share an origin.

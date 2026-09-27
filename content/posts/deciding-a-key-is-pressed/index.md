@@ -187,7 +187,7 @@ ordering `0 <= deadzone <= release < actuation` is enforced where the thresholds
 built. And when it clips it says so: `keys rt` prints
 `0.40 mm (23 counts)  <- clipped at the release point`.
 
-<!-- PHOTO: a key held part-way down, with the configurator's live depth readout beside it -->
+![A key held part-way down. Press and release points are set in millimetres and the live depth tracks the finger — 1.88 mm here, against a press point of 1.00 mm](via-live-depth-w800.png)
 
 ## The trap the curve created
 

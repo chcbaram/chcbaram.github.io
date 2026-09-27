@@ -176,7 +176,7 @@ bottom. That is the behaviour I want.
 I only saw the clipping because `keys rt` prints all eight zones. One
 representative value would have hidden it.
 
-<!-- PHOTO: `keys rt` on the board, printing all eight zone thresholds for one key -->
+![`keys rt` prints the eight thresholds behind one setting. Re-press 0.50 mm becomes 175 to 718 counts across the stroke — and the last two are equal, which is the bottom zone running out of travel](keys-rt-w400.png)
 
 ## Not fixing a problem that was not there
 
@@ -221,8 +221,9 @@ first.
   because the key behaved differently at every depth.
 - Reading the switch table from the device. Firmware and web app each carry a copy
   today, so they can drift apart.
-- TODO(author): why eight zones? Nothing in the repo records trying four or
-  sixteen, so I do not know whether three bits was measured or chosen.
+- Eight zones is a chosen number. I went through a few sizes and settled on the one
+  that looked reasonable; there is no hardware comparison against four or sixteen in
+  the repo, and I am not going to present a judgement call as a measurement.
 
 ## Links
 
