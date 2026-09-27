@@ -62,8 +62,6 @@ per-key stroke, which is a division, and there is no division to spare in a loop
 that covers 64 cells at 35 kHz. So a threshold table is baked and rebuilt only
 when settings or calibration change.
 
-<!-- PHOTO: the per-key tab in the configurator with a single key selected, showing all six distances -->
-
 ### The travel was 4.0 mm and the switch is 3.4 mm
 
 The default full travel in the switch table was 4.0 mm. The switches in this board

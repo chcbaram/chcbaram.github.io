@@ -222,8 +222,9 @@ converges; an amplitude above zero means the filter has not killed the signal.
 
 ## Still open
 
-- TODO(author): the `keys noise` figures above were measured on the 12-bit scale, before
-  the 3-sample sum and the deadband change from 7 to 12. Has that been re-run since?
+- The `keys noise` figures above were taken on the 12-bit scale, before the 3-sample sum
+  and before the deadband went from 7 to 12. They have not been re-run since, so treat
+  them as the shape of the result rather than today's numbers.
 
 ## Links
 

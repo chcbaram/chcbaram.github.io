@@ -136,8 +136,6 @@ One trap: there is about 0.4 mm of clearance before the keycap reaches the plate
 A single absolute measurement has to subtract it; the difference between two shims
 cancels it.
 
-<!-- PHOTO: the shim test — calliper-measured shims stacked under a keycap on the board -->
-
 ## The hot spot was RGB, which I did not expect
 
 Going backwards through the table — reading to millimetres — needs a binary
@@ -258,6 +256,12 @@ just built, and diffing them against the app's floating-point `heMakeCurve` says
 which side is wrong. Final agreement is 17 / 32767, or 1.76 µm — against a display
 noise floor near 100 µm.
 
+That number is worth less than it looks. `heMakeCurve` is a port of the same
+solver, so the diff proves the fixed-point arithmetic did not drift from the
+floating-point arithmetic. It does not independently confirm the model. The shim
+measurement above is the check that does, because it compares against a calliper
+rather than against my own code.
+
 ## What I took from it
 
 **Build the display before the firmware.** Without a screen showing both lines,
@@ -275,9 +279,6 @@ Thirty-three entries is a chosen number, not a measured one. I walked through a
 few sizes and stopped at the one that looked reasonable against the resolution it
 buys; nothing in the repo records 17 or 65 being tried on hardware. I would rather
 say that than dress a judgement call up as a result.
-
-TODO(author): is the app's `heMakeCurve` independent of this solver, or a port of
-it? A diff proves less if they share an origin.
 
 ## Links
 
