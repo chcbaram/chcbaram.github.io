@@ -9,7 +9,7 @@ repo: "https://github.com/chcbaram/wish-he"
 image: "flux-vs-distance.svg"
 ai_assisted: true
 naver_url: ""
-draft: true
+draft: false
 ---
 
 `wish-he` is custom firmware for commercial Hall-effect keyboards, running on an
