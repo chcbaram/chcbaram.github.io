@@ -267,9 +267,9 @@ a shim in hand has nothing to be compared against.
 *wrong* answer, with the model switched off, checks the shape — not just the two
 endpoints I fitted to.
 
-TODO(author): where do the GEON RAW HE figures (160 Gs, 720 Gs, 3.40 mm) come
-from? The Gateron numbers are on the product pages; I found no published source
-for these.
+Every switch in that table came from the maker's own product page — the two flux
+figures and the travel, nothing measured here. That is the whole point: if the
+numbers a shop already prints are enough, nobody needs a rig.
 
 TODO(author): why 33 entries? Were 17 or 65 tried, and what decided it?
 

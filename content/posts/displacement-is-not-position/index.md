@@ -221,9 +221,6 @@ first.
   because the key behaved differently at every depth.
 - Reading the switch table from the device. Firmware and web app each carry a copy
   today, so they can drift apart.
-- TODO(author): was "twice as twitchy" something you felt while typing, or only
-  computed from the curve? The three distances in the diagram are calculated
-  figures; the notes do not say whether you typed on it before and after.
 - TODO(author): why eight zones? Nothing in the repo records trying four or
   sixteen, so I do not know whether three bits was measured or chosen.
 

@@ -104,7 +104,9 @@ is followed, and every cell gets its own value.
 ```
 
 The boot seed is 128 discarded scans and then 1024 averaged ones; the discarded ones
-cover the settling of the ADC reference and the sensor bias. Three traps came out of the
+cover the settling of the ADC reference and the sensor bias. That is 1,152 scans, about
+44 ms at 38 us each. My own notes say 52 ms somewhere, which is wrong — the arithmetic
+in the source comment is the one to trust. Three traps came out of the
 tracker.
 
 **The drift band missed by a hair.** Hand off the board, `keys map` printed -303 to -308
@@ -220,8 +222,6 @@ converges; an amplitude above zero means the filter has not killed the signal.
 
 ## Still open
 
-- TODO(author): the notes say the boot seed takes about 52 ms, but 1152 scans at 38 us is
-  about 44 ms. Which one is right?
 - TODO(author): the `keys noise` figures above were measured on the 12-bit scale, before
   the 3-sample sum and the deadband change from 7 to 12. Has that been re-run since?
 

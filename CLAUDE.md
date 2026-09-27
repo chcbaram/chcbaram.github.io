@@ -87,7 +87,7 @@
   5. Results (measurements, photos, video)
   6. What's next / known issues
   7. Links (repo, related posts)
-- 길이는 보통 800~1500 단어. 주제가 크면 여러 글로 나누고 `series` 로 묶는다.
+- 길이는 보통 800~1800 단어. (2026-09-27 에 1500 에서 올렸다 — 측정값과 코드 발췌가 들어가는 글이 계속 1500~1700 으로 나왔고, 줄이면 근거가 빠진다.) 주제가 크면 여러 글로 나누고 `series` 로 묶는다.
 - 코드는 실제 저장소 코드에서 발췌한다. 한 블록 30줄 이내. 블록 위에 파일 경로를 쓰고, 커밋 해시가 들어간 GitHub permalink 를 단다.
 - 사진이 필요한 자리에는 `<!-- PHOTO: board top view, USB side -->` 처럼 무엇을 찍을지 적어 둔다.
 - 첫 문단만 읽어도 무엇을 만들었고 무엇을 배울 수 있는지 알 수 있게 쓴다. 이 문단과 `description` 이 검색 결과와 AI 인용에 쓰인다.
