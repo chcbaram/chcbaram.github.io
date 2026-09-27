@@ -243,7 +243,7 @@ draft: true
   Sitemap: https://chcbaram.github.io/sitemap.xml
   ```
 
-  AI 학습용 봇(GPTBot, ClaudeBot, Google-Extended)을 막을지는 내가 정한다. 정하기 전까지는 전체 허용. 검색용 봇(OAI-SearchBot, Claude-SearchBot, Claude-User, Googlebot)은 막지 않는다.
+  **전체 허용으로 정했다 (2026-09-27).** AI 학습용 봇(GPTBot, ClaudeBot, Google-Extended)도 막지 않는다 — 공개된 작업 기록을 읽히게 하는 것이 목적이고 `llms.txt` 도 같이 낸다. 검색용 봇(OAI-SearchBot, Claude-SearchBot, Claude-User, Googlebot)은 어떤 경우에도 막지 않는다.
 - `llms.txt`: 사이트 소개, 프로젝트별 글 목록(제목, URL, description). Hugo custom output format 으로 빌드 시 자동 생성한다.
 - 글마다 canonical 이 자기 자신 주소인지, Open Graph 태그(제목, 설명, 대표 이미지)가 나오는지 확인한다.
 - 구글 서치콘솔과 네이버 서치어드바이저 소유권 확인 메타 태그 자리를 만든다. 내용이 네이버 블로그와 다르므로 둘 다 등록한다. 값은 내가 준다.
@@ -349,11 +349,9 @@ draft: true
 
 ## 나에게 받아야 할 것
 
-- **구글 서치콘솔, 네이버 서치어드바이저 인증 값** — 지금 둘 다 비어 있어 유입을 전혀 모른다. 한국어판 방침을 데이터로 정하려면 이게 먼저다 (단계 5)
 - 프로필 사진, 한 줄 소개, About 페이지 내용
 - 프로젝트 페이지로 만들 저장소 목록
 - giscus 설정값 (단계 4)
-- AI 학습용 봇 허용 여부 (단계 5)
 - 글 라이선스 표시 여부 (단계 4)
 - HEIC 사진 처리 방식 (단계 6)
 - 예시 글용 nRF54L 보드 사진, 예제 동작 사진 (단계 8)
