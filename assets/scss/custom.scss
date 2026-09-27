@@ -254,3 +254,9 @@
 .article-content .gallery figure:has(img[src*="-crop."]) {
     max-width: max-content;
 }
+
+/* 원본 크기로도 글자가 큰 그림은 폭을 직접 지정한다. 파일 이름에 -w<픽셀> 을 붙인다.
+   쓰는 폭마다 여기 한 줄을 더한다 — CSS 가 파일 이름의 숫자를 읽지는 못한다.
+   고르는 법: (그림 안 글꼴 px) 을 재고 → 표시 폭 = 원본 폭 x 17 / 글꼴 px.
+   예) keys-dump 는 원본 812px 에 글꼴 32px 이라 본문과 맞추면 432px, 480px 로 뒀다. */
+.article-content .gallery figure:has(img[src*="-w480."]) { max-width: 480px; }

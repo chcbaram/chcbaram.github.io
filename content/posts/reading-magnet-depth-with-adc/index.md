@@ -268,7 +268,7 @@ a switch nobody has listed yet.
 
 ![The same fields, empty, for a switch that is not in the table](via-custom-switch-crop.png)
 
-<!-- PHOTO: `keys dump` and `keys time` output in a terminal -->
+![`keys dump` prints the raw count for all 64 cells, eight MUX steps down by eight ADC channels across, with the scan time on the last line](keys-dump-w480.png)
 
 ## Still open
 
@@ -277,10 +277,11 @@ a switch nobody has listed yet.
   still do not know what the resolution setting actually changes.
 - The 4 MSPS margin above is back-calculated from published throughput; I could not
   get the original datasheet's maximum ADC input clock.
-- TODO(author): where does the 10.6 us sensor correlation time come from — a sensor
-  datasheet, or your own measurement?
+- The 10.6 us correlation time comes from the datasheet for the Hall sensors on this
+  board, not from my own instruments. It carries weight: the whole 1/f argument is a
+  comparison against what that figure predicts.
 
-<!-- PHOTO: USB ammeter reading while the LEDs are driven at 6 % white -->
+![A USB power meter inline with the board. Everything in the current budget — the MCU, 64 Hall sensors that are never switched off, and whatever the LEDs are drawing — arrives through this one cable](02.jpg)
 
 ## Links
 
