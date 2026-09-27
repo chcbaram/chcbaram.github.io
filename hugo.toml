@@ -88,8 +88,7 @@ enableRobotsTXT = false
 
     # 단계 5. head/custom.html 이 메타 태그로 내보낸다. 빈 값이면 태그를 안 낸다.
     googleSiteVerification = "UjY8KhkkLR9-qm0-LuLPkfhV76F3qg4rlMRTFnupmMI"
-    # TODO(author): 네이버 서치어드바이저 인증값 (searchadvisor.naver.com → HTML 태그)
-    naverSiteVerification  = ""
+    naverSiteVerification  = "4c9c2951c49ed2d485a1aba22f83456c7c84da8e"
 
     [params.footer]
         since      = 2026
