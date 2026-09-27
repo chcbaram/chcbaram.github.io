@@ -142,7 +142,9 @@ and the separation stopped being urgent.
 It is still a budget, not a guarantee. I am writing that down rather than claiming
 the decoupling I have not built.
 
-<!-- PHOTO: CLI session showing `qmk info` and `matrix info` output side by side -->
+![`qmk info` on the board. The CLI is in Korean; the numbers are what matter here](qmk-info-w560.png)
+
+![`matrix info`. Debounce reads "none" because a Hall-effect switch has no contacts to bounce](matrix-info-w400.png)
 
 ## VIA, not a VIA impersonation
 
@@ -190,11 +192,13 @@ that date is the practical reference point rather than a commit hash.
 
 When QMK first went in, `keyboard_task` averaged 8 us. That was the number I had
 written down as unknowable until measured, with a note that over 200 us would make
-125 us polling pointless. It now averages 2 us, peaks in the 30 us range, and the
-count of loops exceeding 125 us is zero. Measured press-to-ACK, from the decision
-to the host acknowledging the report, averages 97 us.
+125 us polling pointless. It now averages 2 us across 311 million samples. The
+worst single pass was 436 us, and exactly one pass has ever crossed 125 us — at
+449 ms after boot, with nothing since across 2.7 hours of running. I would rather
+report it that way than as a clean zero: the tail exists, it just lives in
+startup.
 
-<!-- PHOTO: `keys lat` output after a 200-press run -->
+![`keys lat` breaks the path into five stages. Decision to ACK averaged 92 us over 6,893 presses, with the 8 kHz polling wait (stage 4) the largest single piece](keys-lat-w560.png)
 
 ## Links
 
