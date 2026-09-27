@@ -23,6 +23,21 @@ underneath it: the part that decides whether a key is down.
 
 ![Bringing the firmware up on a WISH60 HE (Geonworks VENOM 60HE-7U): the bare PCB with its per-key LEDs lit, a ribbon to the debug probe, and USB-C for power and the console](01.jpg)
 
+## Why someone else's board
+
+I meant to build the board myself. Two things moved that to later.
+
+A PCB run is not cheap, and I would have been paying for one before knowing
+whether my firmware worked. The second reason matters more. Bring up new firmware
+on a board you also designed and every bug is two bugs until proven otherwise — is
+this the hardware or the code? Starting on hardware that already works takes that
+question off the table. When I do build my own board, the firmware will be a known
+quantity, and anything that breaks is the board.
+
+A commercial Hall-effect keyboard is also a good reference for a first Hall-effect
+implementation. The switches, the sensor layout and the analog path are choices
+somebody else already made and shipped.
+
 ## Where the cut is
 
 A contact keyboard tells the firmware on/off. A Hall-effect switch tells it how
@@ -180,9 +195,6 @@ count of loops exceeding 125 us is zero. Measured press-to-ACK, from the decisio
 to the host acknowledging the report, averages 97 us.
 
 <!-- PHOTO: `keys lat` output after a 200-press run -->
-
-TODO(author): what made you start `wish-he` in the first place — was the stock
-firmware missing a specific feature, or was it the closed configurator?
 
 ## Links
 
